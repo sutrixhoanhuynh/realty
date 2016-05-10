@@ -42,7 +42,6 @@ Tags: black, white, Real estate, right-sidebar, fixed-width, theme-options, thre
     font-family: 'Flaticon';
     src: url('fonts/flaticon.eot');
     src: url('fonts/flaticon.eot?#iefix') format('embedded-opentype'),
-         url('fonts/flaticon.woff') format('woff'),
          url('fonts/flaticon.ttf') format('truetype'),
          url('fonts/flaticon.svg#BebasNeueRegular') format('svg');
 }
@@ -116,6 +115,19 @@ img {
 
 .flaticon-previous11:before {
 	content: '\e0ab';
+}
+
+.tooltip-inner {
+	color: #fff;
+	padding: 5px 10px;
+  font-size: 14px;
+  text-align: center;
+  background-color: #43becc;
+  border-radius: 0;
+}
+
+.tooltip.top .tooltip-arrow {
+	border-top-color: #43becc;
 }
 
 /*****************************************************************

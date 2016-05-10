@@ -7,7 +7,7 @@ Copyright &copy; <?php echo date('Y');?> <a href="<?php bloginfo('siteurl'); ?>"
 </div>
 
 <div class='clear'></div>-->
-<?php wp_footer(); ?>
+<?php //wp_footer(); ?>
 
 </div>
 </main>

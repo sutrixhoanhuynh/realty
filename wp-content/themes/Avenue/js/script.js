@@ -1,4 +1,18 @@
+var Site = (function($, window, undefined) {  
 
+  function initTooltip() {
+    $('[data-toggle="tooltip"]').tooltip();
+  }
+
+  return {    
+    initTooltip: initTooltip
+  };
+
+})(jQuery, window);
+
+jQuery(function() {
+  Site.initTooltip();
+});
 /**
  *  @name carousel
  *  @description
@@ -28,7 +42,7 @@
       var that = this,
           el = that.element;
 
-      el.slick(that.options);
+      el.slick(that.options);    
 
     },
     destroy: function() {
@@ -47,12 +61,10 @@
     });
   };
 
-  $.fn[pluginName].defaults = {
+  $.fn[pluginName].defaults = {    
     infinite: true,
     slidesToShow: 1,
-    slidesToScroll: 1,
-    nextArrow: '<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button"><i class="fa fa-angle-right"></i></button>',
-    prevArrow: '<button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button"><i class="fa fa-angle-left"></i></button>'
+    slidesToScroll: 1   
   };
 
   $(function() {
