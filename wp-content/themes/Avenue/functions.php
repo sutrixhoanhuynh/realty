@@ -1,12 +1,14 @@
 <?php include_once 'FT/FT_scope.php'; FT_scope::init(); ?>
 <?php
- 
+
 include 'theme_options.php';
 include 'guide.php';
 include 'lib/post-types.php';
 include 'lib/metabox.php';
-include 'lib/drop-down-taxonomy.php'; 
+include 'lib/drop-down-taxonomy.php';
 include 'lib/radio-taxonomy.php';
+
+show_admin_bar(false);
 
 /* SIDEBARS */
 if ( function_exists('register_sidebar') )
@@ -17,7 +19,7 @@ if ( function_exists('register_sidebar') )
     'after_widget' => '</li>',
 	'before_title' => '<h3 class="sidetitl">',
     'after_title' => '</h3>',
-	
+
     ));
 	register_sidebar(array(
 	'name' => 'Footer',
@@ -25,11 +27,11 @@ if ( function_exists('register_sidebar') )
     'after_widget' => '</li>',
 	'before_title' => '<h3 class="bothead">',
     'after_title' => '</h3>',
-    ));		
-	
-	
+    ));
 
-/* CUSTOM MENUS */	
+
+
+/* CUSTOM MENUS */
 
 register_nav_menus( array(
 		'primary' => __( 'Primary Navigation', '' ),
@@ -39,14 +41,14 @@ function fallbackmenu(){ ?>
 			<div id="submenu">
 				<ul><li> Go to Adminpanel > Appearance > Menus to create your menu. You should have WP 3.0+ version for custom menus to work.</li></ul>
 			</div>
-<?php }	
+<?php }
 
 
 /* CUSTOM EXCERPTS */
-	
+
 function wpe_excerptlength_index($length) {
     return 70;
-}	
+}
 
 function wpe_excerptlength_archive($length) {
     return 20;
@@ -60,7 +62,7 @@ function wpe_excerpt($length_callback='', $more_callback='') {
     global $post;
     if(function_exists($length_callback)){
         add_filter('excerpt_length', $length_callback);
-    }    
+    }
     if(function_exists($more_callback)){
         add_filter('excerpt_more', $more_callback);
     }
@@ -85,7 +87,7 @@ function get_image_url(){
 	$image_url = wp_get_attachment_image_src($image_id,'large');
 	$image_url = $image_url[0];
 	echo $image_url;
-	}	
+	}
 
 
 /* PAGE NAVIGATION */
@@ -115,30 +117,30 @@ add_filter('manage_edit-listings_columns', 'add_new_listings_columns');
 		$new_columns['thumbnail'] = __('Thumbnail');
 		$new_columns['price'] = __('Price');
 		$new_columns['type'] = __('Property type');
-		$new_columns['location'] = __('Location');		
+		$new_columns['location'] = __('Location');
  		$new_columns['date'] = _x('Date', 'column name');
  		return $new_columns;
-	
+
 	}
-	
+
 add_action('manage_listings_posts_custom_column', 'manage_movies_columns', 10, 2);
- 
+
 function manage_movies_columns($column_name, $id) {
 		global $post;
 		switch ($column_name) {
 		case 'id':
 			echo $id;
 		break;
- 
+
 		case 'thumbnail':
-			echo get_the_post_thumbnail( $post->ID, 'property_poster' ); 
+			echo get_the_post_thumbnail( $post->ID, 'property_poster' );
 		break;
-			
+
 		case 'price':
 			$price = get_post_meta( $post->ID, 'wtf_price', true );
 			echo $price;
 		break;
-		
+
 		case 'location':
 			$post_type = get_post_type($post_id);
 			$terms = get_the_terms($post_id, 'location');
@@ -147,9 +149,9 @@ function manage_movies_columns($column_name, $id) {
             $post_terms[] = "<a href='edit.php?post_type=listings&location={$term->slug}'> " . esc_html(sanitize_term_field('name', $term->name, $term->term_id, $taxonomy, 'edit')) . "</a>";
 				echo join( ', ', $post_terms );
 			}
-			else echo '<i>No terms.</i>'; 
+			else echo '<i>No terms.</i>';
 		break;
-		
+
 		case 'type':
 			//echo get_the_term_list( $post->ID, 'property', '', ' ', '' );
 			$post_type = get_post_type($post_id);
@@ -159,14 +161,14 @@ function manage_movies_columns($column_name, $id) {
             $post_terms[] = "<a href='edit.php?post_type=listings&property={$term->slug}'> " . esc_html(sanitize_term_field('name', $term->name, $term->term_id, $taxonomy, 'edit')) . "</a>";
 				echo join( ', ', $post_terms );
 			}
-			else echo '<i>No terms.</i>'; 
+			else echo '<i>No terms.</i>';
 		break;
-		
+
 		default:
-		
+
 		break;
 		} // end switch
-	}	
+	}
 
 /* Credits */
 
@@ -205,5 +207,5 @@ if (!$fflink || $x && ($x == $ffref)) {
   }
 }
  echo $fflink;
-}	
+}
 ?>

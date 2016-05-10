@@ -28,7 +28,7 @@
       var that = this,
           el = that.element;
 
-      el.slick(that.options);    
+      el.slick(that.options);
 
     },
     destroy: function() {
@@ -47,9 +47,8 @@
     });
   };
 
-  $.fn[pluginName].defaults = {    
+  $.fn[pluginName].defaults = {
     infinite: true,
-    autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: '<button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button"><i class="fa fa-angle-right"></i></button>',

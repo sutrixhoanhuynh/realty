@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <?php
-if(get_option('aven_home') == "listing") { ?>	
+if(get_option('aven_home') == "listing") { ?>
 <?php include (TEMPLATEPATH . '/lib/listhome.php'); ?>
 <?php } else { ?>
 <div id="content">
@@ -12,7 +12,7 @@ $wp_query= null;
 $wp_query = new WP_Query();
 $wp_query->query('paged='.$paged);
 ?>
-<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>	
+<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 
 <div class="post" id="post-<?php the_ID(); ?>">
 
@@ -44,7 +44,7 @@ if (has_post_thumbnail()) { ?>
 <?php getpagenavi(); ?>
 
 <?php $wp_query = null; $wp_query = $temp;?>
-     
+
 </div>
 <?php } ?>
 <?php get_footer(); ?>

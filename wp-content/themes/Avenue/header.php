@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<title>
 		<?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?>
 	</title>
-
+	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui" />
 	<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.png">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.css" />
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/font-awesome.css" />
@@ -13,25 +13,17 @@
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/listing.css" />
 
-<?php wp_get_archives('type=monthly&format=link'); ?>
-<?php //comments_popup_script(); // off by default ?>
-
-<?php 
-if (is_singular()) wp_enqueue_script( 'comment-reply' );
-wp_head(); 
-?>
-
 </head>
 <body>
 
 <main>
-	<div id="masthead">
+	<!--<div id="masthead">
 
 		<div id="head">
 
-		<div id="top" class="clearfix"> 
+		<div id="top" class="clearfix">
 			<div id="blogname">
-				
+
 			<?php if (get_theme_mod(FT_scope::tool()->optionsName . '_logo', '') != '') { ?>
 						<h1 class="site-title logo"><a class="mylogo" rel="home" href="<?php bloginfo('siteurl');?>/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><img relWidth="<?php echo intval(get_theme_mod(FT_scope::tool()->optionsName . '_maxWidth', 0)); ?>" relHeight="<?php echo intval(get_theme_mod(FT_scope::tool()->optionsName . '_maxHeight', 0)); ?>" id="ft_logo" src="<?php echo get_theme_mod(FT_scope::tool()->optionsName . '_logo', ''); ?>" alt="" /></a></h1>
 			<?php } else { ?>
@@ -39,7 +31,7 @@ wp_head();
 			<?php } ?>
 
 			</div>
-			
+
 			<div id="contactlist">
 				<div class="rphone">
 				<span>Call us</span><br/>
@@ -55,9 +47,9 @@ wp_head();
 
 		<div id="botmenu">
 			<?php wp_nav_menu( array( 'container_id' => 'submenu', 'theme_location' => 'primary','menu_class'=>'sfmenu','fallback_cb'=> 'fallbackmenu' ) ); ?>
-			<?php include (TEMPLATEPATH . '/searchform.php'); ?>	
-		</div><!-- END botmenu -->
-		
+			<?php include (TEMPLATEPATH . '/searchform.php'); ?>
+		</div>
+
 	</div>
 
-	</div><!--end masthead-->	
+	</div>-->

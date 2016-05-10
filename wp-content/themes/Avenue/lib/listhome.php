@@ -1,5 +1,5 @@
 
-<?php include (TEMPLATEPATH . '/lib/slider.php'); ?>	
+<?php include (TEMPLATEPATH . '/lib/slider.php'); ?>
 <div class="property-lisitings-block">
 	<div class="container">
 		<div class="rows">
@@ -61,7 +61,7 @@
 											<i class="fa fa-tint"></i>
 											<span><?php $bath=get_post_meta($post->ID, 'wtf_bath', true); echo $bath; ?> Phòng tắm</span>
 										</li>
-									</ul>							
+									</ul>
 								</div>
 								<div class="property-price">
 									<div class="utilities-tag">
@@ -82,7 +82,7 @@
 									</div>
 									<div class="price-tag">
 										<?php $price=get_post_meta($post->ID, 'wtf_price', true); echo $price; ?>
-									</div>							
+									</div>
 								</div>
 							</div>
 						</div>
