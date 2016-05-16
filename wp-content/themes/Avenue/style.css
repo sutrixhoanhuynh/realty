@@ -302,13 +302,16 @@ img {
 	position: absolute;
 	top: 25%;
 	z-index: 10;
-	border: none;
-	opacity: 0.5;
-	width: 45px; height: 45px;
-	border: none; border-radius: 50%;
+	opacity: 0.75;
+	width: 50px; height: 50px;
+	border-radius: 50%;
 	outline: none;
 	border: 2px solid #fff;
-	background-color: transparent;
+	background: rgba(255,255,255,0.95);
+	box-shadow: 0 1px 3px 1px rgba(0,0,0,0.1);
+	transition: all 0.25s ease;
+	line-height: 50px;
+	text-align: center;
 }
 
 .slick-slider .slick-arrow:hover {
@@ -323,10 +326,11 @@ img {
 	right: 30px;
 }
 
-.slick-slider .slick-arrow i {
+.slick-slider .slick-arrow span {
 	color: #fff;
-	font-size: 30px;
+	font-size: 18px;
 }
+
 
 /*****************************************************************
 									CAROUSEL RESPONSIVE STYLE
