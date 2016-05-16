@@ -12,7 +12,7 @@
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/slick.css" />
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/listing.css" />
-
+  <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/modernizr.js"></script>
 </head>
 <body>
 

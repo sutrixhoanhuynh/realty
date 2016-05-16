@@ -1,10 +1,15 @@
 var Site = (function($, window, undefined) {
 
+  function isTouch() {
+    return Modernizr.touch;
+  }
+
   function initTooltip() {
-    $('[data-toggle="tooltip"]').tooltip();
+    !isTouch() && $('[data-toggle="tooltip"]').tooltip();
   }
 
   return {
+    isTouch: isTouch,
     initTooltip: initTooltip
   };
 
