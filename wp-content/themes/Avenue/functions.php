@@ -8,7 +8,11 @@ include 'lib/metabox.php';
 include 'lib/drop-down-taxonomy.php';
 include 'lib/radio-taxonomy.php';
 
+add_image_size('logo-size', 168, 28);
 show_admin_bar(false);
+add_theme_support('site-logo', array(
+  'size' => 'logo-size',
+));
 
 /* SIDEBARS */
 if ( function_exists('register_sidebar') )
@@ -45,6 +49,19 @@ function fallbackmenu(){ ?>
 
 
 /* CUSTOM EXCERPTS */
+
+function items_wrap() {
+
+  $wrap  = '<ul id="%1$s" class="%2$s">';
+
+  $wrap .= '%3$s';  
+ 
+  $wrap .= '<li class="my-static-link"><a href="tel:0934878212">Call : 0934878212</a></li>';  
+  
+  $wrap .= '</ul>';
+
+  return $wrap;
+}
 
 function wpe_excerptlength_index($length) {
     return 70;

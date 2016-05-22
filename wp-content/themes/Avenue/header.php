@@ -17,39 +17,43 @@
 <body>
 
 <main>
-	<!--<div id="masthead">
-
-		<div id="head">
-
-		<div id="top" class="clearfix">
-			<div id="blogname">
-
-			<?php if (get_theme_mod(FT_scope::tool()->optionsName . '_logo', '') != '') { ?>
-						<h1 class="site-title logo"><a class="mylogo" rel="home" href="<?php bloginfo('siteurl');?>/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><img relWidth="<?php echo intval(get_theme_mod(FT_scope::tool()->optionsName . '_maxWidth', 0)); ?>" relHeight="<?php echo intval(get_theme_mod(FT_scope::tool()->optionsName . '_maxHeight', 0)); ?>" id="ft_logo" src="<?php echo get_theme_mod(FT_scope::tool()->optionsName . '_logo', ''); ?>" alt="" /></a></h1>
-			<?php } else { ?>
-						<h1 class="site-title logo"><a id="blogname" rel="home" href="<?php bloginfo('siteurl');?>/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php } ?>
-
-			</div>
-
-			<div id="contactlist">
-				<div class="rphone">
-				<span>Call us</span><br/>
-				<p><?php $my_phone =get_option('aven_my_phone'); echo $my_phone ?></p>
-				</div>
-				<div class="rmail">
-				<span>Mail us</span><br/>
-				<p><?php $my_mail =get_option('aven_my_email'); echo $my_mail ?></p>
-				</div>
-			</div>
-
+	<header class="navbar navbar-default navbar-static-top">
+		<div class="top-navbar hidden-xs">
+			<div class="container">
+				<ul class="contact-links list-inline pull-left">
+					<li>
+						<a href="tel:<?php $phone=get_option('aven_my_phone'); echo $phone ?>">
+							<i class="fa fa-phone"></i>
+							<?php $phone=get_option('aven_my_phone'); echo $phone ?>
+						</a>						
+					</li>
+					<li>
+						<a href="mailto:<?php $email=get_option('aven_my_email'); echo $email ?>">
+							<i class="fa fa-envelope-o"></i>
+							<?php $email=get_option('aven_my_email'); echo $email ?>
+						</a>
+					</li>
+				</ul>
+				<?php echo do_shortcode('[social-links-widget]'); ?>
+			</div>			
 		</div>
-
-		<div id="botmenu">
-			<?php wp_nav_menu( array( 'container_id' => 'submenu', 'theme_location' => 'primary','menu_class'=>'sfmenu','fallback_cb'=> 'fallbackmenu' ) ); ?>
-			<?php include (TEMPLATEPATH . '/searchform.php'); ?>
-		</div>
-
-	</div>
-
-	</div>-->
+		<div class="main-navbar">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" 
+					aria-controls="navbar" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="javascript:;">						
+						<img src="<?php bloginfo('template_directory'); ?>/images/logo.gif" alt="logo" />
+					</a>
+				</div>
+				<nav id="navbar" class="collapse navbar-collapse">
+					<?php wp_nav_menu(array('container' => '', 'theme_location' => 'primary', 'menu_class'=>'nav navbar-nav', 'menu_id'=> 'main-menu', 'fallback_cb'=> 'fallbackmenu' )); ?>				
+				</nav>
+			</div>
+		</div>	
+	</header>

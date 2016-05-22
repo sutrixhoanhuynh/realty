@@ -131,6 +131,70 @@ img {
 }
 
 /*****************************************************************
+									MAIN NAVIGATION
+******************************************************************/
+.navbar {
+	margin-bottom: 0;
+	background-color: #fff;
+}
+
+.main-navbar {
+	padding: 8px;
+}
+
+.sub-menu {
+	display: none;
+}
+
+.navbar-brand {
+	padding-top: 10px;
+}
+
+.top-navbar li a {
+	color: #fff;
+	line-height: 34px;	
+}
+
+.contact-links li a {
+	font-size: 12px;
+}
+
+.top-navbar li a:hover,
+.top-navbar li a:focus {
+	text-decoration: none;
+}
+
+#main-menu > li > a {	
+	color: #686868;
+	font-size: 14px;
+	text-transform: uppercase;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+#main-menu > li > a:hover,
+#main-menu > li > a:focus {
+	background-color: #fff;
+	color: #81be32;
+}
+
+.navbar-toggle {
+	border-radius: 0;
+}
+
+@media (min-width: 768px) {
+	.navbar-collapse {
+		float: right;
+	}
+}
+
+.top-navbar {
+	background-color: #f55a4e;
+  min-height: 36px;
+}
+
+/*****************************************************************
 									PROPERTY LISTINGS STYLES
 ******************************************************************/
 

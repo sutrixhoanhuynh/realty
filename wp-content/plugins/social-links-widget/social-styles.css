@@ -1,0 +1,41 @@
+.social_links_widget_op {
+    color: #fff;
+}
+.social_links_widget_op li.social_links_widget{
+	display: inline-block;
+    float: left;
+}
+.social_links_widget_op li.social_links_widget a {
+    width: 40px;
+    height: 40px;
+    float: left;
+    font-size: 0;
+}
+
+.social_links_widget_op li.social_links_widget a.fb{
+	background: url(social-icons/facebook.png) no-repeat 0 0 / 100%;
+}
+.social_links_widget_op li.social_links_widget a.tw{
+	background: url(social-icons/twitter.png) no-repeat 0 0 / 100%;
+}
+.social_links_widget_op li.social_links_widget a.gp{
+	background: url(social-icons/gplus.png) no-repeat 0 0 / 100%;
+}
+.social_links_widget_op li.social_links_widget a.pin{
+	background: url(social-icons/pin.png) no-repeat 0 0 / 100%;
+}
+.social_links_widget_op li.social_links_widget a.ig{
+	background: url(social-icons/ig.png) no-repeat 0 0 / 100%;
+}
+.social_links_widget_op li.social_links_widget a.rss{
+	background: url(social-icons/rss.png) no-repeat 0 0 / 100%;
+}
+.social_links_widget_op li.social_links_widget a.yt{
+	background: url(social-icons/yt.png) no-repeat 0 0 / 100%;
+}
+.social_links_widget_op li.social_links_widget a.vm{
+	background: url(social-icons/vimeo.png) no-repeat 0 0 / 100%;
+}
+.social_links_widget_op li.social_links_widget a.li{
+	background: url(social-icons/in.png) no-repeat 0 0 / 100%;
+}
