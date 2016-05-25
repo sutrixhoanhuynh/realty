@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-	<title>
-		<?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?>
-	</title>
+	<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?><?php bloginfo('name'); ?></title>
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui" />
 	<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.png">
@@ -11,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/font-awesome.css" />
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/slick.css" />
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
-  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/listing.css" />
+  <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Montserrat' />
   <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/modernizr.js"></script>
 </head>
 <body>
@@ -52,7 +50,7 @@
 					</a>
 				</div>
 				<nav id="navbar" class="collapse navbar-collapse">
-					<?php wp_nav_menu(array('container' => '', 'theme_location' => 'primary', 'menu_class'=>'nav navbar-nav', 'menu_id'=> 'main-menu', 'fallback_cb'=> 'fallbackmenu' )); ?>				
+					<?php wp_nav_menu(array('container' => '', 'theme_location' => 'primary', 'menu_class'=>'nav navbar-nav', 'menu_id'=> 'main-menu', 'fallback_cb'=> 'fallbackmenu')); ?>				
 				</nav>
 			</div>
 		</div>	

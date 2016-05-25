@@ -1,4 +1,4 @@
-<div id="browselist" class="clearfix">
+<div class="search-blocks">
 <h3 class="sidetitle"> Browse Listing</h3>
 <p class="listin"><span>Location</span><br/><?php the_dropdown_taxonomy('location'); ?></p>
 <p class="listir"><span>Property type</span><br/><?php the_dropdown_taxonomy('property'); ?></p>

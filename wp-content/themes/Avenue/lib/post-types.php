@@ -9,7 +9,7 @@ register_post_type(
 					 		'publicly_queryable' => true,
 							'has_archive' => true, 
 							'hierarchical' => false,
-							'menu_icon' => get_stylesheet_directory_uri() . '/images/listing.png',
+							'menu_icon' => 'dashicons-admin-home',
                     		'labels'=>array(
     									'name' => _x('Listings', 'post type general name'),
     									'singular_name' => _x('Listing', 'post type singular name'),
