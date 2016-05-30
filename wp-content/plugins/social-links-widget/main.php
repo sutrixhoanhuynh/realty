@@ -21,7 +21,7 @@ if (!shortcode_exists('social-links-widget')) {
 function social_links_widget_social_links_widget(){
 	?>
     <div class="social_links_widget_op">
-        <ul class="socials-links list-inline pull-right">
+        <ul class="socials-links list-inline">
             <?php 
 			if(get_option( 'social_links_widget_options' )){ 
 			$social_data_option = get_option( 'social_links_widget_options' ); $ordarr = array();

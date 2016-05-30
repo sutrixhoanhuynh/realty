@@ -32,7 +32,7 @@
 						</a>
 					</li>
 				</ul>
-				<?php echo do_shortcode('[social-links-widget]'); ?>
+				<?php echo do_shortcode('[social-links-widget]'); ?>				
 			</div>			
 		</div>
 		<div class="main-navbar">

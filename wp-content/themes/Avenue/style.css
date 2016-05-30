@@ -168,6 +168,10 @@ img {
 	line-height: 34px;	
 }
 
+.top-navbar .socials-links {
+	float: right;
+}
+
 .contact-links li a {
 	font-size: 12px;
 }
@@ -296,6 +300,73 @@ img {
 	opacity: 0.75;
 }
 
+.property-thumbnail {
+	position: relative;
+	overflow: hidden;
+}
+
+.property-thumbnail figcaption {
+	position: absolute;
+	top: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 0.3s;	
+}
+
+.property-thumbnail .property-excerpt {
+	position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;  
+  opacity: 0;
+  line-height: 1.5;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-top: 3px solid #43becc;
+  transition: all 0.3s;
+}
+
+.property-item:hover .property-excerpt {
+	opacity: 1;
+}
+
+.property-thumbnail .property-excerpt p {
+  color: #999;
+}
+
+.property-excerpt .subtitle {
+ 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #999;
+}
+
+.property-excerpt .subtitle span {
+	text-decoration: none;
+	font-size: 1.2em;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.property-excerpt .subtitle a {
+	color: #666;
+	text-decoration: none;
+}
+
+.property-excerpt .subtitle .link-icon {
+	position: relative;	
+	width: 15px; height: 15px;
+	display: inline-block;
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.property-excerpt .subtitle .fa-star {
+	font-size: 14px;
+	color: #0097a7;
+	position: absolute;
+	cursor: pointer;
+}
+
 /*****************************************************************
 									CAROUSEL STYLES
 ******************************************************************/
@@ -408,6 +479,40 @@ img {
 	font-size: 18px;
 }
 
+.slick-dots {
+	position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.slick-dots li {
+	position: relative;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.slick-dots li button {
+  display: block;
+  width: 10px;
+  height: 10px;
+  padding: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #fff;
+  background-color: #fff;
+  outline: none;
+  text-indent: -9999em;
+}
+
+.slick-dots li.slick-active button {
+	border: 2px solid #fff;
+	background-color: transparent;
+}
+
 
 /*****************************************************************
 									CAROUSEL RESPONSIVE STYLE
@@ -428,7 +533,7 @@ img {
 ******************************************************************/
 .site-footer {
 	background-color: #eee;
-	padding: 30px 0;
+	padding: 30px 0 60px;
 	border-top: 1px solid #e1e1e1;
 }
 
@@ -482,27 +587,65 @@ footer .newsletter button {
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
-.bottom-bar {
-	background-color: #e1e1e1;
+.bottom-bar {	
+	position: relative;
 	padding: 20px 0;
-	border-top: 1px solid #efefef;
+	background-color: #e1e1e1;
+	border-top: 1px solid #fff;
 }
 
 .bottom-bar li i {
 	color: #4e4c6c;
 }
 
+.bottom-bar .social_links_widget_op {
+	overflow: hidden;
+}
+
 .back-to-top {
-	border-radius: 3px;
-	background: rgba(0,0,0,.5);
-	position: fixed; z-index: 999;
-	right: 20px; bottom: 20px;
-	width: 30px; height: 30px;
-	padding: 5px 12px;
+	border: 1px solid #fff;
+	border-bottom: none; 
+	border-radius: 3px 3px 0 0;
+	background: #e1e1e1;
+	position: fixed; 
+	right: 15px; bottom: 0;
+	padding: 7px 20px;
+	vertical-align: middle;
+	outline: none;
+}
+
+.back-to-top.fixed {
+	position: absolute;
+	bottom: 100%;
 }
 
 .back-to-top i {
-	color: #fff;
+	color: #4e4c6c;
+	font-size: 20px;
+}
+
+.bottom-bar .socials-links {
+	float: right;
+}
+
+.bottom-bar .copyright {
+	text-align: left;
+}
+
+@media (max-width: 768px) {
+	.bottom-bar {
+		padding: 10px 0;
+	}
+
+	.bottom-bar .socials-links {
+		float: none;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	.bottom-bar .copyright {
+		text-align: center;
+	}
 }
 
 

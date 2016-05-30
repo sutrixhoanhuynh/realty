@@ -53,16 +53,16 @@
   <div class="bottom-bar">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <p>&copy; 2016 <?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>. All Rights Reserved. </p>
-        </div>
-        <div class="col-md-6">
+        <div class="col-sm-12 col-md-6 col-lg-push-6">
           <?php echo do_shortcode('[social-links-widget]'); ?>
         </div>
+        <div class="col-sm-12 col-md-6 col-lg-pull-6">
+          <p class="copyright">&copy; <?php echo date("Y"); ?> <?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>. All Rights Reserved. </p>
+        </div>        
       </div>
     </div>
-  </div>
-  <?php include (TEMPLATEPATH . '/backtotop.php'); ?>
+    <?php include (TEMPLATEPATH . '/backtotop.php'); ?>
+  </div>  
 </footer>
 </main>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/libs.js"></script>

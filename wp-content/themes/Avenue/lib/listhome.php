@@ -30,10 +30,12 @@
 									<div class="property-status">
 										<?php $area=get_the_term_list( $post->ID, 'type', '', ' ', '' ); echo(strip_tags($area)); ?>
 									</div>
-									<figcaption class="hidden">
+									<figcaption>
 										<div class="property-excerpt">
 											<div class="subtitle">
 												<span class="type"><?php echo get_the_term_list( $post->ID, 'property', '', ' ', '' ); ?></span>
+												<span class="link-icon"><i class="fa fa-star" aria-hidden="true"></i></span>
+												<span><a href="javascript:;"><?php $area=get_the_term_list( $post->ID, 'type', '', ' ', '' ); echo(strip_tags($area)); ?></a></span>
 											</div>
 											<p>
 												<?php wpe_excerpt('wpe_excerptlength_archive', ''); ?>
@@ -51,15 +53,15 @@
 										</li>
 										<li>
 											<i class="fa fa-building-o"></i>
-											<span>8 Phòng</span>
+											<span>8 Rooms</span>
 										</li>
 										<li>
 											<i class="fa fa-bed"></i>
-											<span><?php $bedrooms=get_the_term_list( $post->ID, 'bedrooms', '', ' ', '' ); echo(strip_tags($bedrooms)); ?> Phòng ngủ</span>
+											<span><?php $bedrooms=get_the_term_list( $post->ID, 'bedrooms', '', ' ', '' ); echo(strip_tags($bedrooms)); ?> Bedroom </span>
 										</li>
 										<li>
 											<i class="fa fa-tint"></i>
-											<span><?php $bath=get_post_meta($post->ID, 'wtf_bath', true); echo $bath; ?> Phòng tắm</span>
+											<span><?php $bath=get_post_meta($post->ID, 'wtf_bath', true); echo $bath; ?> Bathroom</span>
 										</li>
 									</ul>
 								</div>
