@@ -1,42 +1,15 @@
 <?php
 /*
-* Template Name: Login Page
+* Template Name: Register Page
 */
 ?>
-<?php 
-
-function auth_login($username, $password, $remember) {
-
-  $user_info = array();
-
-  $user_info['user_login'] = $username;
-  $user_info['user_password'] = $password;
-  $user_info['remember'] = $remember;
-
-  $auth = wp_signon($user_info, false ); 
-
-  if (is_wp_error($auth) ) {
-    echo $auth->get_error_message();
-  }
-
-  if (!is_wp_error($auth) ) {
-    wp_redirect(site_url());
-  }
-
-}
-
-if (isset($_POST['sign-in'])) {
-  auth_login($_POST['email'], $_POST['password'], $_POST['remember']);
-}
-
-?>
 <?php get_header(); ?>
-<div class="content auth-page" id="login-page">
+<div class="content auth-page" id="register-page">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+      <div class="col-sm-12 col-md-7 col-lg-7 hidden-xs hidden-sm">
         <div class="row">
-          <div class="col-md-9">
+          <div class="col-md-8">
             <h3> Smart Admin </h3>
             <div class="hero">
               <p> 
@@ -48,7 +21,7 @@ if (isset($_POST['sign-in'])) {
               </div>
             </div>
           </div> 
-          <div class="col-sm-3">          
+          <div class="col-sm-4">          
             <img src="<?php echo get_template_directory_uri(); ?>/images/iphoneview.png" />
           </div>         
         </div>
@@ -67,29 +40,39 @@ if (isset($_POST['sign-in'])) {
           </div>
         </div>
       </div>
-      <div class="col-sm-12 col-md-5 col-lg-4">
+      <div class="col-sm-12 col-md-5 col-lg-5">
         <div class="well">
          <form action="<?php echo get_site_url(); ?>/login" method="POST" name="login-form" class="auth-form" id="login-form" autocomplete="off" data-validation="">
           <fieldset>
-            <legend> Sign in </legend>
+            <legend> Registration is FREE* </legend>
             <section class="fields">
-             <div class="form-group">
-               <label for="email">E-mail</label>
+             <div class="form-group">               
                <div class="input-group">
-                  <input type="text" name="email" id="email" class="form-control" data-rule='["required"]' />
+                  <input type="text" name="username" class="form-control" data-rule='["required"]' placeholder="Username" />
                   <span class="input-group-addon">
                    <i class="fa fa-user"></i>
                   </span>
                   <span class="tooltip">
                     <i class="fa fa fa-warning"></i>
-                    Please enter email address/username
+                    Please enter your username
                   </span>
                </div>           
              </div>
              <div class="form-group">
-               <label for="password">Password</label>
                <div class="input-group">
-                  <input type="text" name="password" id="password" class="form-control" data-rule='["required"]' />
+                  <input type="email" name="email" class="form-control" data-rule='["required"]' placeholder="Email address" />
+                  <span class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                  </span>
+                  <span class="tooltip">
+                    <i class="fa fa fa-warning"></i>
+                    Please enter your email address
+                  </span>
+               </div>
+             </div>
+             <div class="form-group">
+               <div class="input-group">
+                  <input type="password" name="password" class="form-control" data-rule='["required"]' placeholder="Password" />
                   <span class="input-group-addon">
                     <i class="fa fa-lock"></i>
                   </span>
@@ -99,13 +82,55 @@ if (isset($_POST['sign-in'])) {
                   </span>
                </div>
              </div>
-             <div class="checkbox">
+             <div class="form-group">
+               <div class="input-group">
+                  <input type="password" name="confirmPass" class="form-control" data-rule='["required"]' placeholder="Confirm password" />
+                  <span class="input-group-addon">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                  <span class="tooltip">
+                    <i class="fa fa fa-warning"></i>
+                    Don't forget confirm your password
+                  </span>
+               </div>
+             </div>             
+            </section>
+            <section class="personal-info">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="text" name="firstname" class="form-control" placeholder="First name" />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <input type="text" name="lastname" class="form-control" placeholder="Last name" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <select name="gender" class="form-control">
+                    <option value="">Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <input type="text" name="phone" class="form-control" placeholder="Phone number" />
+                </div>
+              </div>
+            </section>
+            <section>              
+              <div class="checkbox">
                 <input type="checkbox" id="remember" name="remember" /> 
-                <label for="remember"> Remember me </label>
-             </div>
+                <label for="remember"> I aggre with the 
+                  <a href="javascript:;">Terms and Conditions</a> 
+                </label>
+              </div>              
             </section>
             <section class="bottom">
-              <button type="submit" name="sign-in" class="btn btn-primary">Sign in</button>
+              <button type="submit" name="sign-in" class="btn btn-primary">Register</button>
             </section>
           </fieldset>
          </form>

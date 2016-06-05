@@ -674,18 +674,18 @@ footer .newsletter button {
 /*****************************************************************
 									LOGIN PAGE
 ******************************************************************/
-#login-page {
+.auth-page {
 	background-color: #fff;
-	padding: 50px 0 80px;
+	padding: 30px 0 80px;
 }
 
-#login-page h3 {
+.auth-page h3 {
 	color: #a90329;
 	font-weight: 400;
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
-#login-page .hero p {
+.auth-page .hero p {
 	width: 270px;
 	color: #565656;
 	font-size: 15px;
@@ -694,15 +694,15 @@ footer .newsletter button {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
-#login-page .button-group {
+.auth-page .button-group {
 	margin-top: 90px;
 }
 
-#login-page .features {
+.auth-page .features {
 	margin-top: 20px;
 }
 
-#login-page .features h5 {
+.auth-page .features h5 {
 	color: #565656;
 	font-size: 15px;
 	font-weight: 700;
@@ -710,18 +710,18 @@ footer .newsletter button {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
-#login-page .features p {
+.auth-page .features p {
 	font-size: 13px;
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
-#login-page .well {
+.auth-page .well {
 	background-color: #fff;
 	padding: 0;
 	border-radius: 2px;
 }
 
-#login-form legend {
+.auth-form legend {
 	padding: 13px;
 	background: rgba(248,248,248,.9);
 	font-size: 16px;
@@ -730,11 +730,11 @@ footer .newsletter button {
   text-transform: capitalize;
 }
 
-#login-form section {
+.auth-form section {
 	padding: 5px 14px;
 }
 
-#login-form label {
+.auth-form label {
 	font-size: 13px;
   color: #333;
   line-height: 19px;
@@ -742,15 +742,15 @@ footer .newsletter button {
   margin-bottom: 6px;
 }
 
-#login-form .fa {
+.auth-form .fa {
 	color: #A2A2A2;
 }
 
-#login-form .input-group {
+.auth-form .input-group {
 	position: relative;
 }
 
-#login-form .input-group-addon {
+.auth-form .input-group-addon {
 	background-color: #fff;
 	border-radius: 0;
 	border-color: #BDBDBD;
@@ -758,53 +758,57 @@ footer .newsletter button {
 	border-left: none;
 }
 
-#login-form .input-group-addon .fa {
+.auth-form .input-group-addon .fa {
 	border-left: 1px solid #BDBDBD;
 	padding: 4px 10px;
 }
 
-#login-form input:focus + .input-group-addon {
+.auth-form input:focus + .input-group-addon {
 	border-color: #5D98CC;
 }
 
-#login-form .form-control {
+.auth-form .form-control {
+  box-shadow: none;
+}
+
+.auth-form .fields .form-control {
 	box-shadow: none;
 	border-right: none;
 }
 
-#login-form .form-group.error .form-control,
-#login-form .form-group.error .input-group-addon {
+.auth-form .form-group.error .form-control,
+.auth-form .form-group.error .input-group-addon {
 	border-color: #b94a48;
 }
 
-#login-form .form-group.success .form-control,
-#login-form .form-group.success .input-group-addon {
+.auth-form .form-group.success .form-control,
+.auth-form .form-group.success .input-group-addon {
 	border-color: #6fb679;
 }
 
-#login-form .form-group.success .tooltip {
+.auth-form .form-group.success .tooltip {
 	opacity: 0;
 }
 
-#login-form .form-group.error .tooltip {
+.auth-form .form-group.error .tooltip {
 	opacity: 1;
 }
 
-#login-form .help-block {
+.auth-form .help-block {
 	color: #b94a48;
 	display: block;
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 }
 
-#login-form .bottom {
+.auth-form .bottom {
 	overflow: hidden;
 	border-top: 1px solid rgba(0,0,0,.1);
   background: rgba(248,248,248,.9);
   padding: 15px 14px;
 }
 
-#login-form .bottom button {
+.auth-form .bottom button {
 	float: right;
 	padding: 6px 20px;
 	border-radius: 0;
@@ -825,7 +829,7 @@ footer .newsletter button {
 	height: 35px;
 }
 
-#login-form .input-group .tooltip {
+.auth-form .input-group .tooltip {
 	position: absolute;	
 	right: 0; bottom: 100%;
 	background-color: #43becc;
@@ -843,11 +847,11 @@ footer .newsletter button {
   -webkit-transition: margin .3s,opacity .3s;
 }
 
-#login-form .input-group .tooltip .fa {
+.auth-form .input-group .tooltip .fa {
 	color: #fff;
 }
 
-#login-form .input-group .tooltip:after {
+.auth-form .input-group .tooltip:after {
 	content: '';
   position: absolute;
 	top: 100%;
@@ -857,6 +861,17 @@ footer .newsletter button {
   border-left: 4px solid transparent;
 }
 
+/*****************************************************************
+                  REGISTER PAGE
+******************************************************************/
+#register-page {
+  padding: 30px 0 50px;
+}
+
+#register-page .personal-info {
+  border-top: 1px solid rgba(0,0,0,.1);
+  padding: 20px 14px 5px;
+}
 
 
 
