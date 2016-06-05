@@ -12,15 +12,6 @@ Tags: black, white, Real estate, right-sidebar, fixed-width, theme-options, thre
 ******************************************************************/
 
 @font-face {
-    font-family: 'Open Sans';
-    src: url('fonts/open-sans.eot');
-    src: url('fonts/open-sans.eot?#iefix') format('embedded-opentype'),
-         url('fonts/open-sans.woff') format('woff'),
-         url('fonts/open-sans.ttf') format('truetype'),
-         url('fonts/open-sans.svg#BebasNeueRegular') format('svg');
-}
-
-@font-face {
     font-family: 'Lato';
     src: url('fonts/lato-regular.eot');
     src: url('fonts/lato-regular.eot?#iefix') format('embedded-opentype'),
@@ -142,6 +133,38 @@ img {
 	box-shadow: none;
 	border-color: #3276B1;
 }
+
+.checkbox label {
+  position: relative;
+  padding-left: 25px;
+}
+
+.checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox label:before {
+  content: '';  
+  position: absolute;
+  width: 19px;
+  height: 19px;
+  left: 0;
+  bottom: 1px;
+  background-color: #fff;
+  border: 1px solid #bdbdbd;
+}
+
+.checkbox input[type="checkbox"]:checked + label:before {
+  content: '\f00c';
+  font-family: 'FontAwesome', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #3276B1;
+  text-align: center;
+  line-height: 16px;  
+  border: 1px solid #3276B1;
+}
+
+
 
 /*****************************************************************
 									MAIN NAVIGATION
@@ -647,6 +670,194 @@ footer .newsletter button {
 		text-align: center;
 	}
 }
+
+/*****************************************************************
+									LOGIN PAGE
+******************************************************************/
+#login-page {
+	background-color: #fff;
+	padding: 50px 0 80px;
+}
+
+#login-page h3 {
+	color: #a90329;
+	font-weight: 400;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+#login-page .hero p {
+	width: 270px;
+	color: #565656;
+	font-size: 15px;
+	line-height: 22px;
+  margin-top: 15px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+#login-page .button-group {
+	margin-top: 90px;
+}
+
+#login-page .features {
+	margin-top: 20px;
+}
+
+#login-page .features h5 {
+	color: #565656;
+	font-size: 15px;
+	font-weight: 700;
+  line-height: 24px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+#login-page .features p {
+	font-size: 13px;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+#login-page .well {
+	background-color: #fff;
+	padding: 0;
+	border-radius: 2px;
+}
+
+#login-form legend {
+	padding: 13px;
+	background: rgba(248,248,248,.9);
+	font-size: 16px;
+  font-weight: 300;
+  color: #232323;
+  text-transform: capitalize;
+}
+
+#login-form section {
+	padding: 5px 14px;
+}
+
+#login-form label {
+	font-size: 13px;
+  color: #333;
+  line-height: 19px;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+#login-form .fa {
+	color: #A2A2A2;
+}
+
+#login-form .input-group {
+	position: relative;
+}
+
+#login-form .input-group-addon {
+	background-color: #fff;
+	border-radius: 0;
+	border-color: #BDBDBD;
+	padding: 1px 0;
+	border-left: none;
+}
+
+#login-form .input-group-addon .fa {
+	border-left: 1px solid #BDBDBD;
+	padding: 4px 10px;
+}
+
+#login-form input:focus + .input-group-addon {
+	border-color: #5D98CC;
+}
+
+#login-form .form-control {
+	box-shadow: none;
+	border-right: none;
+}
+
+#login-form .form-group.error .form-control,
+#login-form .form-group.error .input-group-addon {
+	border-color: #b94a48;
+}
+
+#login-form .form-group.success .form-control,
+#login-form .form-group.success .input-group-addon {
+	border-color: #6fb679;
+}
+
+#login-form .form-group.success .tooltip {
+	opacity: 0;
+}
+
+#login-form .form-group.error .tooltip {
+	opacity: 1;
+}
+
+#login-form .help-block {
+	color: #b94a48;
+	display: block;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+
+#login-form .bottom {
+	overflow: hidden;
+	border-top: 1px solid rgba(0,0,0,.1);
+  background: rgba(248,248,248,.9);
+  padding: 15px 14px;
+}
+
+#login-form .bottom button {
+	float: right;
+	padding: 6px 20px;
+	border-radius: 0;
+	font-size: 15px;
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.auth-login h5 {
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-size: 17px;
+  font-weight: 300;
+  margin: 10px 0;
+}
+
+.auth-login li a {
+	border-radius: 50%;
+	width: 35px;
+	height: 35px;
+}
+
+#login-form .input-group .tooltip {
+	position: absolute;	
+	right: 0; bottom: 100%;
+	background-color: #43becc;
+	color: #fff;
+	padding: 2px 8px;
+	margin-bottom: 5px;
+	font-size: 11px;
+  line-height: 16px;
+  font-weight: 400;
+	font-family: "Open Sans", Arial, Helvetica, sans-serif;
+	transition: margin .3s,opacity .3s;
+  -o-transition: margin .3s,opacity .3s;
+  -ms-transition: margin .3s,opacity .3s;
+  -moz-transition: margin .3s,opacity .3s;
+  -webkit-transition: margin .3s,opacity .3s;
+}
+
+#login-form .input-group .tooltip .fa {
+	color: #fff;
+}
+
+#login-form .input-group .tooltip:after {
+	content: '';
+  position: absolute;
+	top: 100%;
+  right: 11px;
+  border-top: 4px solid #43becc;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+
 
 
 blockquote {

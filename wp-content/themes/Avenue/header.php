@@ -10,6 +10,7 @@
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/slick.css" />
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
   <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Montserrat' />
+  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:300,700,400,600' />
   <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/modernizr.js"></script>
 </head>
 <body>
@@ -30,6 +31,9 @@
 							<i class="fa fa-envelope-o"></i>
 							<?php $email=get_option('aven_my_email'); echo $email ?>
 						</a>
+					</li>
+					<li>
+						<a href="<?php echo get_site_url(); ?>/login">Login</a>
 					</li>
 				</ul>
 				<?php echo do_shortcode('[social-links-widget]'); ?>				

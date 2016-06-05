@@ -9,7 +9,9 @@ include 'lib/drop-down-taxonomy.php';
 include 'lib/radio-taxonomy.php';
 
 add_image_size('logo-size', 168, 28);
+
 show_admin_bar(false);
+
 add_theme_support('site-logo', array(
   'size' => 'logo-size',
 ));
@@ -47,6 +49,13 @@ function fallbackmenu(){ ?>
 			</div>
 <?php }
 
+function restrict_admin() {
+  if(!current_user_can('manage_options') && '/wp-admin/admin-ajax.php' != $_SERVER['PHP_SELF']) {
+    wp_redirect(site_url());
+  }
+}
+
+add_action('admin_init', 'restrict_admin', 1);
 
 /* CUSTOM EXCERPTS */
 
