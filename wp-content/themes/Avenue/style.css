@@ -37,6 +37,15 @@ Tags: black, white, Real estate, right-sidebar, fixed-width, theme-options, thre
          url('fonts/flaticon.svg#BebasNeueRegular') format('svg');
 }
 
+@font-face {
+    font-family: 'nifty-icons';
+    src: url('fonts/nifty-icons.eot?bbef6n');
+    src: url('fonts/nifty-icons.svg?bbef6n#nifty-icons') format('svg'),
+         url('fonts/nifty-icons.eot?bbef6n#iefix') format('embedded-opentype'),
+         url('fonts/nifty-icons.ttf?bbef6n') format('truetype'),
+         url('fonts/nifty-icons.woff') format('woff');
+}
+
 /*****************************************************************
 									GENERAL STYLES
 ******************************************************************/
@@ -100,12 +109,48 @@ img {
   color: #555;
 }
 
+[class^="demo-pli-"]:before,
+[class*=" demo-pli-"]:before,
+[class^="demo-psi-"]:before,
+[class*=" demo-psi-"]:before {
+  font-family: 'nifty-icons';
+  display: inline-block;
+}
+
 .flaticon-next15:before {
 	content: '\e09c';
 }
 
 .flaticon-previous11:before {
 	content: '\e0ab';
+}
+
+.demo-pli-male:before {
+  content: '\e94b';
+}
+
+.demo-pli-gear:before {
+  content: "\e930";
+}
+
+.demo-pli-information:before {
+  content: "\e938";
+}
+
+.demo-pli-unlock:before {
+  content: "\e979";
+}
+
+.icon-lg {
+  font-size: 1.333em;
+  line-height: 1.095em;
+  vertical-align: middle;
+}
+
+.icon-fw {
+  width: 1.33em;
+  margin-right: 4px;
+  text-align: center;
 }
 
 .tooltip-inner {
@@ -144,7 +189,7 @@ img {
 }
 
 .checkbox label:before {
-  content: '';  
+  content: '';
   position: absolute;
   width: 19px;
   height: 19px;
@@ -160,7 +205,7 @@ img {
   font-size: 16px;
   color: #3276B1;
   text-align: center;
-  line-height: 16px;  
+  line-height: 16px;
   border: 1px solid #3276B1;
 }
 
@@ -188,7 +233,7 @@ img {
 
 .top-navbar li a {
 	color: #fff;
-	line-height: 34px;	
+	line-height: 34px;
 }
 
 .top-navbar .socials-links {
@@ -204,7 +249,7 @@ img {
 	text-decoration: none;
 }
 
-#main-menu > li > a {	
+#main-menu > li > a {
 	color: #686868;
 	font-size: 14px;
 	text-transform: uppercase;
@@ -231,7 +276,64 @@ img {
 
 .top-navbar {
 	background-color: #f55a4e;
-  min-height: 36px;
+  height: 36px;
+}
+
+.top-navbar .dropdown-user {
+  float: right;
+  position: relative;
+}
+
+.top-navbar .dropdown-user a[data-toggle] {
+  padding-left: 10px;
+  border-left: 1px solid #fff;
+}
+
+.top-navbar .dropdown-user span {
+  color: #fff;
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.top-navbar .dropdown-user img {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+}
+
+.top-navbar .dropdown-user .ic-user {
+  font-size: 1.1em;
+}
+
+.top-navbar .dropdown-menu {
+  border-radius: 0;
+  background-color: #fff;
+  min-width: 200px;
+  margin-top: 1px;
+  padding: 0;
+  border: none;
+  box-shadow: 0 5px 12px 2px rgba(0,0,0,0.25);
+}
+
+.top-navbar .dropdown-menu li span {
+  color: #000;
+  font-size: 1.33em;
+}
+
+.top-navbar .dropdown-menu li a {
+  font-size: 13px;
+  color: #686868;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.sigin-link {
+  font-size: 14px;
+  text-transform: capitalize;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  padding-left: 10px;
+  border-left: 1px solid #fff;
 }
 
 /*****************************************************************
@@ -333,7 +435,7 @@ img {
 	top: 0;
   height: 100%;
   width: 100%;
-  transition: all 0.3s;	
+  transition: all 0.3s;
 }
 
 .property-thumbnail .property-excerpt {
@@ -341,7 +443,7 @@ img {
   top: 0;
   width: 100%;
   height: 100%;
-  padding: 15px;  
+  padding: 15px;
   opacity: 0;
   line-height: 1.5;
   text-align: left;
@@ -376,7 +478,7 @@ img {
 }
 
 .property-excerpt .subtitle .link-icon {
-	position: relative;	
+	position: relative;
 	width: 15px; height: 15px;
 	display: inline-block;
 	margin: 0 5px;
@@ -565,7 +667,7 @@ footer h4 {
 	font-weight: 400;
 	margin: 0 0 15px 0;
 	text-transform: uppercase;
-	border-bottom: 1px solid #f55a4e;	
+	border-bottom: 1px solid #f55a4e;
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	margin-bottom: 25px;
@@ -610,7 +712,7 @@ footer .newsletter button {
 	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
-.bottom-bar {	
+.bottom-bar {
 	position: relative;
 	padding: 20px 0;
 	background-color: #e1e1e1;
@@ -627,10 +729,10 @@ footer .newsletter button {
 
 .back-to-top {
 	border: 1px solid #fff;
-	border-bottom: none; 
+	border-bottom: none;
 	border-radius: 3px 3px 0 0;
 	background: #e1e1e1;
-	position: fixed; 
+	position: fixed;
 	right: 15px; bottom: 0;
 	padding: 7px 20px;
 	vertical-align: middle;
@@ -830,7 +932,7 @@ footer .newsletter button {
 }
 
 .auth-form .input-group .tooltip {
-	position: absolute;	
+	position: absolute;
 	right: 0; bottom: 100%;
 	background-color: #43becc;
 	color: #fff;

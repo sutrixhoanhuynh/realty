@@ -24,7 +24,7 @@
 						<a href="tel:<?php $phone=get_option('aven_my_phone'); echo $phone ?>">
 							<i class="fa fa-phone"></i>
 							<?php $phone=get_option('aven_my_phone'); echo $phone ?>
-						</a>						
+						</a>
 					</li>
 					<li>
 						<a href="mailto:<?php $email=get_option('aven_my_email'); echo $email ?>">
@@ -32,31 +32,66 @@
 							<?php $email=get_option('aven_my_email'); echo $email ?>
 						</a>
 					</li>
-					<li>
-						<a href="<?php echo get_site_url(); ?>/login">Login</a>
-						<a href="<?php echo get_site_url(); ?>/register">Register</a>
+				</ul>
+				<ul class="list-inline pull-right">
+					<li class="social-links clearfix">
+						<?php echo do_shortcode('[social-links-widget]'); ?>
+					</li>
+					<li class="dropdown-user">
+						<?php if (is_user_logged_in()) { $current_user = wp_get_current_user(); ?>
+						<a href="javascrip:;" data-toggle="dropdown">
+							<?php
+								echo '<span>'.$current_user->user_login.'</span>';
+								// echo '<span class="demo-pli-male ic-user"></span>';
+								echo get_avatar($current_user->user_email, 32);
+							?>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-right">
+							<li>
+								<a href="javascript:;">
+									<span class="demo-pli-male icon-lg icon-fw"></span> Profile
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<span class="demo-pli-gear icon-lg icon-fw"></span> Settings
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;">
+									<span class="demo-pli-information icon-lg icon-fw"></span> Help
+								</a>
+							</li>
+							<li>
+								<a href="<?php echo wp_logout_url(home_url()); ?>">
+									<span class="demo-pli-unlock icon-lg icon-fw"></span> Logout
+								</a>
+							</li>
+						</ul>
+						<?php } else {
+							echo '<a class="sigin-link" href="'.get_site_url().'/login"> Sign in </a>';
+						} ?>
 					</li>
 				</ul>
-				<?php echo do_shortcode('[social-links-widget]'); ?>				
-			</div>			
+			</div>
 		</div>
 		<div class="main-navbar">
 			<div class="container">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" 
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
 					aria-controls="navbar" aria-expanded="false">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="javascript:;">						
+					<a class="navbar-brand" href="javascript:;">
 						<img src="<?php bloginfo('template_directory'); ?>/images/logo.gif" alt="logo" />
 					</a>
 				</div>
 				<nav id="navbar" class="collapse navbar-collapse">
-					<?php wp_nav_menu(array('container' => '', 'theme_location' => 'primary', 'menu_class'=>'nav navbar-nav', 'menu_id'=> 'main-menu', 'fallback_cb'=> 'fallbackmenu')); ?>				
+					<?php wp_nav_menu(array('container' => '', 'theme_location' => 'primary', 'menu_class'=>'nav navbar-nav', 'menu_id'=> 'main-menu', 'fallback_cb'=> 'fallbackmenu')); ?>
 				</nav>
 			</div>
-		</div>	
+		</div>
 	</header>
