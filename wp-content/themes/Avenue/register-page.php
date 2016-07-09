@@ -3,6 +3,37 @@
 * Template Name: Register Page
 */
 ?>
+<?php
+
+function register_user ($userdata) {
+
+  $user = wp_insert_user($userdata);
+
+  if(is_wp_error($user)) {
+    echo $user->get_error_message();
+  }
+
+  if(!is_wp_error($user)) {
+    echo 'User created : ' .$user;
+  }
+
+}
+
+if (isset($_POST['sign-up'])) {
+
+  $userdata = array(
+    'user_login'  => $_POST['username'],
+    'user_email'  => $_POST['email'],
+    'user_pass'   => $_POST['password'],
+    'first_name'  => $_POST['firstname'],
+    'last_name'   => $_POST['lastname']
+  );
+
+  register_user($userdata);
+
+}
+
+?>
 <?php get_header(); ?>
 <div class="content auth-page" id="register-page">
   <div class="container">
@@ -12,7 +43,7 @@
           <div class="col-md-8">
             <h3> Smart Admin </h3>
             <div class="hero">
-              <p> 
+              <p>
                 It's Okay to be Smart. Experience the simplicity of SmartAdmin, everywhere you go!
               </p>
               <div class="button-group">
@@ -20,10 +51,10 @@
                 <a href="javascript:;" class="btn btn-danger btn-sm">Find out more</a>
               </div>
             </div>
-          </div> 
-          <div class="col-sm-4">          
+          </div>
+          <div class="col-sm-4">
             <img src="<?php echo get_template_directory_uri(); ?>/images/iphoneview.png" />
-          </div>         
+          </div>
         </div>
         <div class="row features">
           <div class="col-md-6 col-lg-6">
@@ -46,7 +77,7 @@
           <fieldset>
             <legend> Registration is FREE* </legend>
             <section class="fields">
-             <div class="form-group">               
+             <div class="form-group">
                <div class="input">
                   <i class="fa fa-user"></i>
                   <input type="text" name="username" class="form-control" data-rule='["required"]' placeholder="Username" />
@@ -54,7 +85,7 @@
                     <i class="fa fa fa-warning"></i>
                     Please enter your username
                   </span>
-               </div>           
+               </div>
              </div>
              <div class="form-group">
                <div class="input">
@@ -85,7 +116,7 @@
                     Don't forget confirm your password
                   </span>
                </div>               
-             </div>             
+             </div>
             </section>
             <section class="personal-info">
               <div class="row">
@@ -117,19 +148,16 @@
                 </div>
               </div>
             </section>
-            <section>              
+            <section>
               <div class="checkbox">
-                <input type="checkbox" id="remember" name="remember" /> 
-                <label for="remember"> I aggre with the 
-                  <a href="javascript:;">Terms and Conditions</a> 
+                <input type="checkbox" id="remember" name="remember" />
+                <label for="remember"> I aggre with the
+                  <a href="javascript:;">Terms and Conditions</a>
                 </label>
-              </div>              
+              </div>
             </section>
             <section class="bottom">
-              <button type="submit" name="register" class="btn btn-primary">
-                <i class="fa fa-paper-plane-o"></i>
-                Register
-              </button>
+              <button type="submit" name="sign-up" class="btn btn-primary">Register</button>
             </section>
           </fieldset>
          </form>
@@ -152,10 +180,10 @@
                 <i class="fa fa-linkedin"></i>
               </a>
             </li>
-          </ul>          
+          </ul>
         </div>
       </div>
     </div>
-  </div>  
+  </div>
 </div>
 <?php get_footer(); ?>
