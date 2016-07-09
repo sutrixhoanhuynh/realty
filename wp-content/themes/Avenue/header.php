@@ -35,6 +35,7 @@
 					<li>
 						<a href="<?php echo get_site_url(); ?>/login">Login</a>
 						<a href="<?php echo get_site_url(); ?>/register">Register</a>
+						<a href="<?php echo get_site_url(); ?>/reset">Forgot password</a>
 					</li>
 				</ul>
 				<?php echo do_shortcode('[social-links-widget]'); ?>				

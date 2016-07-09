@@ -1,34 +1,7 @@
 <?php
 /*
-* Template Name: Login Page
+* Template Name: Reset Page
 */
-?>
-<?php 
-
-function auth_login($username, $password, $remember) {
-
-  $user_info = array();
-
-  $user_info['user_login'] = $username;
-  $user_info['user_password'] = $password;
-  $user_info['remember'] = $remember;
-
-  $auth = wp_signon($user_info, false ); 
-
-  if (is_wp_error($auth) ) {
-    echo $auth->get_error_message();
-  }
-
-  if (!is_wp_error($auth) ) {
-    wp_redirect(site_url());
-  }
-
-}
-
-if (isset($_POST['sign-in'])) {
-  auth_login($_POST['email'], $_POST['password'], $_POST['remember']);
-}
-
 ?>
 <?php get_header(); ?>
 <div class="content auth-page" id="login-page">
@@ -71,42 +44,41 @@ if (isset($_POST['sign-in'])) {
         <div class="well">
          <form action="<?php echo get_site_url(); ?>/login" method="POST" name="login-form" class="auth-form" id="login-form" autocomplete="off" data-validation="">
           <fieldset>
-            <legend> Sign in </legend>
+            <legend> Forgot Password </legend>
             <section class="fields">
              <div class="form-group">
-               <label for="email">E-mail</label>               
+               <label for="email">Enter your email address</label>               
                <div class="input">
-                  <i class="fa fa-user"></i>
+                  <i class="fa fa-envelope"></i>
                   <input type="text" name="email" id="email" class="form-control" data-rule='["required"]' />
                   <span class="tooltip">
                     <i class="fa fa fa-warning"></i>
-                    Please enter email address/username
+                    Please enter your email address
                   </span>
                </div>           
              </div>
+             <div class="timeline-seperator text-center">
+               <span>or</span>
+             </div>
              <div class="form-group">
-               <label for="password">Password</label>
+               <label for="username">Your username</label>
                <div class="input">
-                  <i class="fa fa-lock"></i>
-                  <input type="text" name="password" id="password" class="form-control" data-rule='["required"]' />                  
+                  <i class="fa fa-user"></i>
+                  <input type="text" name="username" id="username" class="form-control" data-rule='["required"]' />                  
                   <span class="tooltip">
                     <i class="fa fa fa-warning"></i>
-                    Please enter your password
+                    Please enter your username
                   </span>
                </div>
                <div class="note">
-                <a href="javascript:;">Forgot password?</a>
-               </div>
-             </div>
-             <div class="checkbox">
-                <input type="checkbox" id="remember" name="remember" checked /> 
-                <label for="remember"> Remember me </label>
-             </div>
+                 <a href="<?php echo get_site_url(); ?>/login"> I remember my password! </a>
+               </div>               
+             </div>             
             </section>
             <section class="bottom">
               <button type="submit" name="sign-in" class="btn btn-primary">
-                <i class="fa fa-key" aria-hidden="true"></i>
-                Sign in
+                <i class="fa fa-refresh"></i>
+                Reset password
               </button>
             </section>
           </fieldset>

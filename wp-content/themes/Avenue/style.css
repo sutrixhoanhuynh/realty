@@ -734,6 +734,57 @@ footer .newsletter button {
 	padding: 5px 14px;
 }
 
+.note {
+  margin-top: 6px;
+  padding: 0 1px;
+  font-size: 11px;
+  line-height: 15px;
+  color: #999;
+}
+
+.auth-form button[type="submit"] {
+  text-transform: capitalize;
+}
+
+.auth-form button[type="submit"] .fa {
+  color: #fff;
+}
+
+#register-form .checkbox {
+  margin-top: 0;
+}
+
+.note a {
+  font-size: 13px;
+}
+
+.timeline-seperator {
+  margin-bottom: 15px;
+}
+
+.timeline-seperator:after {
+  display: block;
+  content: " ";
+  margin: 0 20px;
+  border-bottom: 1px dashed rgba(0,0,0,.1);
+  margin-top: -8px;  
+}
+
+.timeline-seperator span {
+  padding: 4px 5px;
+  border: 1px dashed rgba(0,0,0,.1);
+  background: #fff;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #999;
+  font-size: 13px;
+}
+
+
+.note a:hover {
+  text-decoration: none;
+}
+
 .auth-form label {
 	font-size: 13px;
   color: #333;
@@ -758,22 +809,29 @@ footer .newsletter button {
 	border-left: none;
 }
 
-.auth-form .input-group-addon .fa {
-	border-left: 1px solid #BDBDBD;
-	padding: 4px 10px;
-}
-
-.auth-form input:focus + .input-group-addon {
-	border-color: #5D98CC;
-}
 
 .auth-form .form-control {
   box-shadow: none;
 }
 
-.auth-form .fields .form-control {
-	box-shadow: none;
-	border-right: none;
+.form-group .input {
+  position: relative;
+}
+
+.form-group .input .fa {
+  position: absolute;
+  top: 5px; right: 5px;
+  width: 26px;
+  height: 22px;
+  font-size: 14px;
+  line-height: 22px;
+  padding-left: 3px;
+  text-align: center;
+  border-left: 1px solid #BDBDBD;
+}
+
+.form-group .input .fa+input {
+  padding-right: 37px;
 }
 
 .auth-form .form-group.error .form-control,

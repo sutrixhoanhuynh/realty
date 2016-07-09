@@ -42,16 +42,14 @@
       </div>
       <div class="col-sm-12 col-md-5 col-lg-5">
         <div class="well">
-         <form action="<?php echo get_site_url(); ?>/login" method="POST" name="login-form" class="auth-form" id="login-form" autocomplete="off" data-validation="">
+         <form action="<?php echo get_site_url(); ?>/login" method="POST" name="register-form" class="auth-form" id="register-form" autocomplete="off" data-validation="">
           <fieldset>
             <legend> Registration is FREE* </legend>
             <section class="fields">
              <div class="form-group">               
-               <div class="input-group">
+               <div class="input">
+                  <i class="fa fa-user"></i>
                   <input type="text" name="username" class="form-control" data-rule='["required"]' placeholder="Username" />
-                  <span class="input-group-addon">
-                   <i class="fa fa-user"></i>
-                  </span>
                   <span class="tooltip">
                     <i class="fa fa fa-warning"></i>
                     Please enter your username
@@ -59,11 +57,9 @@
                </div>           
              </div>
              <div class="form-group">
-               <div class="input-group">
+               <div class="input">
+                  <i class="fa fa-envelope"></i>
                   <input type="email" name="email" class="form-control" data-rule='["required"]' placeholder="Email address" />
-                  <span class="input-group-addon">
-                    <i class="fa fa-envelope"></i>
-                  </span>
                   <span class="tooltip">
                     <i class="fa fa fa-warning"></i>
                     Please enter your email address
@@ -71,11 +67,9 @@
                </div>
              </div>
              <div class="form-group">
-               <div class="input-group">
+               <div class="input">
+                  <i class="fa fa-lock"></i>
                   <input type="password" name="password" class="form-control" data-rule='["required"]' placeholder="Password" />
-                  <span class="input-group-addon">
-                    <i class="fa fa-lock"></i>
-                  </span>
                   <span class="tooltip">
                     <i class="fa fa fa-warning"></i>
                     Please enter your password
@@ -83,16 +77,14 @@
                </div>
              </div>
              <div class="form-group">
-               <div class="input-group">
+               <div class="input">
+                  <i class="fa fa-lock"></i>
                   <input type="password" name="confirmPass" class="form-control" data-rule='["required"]' placeholder="Confirm password" />
-                  <span class="input-group-addon">
-                    <i class="fa fa-lock"></i>
-                  </span>
                   <span class="tooltip">
                     <i class="fa fa fa-warning"></i>
                     Don't forget confirm your password
                   </span>
-               </div>
+               </div>               
              </div>             
             </section>
             <section class="personal-info">
@@ -110,14 +102,18 @@
               </div>
               <div class="row">
                 <div class="col-sm-6">
-                  <select name="gender" class="form-control">
-                    <option value="">Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                  </select>
+                  <div class="form-group">
+                    <select name="gender" class="form-control">
+                      <option value="">Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="col-sm-6">
-                  <input type="text" name="phone" class="form-control" placeholder="Phone number" />
+                  <div class="form-group">
+                    <input type="text" name="phone" class="form-control" placeholder="Phone number" />
+                  </div>                  
                 </div>
               </div>
             </section>
@@ -130,7 +126,10 @@
               </div>              
             </section>
             <section class="bottom">
-              <button type="submit" name="sign-in" class="btn btn-primary">Register</button>
+              <button type="submit" name="register" class="btn btn-primary">
+                <i class="fa fa-paper-plane-o"></i>
+                Register
+              </button>
             </section>
           </fieldset>
          </form>
