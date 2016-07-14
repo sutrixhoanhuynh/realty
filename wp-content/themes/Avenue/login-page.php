@@ -3,30 +3,53 @@
 * Template Name: Login Page
 */
 ?>
-<?php 
+<?php
 
-function auth_login($username, $password, $remember) {
+$error = array();
+$message = '';
 
-  $user_info = array();
+function authenticate($user) {
+  global $message;
 
-  $user_info['user_login'] = $username;
-  $user_info['user_password'] = $password;
-  $user_info['remember'] = $remember;
+  $auth = wp_signon($user, false);   
 
-  $auth = wp_signon($user_info, false ); 
-
-  if (is_wp_error($auth) ) {
-    echo $auth->get_error_message();
-  }
-
-  if (!is_wp_error($auth) ) {
+  if(is_wp_error($auth)) {
+    $message = 'Invalid username or password. Please try again';
+  } else {
     wp_redirect(site_url());
   }
 
 }
 
+function validation($user) {
+  global $message;
+
+  $username = $user['user_login'];
+  $password = $user['user_password'];
+
+  switch(true) {
+    case empty($username):
+      $message = 'Please enter email address/username';
+    break;
+    case empty($password):
+      $message = 'Please enter your password';
+    break;
+  }
+
+  if(!$message) {
+    authenticate($user);
+  }
+}
+
 if (isset($_POST['sign-in'])) {
-  auth_login($_POST['email'], $_POST['password'], $_POST['remember']);
+
+  $user = array(
+    'user_login' => $_POST['email'],
+    'user_password' => $_POST['password'],
+    'remember' => $_POST['remember']
+  );
+
+  validation($user);
 }
 
 ?>
@@ -68,15 +91,25 @@ if (isset($_POST['sign-in'])) {
         </div>
       </div>
       <div class="col-sm-12 col-md-5 col-lg-4">
-        <div class="well">
-         <form action="<?php echo get_site_url(); ?>/login" method="POST" name="login-form" class="auth-form" id="login-form" autocomplete="off" data-validation="">
+        <div class="alert alert-warning hidden">
+          <i class="fa-fw fa fa-warning"></i>
+          <strong> Authenticate fail: </strong> Invalid username or password.
+        </div>
+        <div class="alert alert-success">
+          <i class="fa-fw fa fa-check"></i>
+          <strong> Success: </strong> Press <a href="">here</a> to back to homepage.
+        </div>
+        <div class="panel panel-default">
+         <form action="<?php echo get_site_url(); ?>/login" method="POST" class="smart-form" data-validation="">
           <fieldset>
             <legend> Sign in </legend>
             <section class="fields">
              <div class="form-group">
                <label for="email">E-mail</label>               
-               <div class="input">
-                  <i class="fa fa-user"></i>
+               <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-user"></i>
+                  </span>                  
                   <input type="text" name="email" id="email" class="form-control" data-rule='["required"]' />
                   <span class="tooltip">
                     <i class="fa fa fa-warning"></i>
@@ -86,8 +119,10 @@ if (isset($_POST['sign-in'])) {
              </div>
              <div class="form-group">
                <label for="password">Password</label>
-               <div class="input">
-                  <i class="fa fa-lock"></i>
+               <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-lock"></i>
+                  </span>
                   <input type="text" name="password" id="password" class="form-control" data-rule='["required"]' />                  
                   <span class="tooltip">
                     <i class="fa fa fa-warning"></i>
@@ -95,24 +130,21 @@ if (isset($_POST['sign-in'])) {
                   </span>
                </div>
                <div class="note">
-                <a href="javascript:;">Forgot password?</a>
+                <a href="<?php echo get_site_url(); ?>/reset">Forgot password?</a>
                </div>
              </div>
              <div class="checkbox">
-                <input type="checkbox" id="remember" name="remember" checked /> 
+                <input type="checkbox" id="remember" name="remember" /> 
                 <label for="remember"> Remember me </label>
              </div>
             </section>
             <section class="bottom">
-              <button type="submit" name="sign-in" class="btn btn-primary">
-                <i class="fa fa-key" aria-hidden="true"></i>
-                Sign in
-              </button>
+              <button type="submit" name="sign-in" class="btn btn-primary">Sign in</button>
             </section>
           </fieldset>
          </form>
         </div>
-        <div class="auth-login">
+        <div class="social-button">
           <h5 class="text-center"> - Or sign in using - </h5>
           <ul class="list-inline text-center">
             <li>

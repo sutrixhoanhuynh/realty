@@ -63,7 +63,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ul {
-	padding: 0; margin: 0;
+	padding: 0; 
+  margin: 0;
 }
 
 li {
@@ -209,7 +210,43 @@ img {
   border: 1px solid #3276B1;
 }
 
+.panel {
+  background-color: #fff;
+  padding: 0;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  border: 1px solid #e3e3e3;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
 
+.panel-default {
+  border-color: #ddd;
+}
+
+.alert {
+  margin-bottom: 10px;
+  margin-top: 0;
+  color: #675100;
+  border-width: 0;
+  border-left-width: 5px;
+  padding: 10px;
+  border-radius: 0;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.42857143;
+}
+
+.alert-warning {
+  border-color: #dfb56c;
+  color: #826430;
+  background-color: #efe1b3;
+}
+
+.alert-success {
+  border-color: #8ac38b;
+  color: #356635;
+  background-color: #cde0c4;
+}
 
 /*****************************************************************
 									MAIN NAVIGATION
@@ -280,8 +317,9 @@ img {
 }
 
 .top-navbar .dropdown-user {
-  float: right;
   position: relative;
+  float: left;
+  margin-right: 20px;
 }
 
 .top-navbar .dropdown-user a[data-toggle] {
@@ -328,12 +366,13 @@ img {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
-.sigin-link {
-  font-size: 14px;
-  text-transform: capitalize;
+.login-link {
+  font-size: 13px;
+  color: #fff;
+  text-transform: uppercase;
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  padding-left: 10px;
-  border-left: 1px solid #fff;
+  padding-right: 20px !important;
+  float: left;
 }
 
 /*****************************************************************
@@ -787,7 +826,7 @@ footer .newsletter button {
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
-.auth-page .hero p {
+.hero p {
 	width: 270px;
 	color: #565656;
 	font-size: 15px;
@@ -796,7 +835,7 @@ footer .newsletter button {
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
 }
 
-.auth-page .button-group {
+.hero .button-group {
 	margin-top: 90px;
 }
 
@@ -823,7 +862,7 @@ footer .newsletter button {
 	border-radius: 2px;
 }
 
-.auth-form legend {
+.smart-form legend {
 	padding: 13px;
 	background: rgba(248,248,248,.9);
 	font-size: 16px;
@@ -832,7 +871,7 @@ footer .newsletter button {
   text-transform: capitalize;
 }
 
-.auth-form section {
+.smart-form section {
 	padding: 5px 14px;
 }
 
@@ -844,11 +883,11 @@ footer .newsletter button {
   color: #999;
 }
 
-.auth-form button[type="submit"] {
+.smart-form button[type="submit"] {
   text-transform: capitalize;
 }
 
-.auth-form button[type="submit"] .fa {
+.smart-form button[type="submit"] .fa {
   color: #fff;
 }
 
@@ -887,7 +926,7 @@ footer .newsletter button {
   text-decoration: none;
 }
 
-.auth-form label {
+.smart-form label {
 	font-size: 13px;
   color: #333;
   line-height: 19px;
@@ -895,15 +934,16 @@ footer .newsletter button {
   margin-bottom: 6px;
 }
 
-.auth-form .fa {
+.smart-form .fa {
 	color: #A2A2A2;
 }
 
-.auth-form .input-group {
+.smart-form .input-group {
 	position: relative;
+  display: block;
 }
 
-.auth-form .input-group-addon {
+.smart-form .input-addon {
 	background-color: #fff;
 	border-radius: 0;
 	border-color: #BDBDBD;
@@ -912,7 +952,7 @@ footer .newsletter button {
 }
 
 
-.auth-form .form-control {
+.smart-form .form-control {
   box-shadow: none;
 }
 
@@ -920,55 +960,60 @@ footer .newsletter button {
   position: relative;
 }
 
-.form-group .input .fa {
+.smart-form .input-group .input-group-addon {
   position: absolute;
   top: 5px; right: 5px;
   width: 26px;
   height: 22px;
   font-size: 14px;
   line-height: 22px;
-  padding-left: 3px;
+  padding: 0;
   text-align: center;
+  border: none;
   border-left: 1px solid #BDBDBD;
+  border-radius: 0;
+  z-index: 1000;
+  background-color: transparent;
+  display: block;
 }
 
 .form-group .input .fa+input {
   padding-right: 37px;
 }
 
-.auth-form .form-group.error .form-control,
-.auth-form .form-group.error .input-group-addon {
+.smart-form .form-group.error .form-control,
+.smart-form .form-group.error .input-group-addon {
 	border-color: #b94a48;
 }
 
-.auth-form .form-group.success .form-control,
-.auth-form .form-group.success .input-group-addon {
+.smart-form .form-group.success .form-control,
+.smart-form .form-group.success .input-group-addon {
 	border-color: #6fb679;
 }
 
-.auth-form .form-group.success .tooltip {
+.smart-form .form-group.success .tooltip {
 	opacity: 0;
 }
 
-.auth-form .form-group.error .tooltip {
+.smart-form .form-group.error .tooltip {
 	opacity: 1;
 }
 
-.auth-form .help-block {
+.smart-form .help-block {
 	color: #b94a48;
 	display: block;
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	font-size: 13px;
 }
 
-.auth-form .bottom {
+.smart-form .bottom {
 	overflow: hidden;
 	border-top: 1px solid rgba(0,0,0,.1);
   background: rgba(248,248,248,.9);
   padding: 15px 14px;
 }
 
-.auth-form .bottom button {
+.smart-form .bottom button {
 	float: right;
 	padding: 6px 20px;
 	border-radius: 0;
@@ -976,20 +1021,20 @@ footer .newsletter button {
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
-.auth-login h5 {
+.social-button h5 {
 	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 	font-size: 17px;
   font-weight: 300;
   margin: 10px 0;
 }
 
-.auth-login li a {
+.social-button li a {
 	border-radius: 50%;
 	width: 35px;
 	height: 35px;
 }
 
-.auth-form .input-group .tooltip {
+.smart-form .input-group .tooltip {
 	position: absolute;
 	right: 0; bottom: 100%;
 	background-color: #43becc;
@@ -1007,11 +1052,11 @@ footer .newsletter button {
   -webkit-transition: margin .3s,opacity .3s;
 }
 
-.auth-form .input-group .tooltip .fa {
+.smart-form .input-group .tooltip .fa {
 	color: #fff;
 }
 
-.auth-form .input-group .tooltip:after {
+.smart-form .input-group .tooltip:after {
 	content: '';
   position: absolute;
 	top: 100%;

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes();?>>
 <head>
-	<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?><?php bloginfo('name'); ?></title>
+	<title>
+		<?php wp_title(''); ?>
+		<?php if(wp_title('', false)) { echo ' :'; } ?>
+		<?php bloginfo('name'); ?>
+	</title>
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui" />
 	<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.png">
@@ -21,28 +25,26 @@
 			<div class="container">
 				<ul class="contact-links list-inline pull-left">
 					<li>
-						<a href="tel:<?php $phone=get_option('aven_my_phone'); echo $phone ?>">
+						<?php $phone_number = get_option('aven_my_phone'); ?>
+						<a href="tel:<?php echo $phone_number; ?>" title="<?php echo $phone_number; ?>">
 							<i class="fa fa-phone"></i>
-							<?php $phone=get_option('aven_my_phone'); echo $phone ?>
+							<?php echo $phone_number; ?>
 						</a>
 					</li>
 					<li>
-						<a href="mailto:<?php $email=get_option('aven_my_email'); echo $email ?>">
+						<?php $email = get_option('aven_my_email'); ?>
+						<a href="mailto:<?php echo $email; ?>" title="<?php echo $email; ?>">
 							<i class="fa fa-envelope-o"></i>
-							<?php $email=get_option('aven_my_email'); echo $email ?>
+							<?php echo $email; ?>
 						</a>
 					</li>
 				</ul>
 				<ul class="list-inline pull-right">
-					<li class="social-links clearfix">
-						<?php echo do_shortcode('[social-links-widget]'); ?>
-					</li>
-					<li class="dropdown-user">
-						<?php if (is_user_logged_in()) { $current_user = wp_get_current_user(); ?>
+					<?php if (is_user_logged_in()) { $current_user = wp_get_current_user(); ?>				
+					<li class="dropdown-user">						
 						<a href="javascrip:;" data-toggle="dropdown">
 							<?php
 								echo '<span>'.$current_user->user_login.'</span>';
-								// echo '<span class="demo-pli-male ic-user"></span>';
 								echo get_avatar($current_user->user_email, 32);
 							?>
 						</a>
@@ -67,10 +69,16 @@
 									<span class="demo-pli-unlock icon-lg icon-fw"></span> Logout
 								</a>
 							</li>
-						</ul>
-						<?php } else {
-							echo '<a class="sigin-link" href="'.get_site_url().'/login"> Sign in </a>';
-						} ?>
+						</ul>						
+					</li>
+					<?php } else { ?>
+					<li class="login-link">	
+							<a href="<?php echo get_site_url(); ?>/login" title="login"> login </a> /
+							<a href="<?php echo get_site_url(); ?>/register" title="register"> register </a>
+					</li>
+					<?php } ?>
+					<li class="social-links clearfix">
+						<?php echo do_shortcode('[social-links-widget]'); ?>
 					</li>
 				</ul>
 			</div>
