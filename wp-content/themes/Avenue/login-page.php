@@ -5,38 +5,46 @@
 ?>
 <?php
 
-$error = array();
-$message = '';
+$auth = array();
 
 function authenticate($user) {
-  global $message;
+  global $auth;
 
-  $auth = wp_signon($user, false);   
+  $signon = wp_signon($user, false);   
 
-  if(is_wp_error($auth)) {
-    $message = 'Invalid username or password. Please try again';
+  if(is_wp_error($signon)) {
+    $auth = array(
+      'status' => 'fail', 
+      'message' => 'Invalid username or password. Please try again!'
+    );
   } else {
-    wp_redirect(site_url());
+    wp_redirect(home_url());
   }
 
 }
 
 function validation($user) {
-  global $message;
+  global $auth;
 
   $username = $user['user_login'];
   $password = $user['user_password'];
 
   switch(true) {
     case empty($username):
-      $message = 'Please enter email address/username';
+      $auth = array(
+        'status' => 'fail',
+        'message' => 'Please enter email address/username'
+      );
     break;
     case empty($password):
-      $message = 'Please enter your password';
+      $auth = array(
+        'status' => 'fail',
+        'message' => 'Please enter your password'
+      );
     break;
   }
 
-  if(!$message) {
+  if(!array_key_exists('status', $auth)) {
     authenticate($user);
   }
 }
@@ -47,7 +55,7 @@ if (isset($_POST['sign-in'])) {
     'user_login' => $_POST['email'],
     'user_password' => $_POST['password'],
     'remember' => $_POST['remember']
-  );
+  );  
 
   validation($user);
 }
@@ -91,14 +99,18 @@ if (isset($_POST['sign-in'])) {
         </div>
       </div>
       <div class="col-sm-12 col-md-5 col-lg-4">
-        <div class="alert alert-warning hidden">
-          <i class="fa-fw fa fa-warning"></i>
-          <strong> Authenticate fail: </strong> Invalid username or password.
-        </div>
-        <div class="alert alert-success">
-          <i class="fa-fw fa fa-check"></i>
-          <strong> Success: </strong> Press <a href="">here</a> to back to homepage.
-        </div>
+        <?php           
+          if(array_key_exists('status', $auth)) {
+            $status = $auth['status'];
+
+            if ($status === 'fail') {
+                echo '<div class="alert alert-warning">
+                        <i class="fa-fw fa fa-warning"></i>
+                        <strong> Authenticate fail: </strong>'.$auth['message'].
+                      '</div>';
+            }
+          }
+        ?>        
         <div class="panel panel-default">
          <form action="<?php echo get_site_url(); ?>/login" method="POST" class="smart-form" data-validation="">
           <fieldset>
@@ -106,7 +118,7 @@ if (isset($_POST['sign-in'])) {
             <section class="fields">
              <div class="form-group">
                <label for="email">E-mail</label>               
-               <div class="input-group">
+               <div class="input-group clearfix">
                   <span class="input-group-addon">
                     <i class="fa fa-user"></i>
                   </span>                  
@@ -119,11 +131,11 @@ if (isset($_POST['sign-in'])) {
              </div>
              <div class="form-group">
                <label for="password">Password</label>
-               <div class="input-group">
+               <div class="input-group clearfix">
                   <span class="input-group-addon">
                     <i class="fa fa-lock"></i>
                   </span>
-                  <input type="text" name="password" id="password" class="form-control" data-rule='["required"]' />                  
+                  <input type="password" name="password" id="password" class="form-control" data-rule='["required"]' />                  
                   <span class="tooltip">
                     <i class="fa fa fa-warning"></i>
                     Please enter your password

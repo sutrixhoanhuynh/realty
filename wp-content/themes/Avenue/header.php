@@ -39,39 +39,8 @@
 						</a>
 					</li>
 				</ul>
-				<ul class="list-inline pull-right">
-					<?php if (is_user_logged_in()) { $current_user = wp_get_current_user(); ?>				
-					<li class="dropdown-user">						
-						<a href="javascrip:;" data-toggle="dropdown">
-							<?php
-								echo '<span>'.$current_user->user_login.'</span>';
-								echo get_avatar($current_user->user_email, 32);
-							?>
-						</a>
-						<ul class="dropdown-menu dropdown-menu-right">
-							<li>
-								<a href="javascript:;">
-									<span class="demo-pli-male icon-lg icon-fw"></span> Profile
-								</a>
-							</li>
-							<li>
-								<a href="javascript:;">
-									<span class="demo-pli-gear icon-lg icon-fw"></span> Settings
-								</a>
-							</li>
-							<li>
-								<a href="javascript:;">
-									<span class="demo-pli-information icon-lg icon-fw"></span> Help
-								</a>
-							</li>
-							<li>
-								<a href="<?php echo wp_logout_url(home_url()); ?>">
-									<span class="demo-pli-unlock icon-lg icon-fw"></span> Logout
-								</a>
-							</li>
-						</ul>						
-					</li>
-					<?php } else { ?>
+				<ul class="list-inline pull-right">					
+					<?php if(!is_user_logged_in()) { ?>
 					<li class="login-link">	
 							<a href="<?php echo get_site_url(); ?>/login" title="login"> login </a> /
 							<a href="<?php echo get_site_url(); ?>/register" title="register"> register </a>
@@ -80,6 +49,38 @@
 					<li class="social-links clearfix">
 						<?php echo do_shortcode('[social-links-widget]'); ?>
 					</li>
+					<?php if(is_user_logged_in()) { 
+						$current_user = wp_get_current_user(); 
+					?>
+					<li class="my-account pull-right dropdown">
+						<a href="javascript:;" title="<?php echo $current_user->user_login; ?>" data-toggle="dropdown">
+							<i class="fa fa-user"></i>
+						</a>
+						<ul class="dropdown-menu dropdown-menu-right">
+							<li>
+								<a href="javascript:;" title="Profile">
+									<i class="fa fa-file-text-o fa-lg"></i> &nbsp; Profile
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" title="Settings">
+									<i class="fa fa-cog fa-lg"></i> &nbsp; Settings
+								</a>
+							</li>
+							<li>
+								<a href="javascript:;" title="Help">
+									<i class="fa fa-life-ring fa-lg"></i> &nbsp; Help
+								</a>
+							</li>
+							<li class="divider"></li>
+							<li>
+								<a href="<?php echo wp_logout_url(home_url()); ?>" title="Logout">
+									<i class="fa fa-unlock-alt fa-lg"></i> &nbsp; Logout
+								</a>
+							</li>
+						</ul>			
+					</li>
+					<?php } ?>
 				</ul>
 			</div>
 		</div>
