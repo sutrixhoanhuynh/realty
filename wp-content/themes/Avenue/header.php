@@ -46,7 +46,7 @@
 							<a href="<?php echo get_site_url(); ?>/register" title="register"> register </a>
 					</li>
 					<?php } ?>
-					<li class="social-links clearfix">
+					<li class="social-links">
 						<?php echo do_shortcode('[social-links-widget]'); ?>
 					</li>
 					<?php if(is_user_logged_in()) { 
@@ -99,7 +99,7 @@
 					</a>
 				</div>
 				<nav id="navbar" class="collapse navbar-collapse">
-					<?php wp_nav_menu(array('container' => '', 'theme_location' => 'primary', 'menu_class'=>'nav navbar-nav', 'menu_id'=> 'main-menu', 'fallback_cb'=> 'fallbackmenu')); ?>
+					<?php wp_nav_menu(array('container' => '', 'theme_location' => 'primary', 'menu_class'=>'nav navbar-nav navbar-right', 'menu_id'=> 'main-menu', 'fallback_cb'=> 'fallbackmenu')); ?>
 				</nav>
 			</div>
 		</div>

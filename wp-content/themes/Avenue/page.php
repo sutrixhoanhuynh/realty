@@ -2,8 +2,8 @@
 
 <div id="main-content">  
 
-  <?php //if (have_posts()) : ?>
-  <?php //while (have_posts()) : the_post(); ?>
+  <?php if (have_posts()) : ?>
+  <?php while (have_posts()) : the_post(); ?>
 
   <div class="post" id="post-<?php the_ID(); ?>">
   <div class="title">

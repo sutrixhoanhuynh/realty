@@ -821,12 +821,12 @@ footer .newsletter button {
 /*****************************************************************
 									LOGIN PAGE
 ******************************************************************/
-.auth-page {
+#login-page {
 	background-color: #fff;
-	padding: 30px 0 80px;
+	padding: 40px 0 80px;
 }
 
-.auth-page h3 {
+#login-page h3 {
 	color: #a90329;
 	font-weight: 400;
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
@@ -1082,6 +1082,64 @@ footer .newsletter button {
 #register-page .personal-info {
   border-top: 1px solid rgba(0,0,0,.1);
   padding: 20px 14px 5px;
+}
+
+/*****************************************************************
+                  CONTACT PAGE
+******************************************************************/
+.contact-page {
+  background-color: #fff;
+  padding: 20px 0 80px;
+}
+
+.contact-page .contact-form h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-family: 'Raleway-Light', Arial, Helvetica, sans-serif;
+}
+
+.contact-page .contact-form p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  font-size: 13px;
+  color: #333;
+  line-height: 19px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.contact-form button[type="submit"] {
+  margin-top: 15px;
+  border-radius: 0;
+  text-transform: capitalize;
+}
+
+.contact-aside {
+  padding: 20px;
+}
+
+.contact-aside h4 {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+}
+
+.contact-aside li {
+  margin-bottom: 10px;
+}
+
+.contact-aside li a {
+  font-size: 14px;
+  color: #666;
 }
 
 

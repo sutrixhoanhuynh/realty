@@ -62,7 +62,7 @@ if (isset($_POST['sign-in'])) {
 
 ?>
 <?php get_header(); ?>
-<div class="content auth-page" id="login-page">
+<div class="content" id="login-page">
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
