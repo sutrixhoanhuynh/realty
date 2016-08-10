@@ -66,7 +66,7 @@ jQuery(function() {
     });
   };
 
-  $.fn[pluginName].defaults = {    
+  $.fn[pluginName].defaults = {
     dots: true,
     autoplay: true,
     slidesToShow: 1,
@@ -105,7 +105,7 @@ jQuery(function() {
 ;(function($, window, undefined) {
   'use strict';
 
-  var win = $(window), 
+  var win = $(window),
       doc = $(document),
       htmlBody = $('html, body'),
       pluginName = 'back-to-top';
@@ -121,7 +121,7 @@ jQuery(function() {
 
       var that = this,
           el = that.element,
-          opts = that.options,          
+          opts = that.options,
           footer = $(opts.footer);
 
         win.on('scroll.' + pluginName, function() {
@@ -142,7 +142,7 @@ jQuery(function() {
         htmlBody.animate({scrollTop: 0 }, opts.duration);
         return false;
 
-      });    
+      });
 
     },
     destroy: function() {
@@ -231,7 +231,7 @@ jQuery(function() {
         return showError(el, options);
       }
     }
-    return hideError(el, options);    
+    return hideError(el, options);
   };
 
   function Plugin(element, options) {
@@ -246,7 +246,7 @@ jQuery(function() {
       var that = this,
         el = that.element,
         options = that.options,
-        fields = $('[data-rule]', el);      
+        fields = $('[data-rule]', el);
 
       // el.on('blur.' + pluginName, '[data-rule]:not(:checkbox, :radio, :file)', function () {
       //   validation($(this), options);
@@ -261,8 +261,8 @@ jQuery(function() {
         var isValid = true;
 
         fields.each(function () {
-          isValid = validation($(this), options); 
-          return isValid;          
+          isValid = validation($(this), options);
+          return isValid;
         });
 
         return isValid;
@@ -286,7 +286,7 @@ jQuery(function() {
     });
   };
 
-  $.fn[pluginName].defaults = {    
+  $.fn[pluginName].defaults = {
     error: 'error',
     success: 'success',
     wrapper: '.form-group'

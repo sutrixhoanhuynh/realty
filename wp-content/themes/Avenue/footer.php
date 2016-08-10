@@ -15,7 +15,7 @@
               <a href="tel:<?php $phone=get_option('aven_my_phone'); echo $phone ?>">
                 <i class="fa fa-phone"></i>
                 <?php $phone=get_option('aven_my_phone'); echo $phone ?>
-              </a>            
+              </a>
             </li>
             <li>
               <a href="mailto:<?php $email=get_option('aven_my_email'); echo $email ?>">
@@ -58,13 +58,25 @@
         </div>
         <div class="col-sm-12 col-md-6 col-lg-pull-6">
           <p class="copyright">&copy; <?php echo date("Y"); ?> <?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>. All Rights Reserved. </p>
-        </div>        
+        </div>
       </div>
     </div>
     <?php include (TEMPLATEPATH . '/backtotop.php'); ?>
-  </div>  
+  </div>
 </footer>
 </main>
+<script>
+  function initMap() {
+    var mapDiv = document.getElementById('contact-map');
+    var map = new google.maps.Map(mapDiv, {
+        center: {lat: 44.540, lng: -78.546},
+        zoom: 10
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAojYRfYLfWetgH80scF33ZiIYltBKnUi0&callback=initMap">
+</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55cc16b859177c4d"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/libs.js"></script>
 <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
 </body>

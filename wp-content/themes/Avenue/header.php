@@ -15,6 +15,8 @@
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
   <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Montserrat' />
   <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:300,700,400,600' />
+  <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,300' rel='stylesheet' type='text/css'>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
   <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/modernizr.js"></script>
 </head>
 <body>
@@ -39,18 +41,18 @@
 						</a>
 					</li>
 				</ul>
-				<ul class="list-inline pull-right">					
+				<ul class="list-inline pull-right">
 					<?php if(!is_user_logged_in()) { ?>
-					<li class="login-link">	
-							<a href="<?php echo get_site_url(); ?>/login" title="login"> login </a> /
+					<li class="login-link">
+							<a href="<?php echo get_site_url(); ?>/login" title="login">login</a> /
 							<a href="<?php echo get_site_url(); ?>/register" title="register"> register </a>
 					</li>
 					<?php } ?>
 					<li class="social-links">
 						<?php echo do_shortcode('[social-links-widget]'); ?>
 					</li>
-					<?php if(is_user_logged_in()) { 
-						$current_user = wp_get_current_user(); 
+					<?php if(is_user_logged_in()) {
+						$current_user = wp_get_current_user();
 					?>
 					<li class="my-account pull-right dropdown">
 						<a href="javascript:;" title="<?php echo $current_user->user_login; ?>" data-toggle="dropdown">
@@ -78,7 +80,7 @@
 									<i class="fa fa-unlock-alt fa-lg"></i> &nbsp; Logout
 								</a>
 							</li>
-						</ul>			
+						</ul>
 					</li>
 					<?php } ?>
 				</ul>
