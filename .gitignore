@@ -1,12 +1,1 @@
-/coverage
-*.swp
-*.swo
-.idea
-/.idea
-/build
-bower_components
-node_modules
-npm-debug.log
-lint-js-report.html
-lint-css-report.xml
-styles/css/selfdeploy.css
+wp-content/themes/Avenue/cache/*
