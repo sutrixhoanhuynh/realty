@@ -65,17 +65,7 @@
   </div>
 </footer>
 </main>
-<script>
-  function initMap() {
-    var mapDiv = document.getElementById('contact-map');
-    var map = new google.maps.Map(mapDiv, {
-        center: {lat: 44.540, lng: -78.546},
-        zoom: 10
-    });
-  }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAojYRfYLfWetgH80scF33ZiIYltBKnUi0&callback=initMap">
-</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAojYRfYLfWetgH80scF33ZiIYltBKnUi0&callback=initMap" async defer></script>
 <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
 <script src="<?php bloginfo('template_directory'); ?>/js/libs.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>

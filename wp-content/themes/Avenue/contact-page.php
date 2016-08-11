@@ -5,7 +5,8 @@
 ?>
 <?php get_header(); ?>
 <div class="contact-page">
-  <div class="map-area" id="contact-map"></div>
+  <div class="map-area" id="contact-map" data-contact-map
+  data-marker-icon="<?php bloginfo('template_directory'); ?>/images/icon-marker.png"></div>
   <div class="container">
     <div class="row">
       <h2 class="title"> Get In Touch </h2>
