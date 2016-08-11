@@ -76,8 +76,8 @@
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAojYRfYLfWetgH80scF33ZiIYltBKnUi0&callback=initMap">
 </script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55cc16b859177c4d"></script>
-<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/libs.js"></script>
-<script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
+<script src="<?php bloginfo('template_directory'); ?>/js/libs.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
 </body>
 </html>

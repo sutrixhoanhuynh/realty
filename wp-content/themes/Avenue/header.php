@@ -16,7 +16,6 @@
   <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Montserrat' />
   <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:300,700,400,600' />
   <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,300' rel='stylesheet' type='text/css'>
-  <script src='https://www.google.com/recaptcha/api.js'></script>
   <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/modernizr.js"></script>
 </head>
 <body>

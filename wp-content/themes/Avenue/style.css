@@ -1107,6 +1107,7 @@ footer .newsletter button {
 
 .contact-page p {
   font-family: 'Fira Sans', sans-serif;
+  text-align: justify;
 }
 
 .contact-form input {
@@ -1129,6 +1130,7 @@ footer .newsletter button {
   border-radius: 2px;
   border: 1px solid #ddd;
   box-shadow: none;
+  resize: vertical;
 }
 
 .contact-page .map-area {
@@ -1152,6 +1154,11 @@ footer .newsletter button {
   margin-bottom: 10px;
 }
 
+.contact-page .contact-info a {
+  font-size: 1em;
+  color: #337ab7;
+}
+
 .contact-page .contact-info li i {
   color: #728a8d;
 }
@@ -1163,6 +1170,11 @@ footer .newsletter button {
   text-align: center;
   color: white;
   margin-right: 10px;
+  cursor: hand;
+}
+
+.contact-page .follow-us li i {
+  color: white;
 }
 
 .contact-page .follow-us li.facebook {
@@ -1175,4 +1187,10 @@ footer .newsletter button {
 
 .contact-page .follow-us li.gooleplus {
   background-color: #ff6550;
+}
+
+.contact-page .send-contact {
+  border-radius: 0;
+  text-transform: capitalize;
+  padding: 7px 25px;
 }

@@ -125,6 +125,7 @@ jQuery(function() {
           footer = $(opts.footer);
 
         win.on('scroll.' + pluginName, function() {
+
           var scroll = win.scrollTop(),
               height = footer.length ? footer.height() : 0;
 
@@ -135,11 +136,12 @@ jQuery(function() {
           } else {
             el.removeClass(opts.scrolling).addClass(opts.fixed);
           }
+
       });
 
       el.off('click.' + pluginName).on('click.' + pluginName, function() {
 
-        htmlBody.animate({scrollTop: 0 }, opts.duration);
+        htmlBody.animate({scrollTop: 0}, opts.duration);
         return false;
 
       });
@@ -248,10 +250,6 @@ jQuery(function() {
         options = that.options,
         fields = $('[data-rule]', el);
 
-      // el.on('blur.' + pluginName, '[data-rule]:not(:checkbox, :radio, :file)', function () {
-      //   validation($(this), options);
-      // });
-
       el.on('change.' + pluginName, '[data-rule]:checkbox, [data-rule]:radio, [data-rule]:file, select[data-rule]', function () {
         validation($(this), options);
       });
@@ -295,6 +293,71 @@ jQuery(function() {
   $(function() {
 
     $('[data-' + pluginName + ']')[pluginName]();
+
+  });
+
+}(jQuery, window));
+/**
+ *  @name recaptcha
+ *  @description
+ *  @version 1.0
+ *  @options
+ *    option
+ *  @events
+ *    event
+ *  @methods
+ *    init
+ *    destroy
+ */
+;(function($, window, undefined) {
+
+  'use strict';
+
+  var pluginName = 'recaptcha';
+
+  function Plugin(element, options) {
+    this.element = $(element);
+    this.options = $.extend({}, $.fn[pluginName].defaults, this.element.data(), options);
+    this.init();
+  }
+
+  Plugin.prototype = {
+    init: function() {
+
+      var that = this,
+          opts = that.options;
+
+      grecaptcha.render(that.element[0], {
+        'sitekey': opts.sitekey,
+        'theme': opts.theme
+      });
+
+    },
+    destroy: function() {
+      $.removeData(this.element[0], pluginName);
+    }
+  };
+
+  $.fn[pluginName] = function(options, params) {
+    return this.each(function() {
+      var instance = $.data(this, pluginName);
+      if (!instance) {
+        $.data(this, pluginName, new Plugin(this, options));
+      } else if (instance[options]) {
+        instance[options](params);
+      }
+    });
+  };
+
+  $.fn[pluginName].defaults = {
+    theme: 'light'
+  };
+
+  $(function() {
+
+    window.loadCaptcha = function () {
+      $('[data-' + pluginName + ']')[pluginName]();
+    };
 
   });
 
