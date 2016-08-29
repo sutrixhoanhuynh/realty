@@ -1274,7 +1274,8 @@ footer .newsletter button {
   opacity: 1;
 }
 
-.contact-page .form-group.error input {
+.contact-page .error input,
+.contact-page .error textarea {
   border-color: #b94a48;
 }
 
@@ -1309,5 +1310,7 @@ footer .newsletter button {
   width: 100%;
   height: 40px;
   padding: 0;
-  background-color: #43becc;
+  background-color: #e25856;
+  border: none; box-shadow: none;
+  font-family: 'Open Sans', sans-serif;
 }

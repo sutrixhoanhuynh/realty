@@ -24,7 +24,7 @@
           </div>
           <div class="form-group">
             <input type="text" placeholder="Your email address" class="form-control"
-            data-rule='["required"]' />
+            data-rule='["required", "email"]' />
             <span class="tooltip">
               <i class="fa fa-warning" aria-hidden="true"></i>
               Please enter your email
