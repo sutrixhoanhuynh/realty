@@ -67,7 +67,7 @@
 </main>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAojYRfYLfWetgH80scF33ZiIYltBKnUi0&callback=initMap" async defer></script>
 <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
-<script src="<?php bloginfo('template_directory'); ?>/js/libs.js"></script>
-<script src="<?php bloginfo('template_directory'); ?>/js/script.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/libs.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/script.js"></script>
 </body>
 </html>

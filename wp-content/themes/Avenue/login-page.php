@@ -10,11 +10,11 @@ $auth = array();
 function authenticate($user) {
   global $auth;
 
-  $signon = wp_signon($user, false);   
+  $signon = wp_signon($user, false);
 
   if(is_wp_error($signon)) {
     $auth = array(
-      'status' => 'fail', 
+      'status' => 'fail',
       'message' => 'Invalid username or password. Please try again!'
     );
   } else {
@@ -55,7 +55,7 @@ if (isset($_POST['sign-in'])) {
     'user_login' => $_POST['email'],
     'user_password' => $_POST['password'],
     'remember' => $_POST['remember']
-  );  
+  );
 
   validation($user);
 }
@@ -70,7 +70,7 @@ if (isset($_POST['sign-in'])) {
           <div class="col-md-9">
             <h3> Smart Admin </h3>
             <div class="hero">
-              <p> 
+              <p>
                 It's Okay to be Smart. Experience the simplicity of SmartAdmin, everywhere you go!
               </p>
               <div class="button-group">
@@ -78,10 +78,10 @@ if (isset($_POST['sign-in'])) {
                 <a href="javascript:;" class="btn btn-danger btn-sm">Find out more</a>
               </div>
             </div>
-          </div> 
-          <div class="col-sm-3">          
+          </div>
+          <div class="col-sm-3">
             <img src="<?php echo get_template_directory_uri(); ?>/images/iphoneview.png" />
-          </div>         
+          </div>
         </div>
         <div class="row features">
           <div class="col-md-6 col-lg-6">
@@ -99,7 +99,7 @@ if (isset($_POST['sign-in'])) {
         </div>
       </div>
       <div class="col-sm-12 col-md-5 col-lg-4">
-        <?php           
+        <?php
           if(array_key_exists('status', $auth)) {
             $status = $auth['status'];
 
@@ -110,24 +110,24 @@ if (isset($_POST['sign-in'])) {
                       '</div>';
             }
           }
-        ?>        
+        ?>
         <div class="panel panel-default">
          <form action="<?php echo get_site_url(); ?>/login" method="POST" class="smart-form" data-validation="">
           <fieldset>
             <legend> Sign in </legend>
             <section class="fields">
              <div class="form-group">
-               <label for="email">E-mail</label>               
+               <label for="email">E-mail</label>
                <div class="input-group clearfix">
                   <span class="input-group-addon">
                     <i class="fa fa-user"></i>
-                  </span>                  
+                  </span>
                   <input type="text" name="email" id="email" class="form-control" data-rule='["required"]' />
                   <span class="tooltip">
-                    <i class="fa fa fa-warning"></i>
+                    <i class="fa fa-warning" aria-hidden="true"></i>
                     Please enter email address/username
                   </span>
-               </div>           
+               </div>
              </div>
              <div class="form-group">
                <label for="password">Password</label>
@@ -135,9 +135,9 @@ if (isset($_POST['sign-in'])) {
                   <span class="input-group-addon">
                     <i class="fa fa-lock"></i>
                   </span>
-                  <input type="password" name="password" id="password" class="form-control" data-rule='["required"]' />                  
+                  <input type="password" name="password" id="password" class="form-control" data-rule='["required"]' />
                   <span class="tooltip">
-                    <i class="fa fa fa-warning"></i>
+                    <i class="fa fa-warning" aria-hidden="true"></i>
                     Please enter your password
                   </span>
                </div>
@@ -146,7 +146,7 @@ if (isset($_POST['sign-in'])) {
                </div>
              </div>
              <div class="checkbox">
-                <input type="checkbox" id="remember" name="remember" /> 
+                <input type="checkbox" id="remember" name="remember" />
                 <label for="remember"> Remember me </label>
              </div>
             </section>
@@ -174,10 +174,10 @@ if (isset($_POST['sign-in'])) {
                 <i class="fa fa-linkedin"></i>
               </a>
             </li>
-          </ul>          
+          </ul>
         </div>
       </div>
     </div>
-  </div>  
+  </div>
 </div>
 <?php get_footer(); ?>

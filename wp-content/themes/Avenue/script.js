@@ -1,3 +1,12 @@
+var L10n = {
+  validation: {
+    required: {
+      username: 'Please enter your name',
+      email: 'Please enter email address'
+    }
+  }
+}
+
 var Site = (function($, window, undefined) {
 
   function isTouch() {
@@ -18,78 +27,7 @@ var Site = (function($, window, undefined) {
 jQuery(function() {
   Site.initTooltip();
 });
-/**
- *  @name carousel
- *  @description
- *  @version 1.0
- *  @options
- *    option
- *  @events
- *    event
- *  @methods
- *    init
- *    destroy
- */
-;(function($, window, undefined) {
-  'use strict';
 
-  var pluginName = 'carousel';
-
-  function Plugin(element, options) {
-    this.element = $(element);
-    this.options = $.extend({}, $.fn[pluginName].defaults, this.element.data(), options);
-    this.init();
-  }
-
-  Plugin.prototype = {
-    init: function() {
-
-      var that = this,
-          el = that.element;
-
-      el.slick(that.options);
-
-    },
-    destroy: function() {
-      $.removeData(this.element[0], pluginName);
-    }
-  };
-
-  $.fn[pluginName] = function(options, params) {
-    return this.each(function() {
-      var instance = $.data(this, pluginName);
-      if (!instance) {
-        $.data(this, pluginName, new Plugin(this, options));
-      } else if (instance[options]) {
-        instance[options](params);
-      }
-    });
-  };
-
-  $.fn[pluginName].defaults = {
-    dots: true,
-    autoplay: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplaySpeed: 2000,
-    prevArrow: '<button type="button" class="slick-prev slick-arrow" aria-label="Previous" role="button"><span class="flaticon-previous11"></span></button>',
-    nextArrow: '<button type="button" class="slick-next slick-arrow" aria-label="Next" role="button"><span class="flaticon-next15"></span></button>',
-    responsive: [{
-      breakpoint: 768,
-      settings: {
-        arrows: false,
-        dots: false
-      }
-    }]
-  };
-
-  $(function() {
-
-    $('[data-' + pluginName + ']')[pluginName]();
-
-  });
-
-}(jQuery, window));
 /**
  *  @name back-to-top
  *  @description
@@ -178,6 +116,239 @@ jQuery(function() {
   });
 
 }(jQuery, window));
+
+/**
+ *  @name carousel
+ *  @description
+ *  @version 1.0
+ *  @options
+ *    option
+ *  @events
+ *    event
+ *  @methods
+ *    init
+ *    destroy
+ */
+;(function($, window, undefined) {
+  'use strict';
+
+  var pluginName = 'carousel';
+
+  function Plugin(element, options) {
+    this.element = $(element);
+    this.options = $.extend({}, $.fn[pluginName].defaults, this.element.data(), options);
+    this.init();
+  }
+
+  Plugin.prototype = {
+    init: function() {
+
+      var that = this,
+          el = that.element;
+
+      el.slick(that.options);
+
+    },
+    destroy: function() {
+      $.removeData(this.element[0], pluginName);
+    }
+  };
+
+  $.fn[pluginName] = function(options, params) {
+    return this.each(function() {
+      var instance = $.data(this, pluginName);
+      if (!instance) {
+        $.data(this, pluginName, new Plugin(this, options));
+      } else if (instance[options]) {
+        instance[options](params);
+      }
+    });
+  };
+
+  $.fn[pluginName].defaults = {
+    dots: true,
+    autoplay: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplaySpeed: 2000,
+    prevArrow: '<button type="button" class="slick-prev slick-arrow" aria-label="Previous" role="button"><span class="flaticon-previous11"></span></button>',
+    nextArrow: '<button type="button" class="slick-next slick-arrow" aria-label="Next" role="button"><span class="flaticon-next15"></span></button>',
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        dots: false
+      }
+    }]
+  };
+
+  $(function() {
+
+    $('[data-' + pluginName + ']')[pluginName]();
+
+  });
+
+}(jQuery, window));
+
+/**
+ *  @name contact-map
+ *  @description
+ *  @version 1.0
+ *  @options
+ *    option
+ *  @events
+ *    event
+ *  @methods
+ *    init
+ *    destroy
+ */
+;(function($, window, undefined) {
+
+  'use strict';
+
+  var pluginName = 'contact-map';
+
+  var initMap = function () {
+
+    var that = this,
+        opts = that.options;
+
+    that.map = new google.maps.Map(that.element[0], {
+      zoom: opts.zoom,
+      center: opts.location,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    that.marker = new google.maps.Marker({
+      map: that.map,
+      position: opts.location,
+      animation: google.maps.Animation.DROP,
+      icon: opts.markerIcon,
+      title: opts.title
+    });
+
+    that.infoWindow = new google.maps.InfoWindow({
+      content: $(opts.content).html(),
+      maxWidth: 260
+    });
+
+  };
+
+  function Plugin(element, options) {
+    this.element = $(element);
+    this.options = $.extend({}, $.fn[pluginName].defaults, this.element.data(), options);
+    this.init();
+  }
+
+  Plugin.prototype = {
+    init: function() {
+
+      var that = this;
+      initMap.call(that);
+
+      //that.infoWindow.open(that.map, that.marker);
+
+    },
+    destroy: function() {
+      $.removeData(this.element[0], pluginName);
+    }
+  };
+
+  $.fn[pluginName] = function(options, params) {
+    return this.each(function() {
+      var instance = $.data(this, pluginName);
+      if (!instance) {
+        $.data(this, pluginName, new Plugin(this, options));
+      } else if (instance[options]) {
+        instance[options](params);
+      }
+    });
+  };
+
+  $.fn[pluginName].defaults = {
+    zoom: 18,
+    location: {
+      lat: 10.791628,
+      lng: 106.637023
+    }
+  };
+
+  $(function() {
+
+    window.initMap = function () {
+      $('[data-' + pluginName + ']')[pluginName]();
+    };
+
+  });
+
+}(jQuery, window));
+
+/**
+ *  @name recaptcha
+ *  @description
+ *  @version 1.0
+ *  @options
+ *    option
+ *  @events
+ *    event
+ *  @methods
+ *    init
+ *    destroy
+ */
+;(function($, window, undefined) {
+
+  'use strict';
+
+  var pluginName = 'recaptcha';
+
+  function Plugin(element, options) {
+    this.element = $(element);
+    this.options = $.extend({}, $.fn[pluginName].defaults, this.element.data(), options);
+    this.init();
+  }
+
+  Plugin.prototype = {
+    init: function() {
+
+      var that = this,
+          opts = that.options;
+
+      grecaptcha.render(that.element[0], {
+        'sitekey': opts.sitekey,
+        'theme': opts.theme
+      });
+
+    },
+    destroy: function() {
+      $.removeData(this.element[0], pluginName);
+    }
+  };
+
+  $.fn[pluginName] = function(options, params) {
+    return this.each(function() {
+      var instance = $.data(this, pluginName);
+      if (!instance) {
+        $.data(this, pluginName, new Plugin(this, options));
+      } else if (instance[options]) {
+        instance[options](params);
+      }
+    });
+  };
+
+  $.fn[pluginName].defaults = {
+    theme: 'light'
+  };
+
+  $(function() {
+
+    window.loadCaptcha = function () {
+      $('[data-' + pluginName + ']')[pluginName]();
+    };
+
+  });
+
+}(jQuery, window));
+
 /**
  *  @name validation
  *  @description
@@ -293,163 +464,6 @@ jQuery(function() {
   $(function() {
 
     $('[data-' + pluginName + ']')[pluginName]();
-
-  });
-
-}(jQuery, window));
-/**
- *  @name recaptcha
- *  @description
- *  @version 1.0
- *  @options
- *    option
- *  @events
- *    event
- *  @methods
- *    init
- *    destroy
- */
-;(function($, window, undefined) {
-
-  'use strict';
-
-  var pluginName = 'recaptcha';
-
-  function Plugin(element, options) {
-    this.element = $(element);
-    this.options = $.extend({}, $.fn[pluginName].defaults, this.element.data(), options);
-    this.init();
-  }
-
-  Plugin.prototype = {
-    init: function() {
-
-      var that = this,
-          opts = that.options;
-
-      grecaptcha.render(that.element[0], {
-        'sitekey': opts.sitekey,
-        'theme': opts.theme
-      });
-
-    },
-    destroy: function() {
-      $.removeData(this.element[0], pluginName);
-    }
-  };
-
-  $.fn[pluginName] = function(options, params) {
-    return this.each(function() {
-      var instance = $.data(this, pluginName);
-      if (!instance) {
-        $.data(this, pluginName, new Plugin(this, options));
-      } else if (instance[options]) {
-        instance[options](params);
-      }
-    });
-  };
-
-  $.fn[pluginName].defaults = {
-    theme: 'light'
-  };
-
-  $(function() {
-
-    window.loadCaptcha = function () {
-      $('[data-' + pluginName + ']')[pluginName]();
-    };
-
-  });
-
-}(jQuery, window));
-/**
- *  @name contact-map
- *  @description
- *  @version 1.0
- *  @options
- *    option
- *  @events
- *    event
- *  @methods
- *    init
- *    destroy
- */
-;(function($, window, undefined) {
-
-  'use strict';
-
-  var pluginName = 'contact-map';
-
-  var initMap = function () {
-
-    var that = this,
-        opts = that.options;
-
-    that.map = new google.maps.Map(that.element[0], {
-      zoom: opts.zoom,
-      center: opts.location,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-
-    that.marker = new google.maps.Marker({
-      map: that.map,
-      position: opts.location,
-      animation: google.maps.Animation.DROP,
-      icon: opts.markerIcon,
-      title: opts.title
-    });
-
-    that.infoWindow = new google.maps.InfoWindow({
-      content: $(opts.content).html(),
-      maxWidth: 260
-    });
-
-  };
-
-  function Plugin(element, options) {
-    this.element = $(element);
-    this.options = $.extend({}, $.fn[pluginName].defaults, this.element.data(), options);
-    this.init();
-  }
-
-  Plugin.prototype = {
-    init: function() {
-
-      var that = this;
-      initMap.call(that);
-
-      //that.infoWindow.open(that.map, that.marker);
-
-    },
-    destroy: function() {
-      $.removeData(this.element[0], pluginName);
-    }
-  };
-
-  $.fn[pluginName] = function(options, params) {
-    return this.each(function() {
-      var instance = $.data(this, pluginName);
-      if (!instance) {
-        $.data(this, pluginName, new Plugin(this, options));
-      } else if (instance[options]) {
-        instance[options](params);
-      }
-    });
-  };
-
-  $.fn[pluginName].defaults = {
-    zoom: 18,    
-    location: {
-      lat: 10.791628,
-      lng: 106.637023
-    }
-  };
-
-  $(function() {
-
-    window.initMap = function () {
-      $('[data-' + pluginName + ']')[pluginName]();
-    };
 
   });
 
