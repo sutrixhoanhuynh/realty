@@ -1,5 +1,6 @@
 
-<?php include (TEMPLATEPATH . '/lib/slider.php'); ?>
+<?php include(TEMPLATEPATH . '/lib/slider.php'); ?>
+<?php include(TEMPLATEPATH . '/lib/listing.php'); ?> 
 <div class="property-lisitings-block">
 	<div class="container">
 		<div class="rows">
@@ -16,7 +17,7 @@
 					<li class="col-lg-4 col-md-6">
 						<div class="property-item">
 							<!--<a href="<?php the_permalink() ?>">-->
-								<div class="property-title">
+								<div class="property-title <?php $type=get_the_term_list($post->ID, 'type', '', ' ', '' ); echo(strip_tags($type)); ?>">
 									<h3 class="title"><?php the_title(); ?></h3>
 									<h4 class="address"><?php $address=get_the_term_list( $post->ID, 'location', '', ' ', '' ); echo strip_tags($address); ?></h4>
 								</div>
@@ -35,7 +36,7 @@
 											<div class="subtitle">
 												<span class="type"><?php echo get_the_term_list( $post->ID, 'property', '', ' ', '' ); ?></span>
 												<span class="link-icon"><i class="fa fa-star" aria-hidden="true"></i></span>
-												<span><a href="javascript:;"><?php $area=get_the_term_list( $post->ID, 'type', '', ' ', '' ); echo(strip_tags($area)); ?></a></span>
+												<span><a href="javascript:;"><?php $type=get_the_term_list( $post->ID, 'type', '', ' ', '' ); echo(strip_tags($type)); ?></a></span>
 											</div>
 											<p>
 												<?php wpe_excerpt('wpe_excerptlength_archive', ''); ?>
@@ -72,7 +73,7 @@
 												<i class="fa fa-share-alt" data-toggle="tooltip" data-original-title="Share"></i>
 											</li>
 											<li>
-												<i class="fa fa-heart-o" data-toggle="tooltip" data-original-title="Add To Favorites"></i>
+												<i class="fa fa-heart-o " data-toggle="tooltip" data-original-title="Add To Favorites"></i>
 											</li>
 											<li>
 												<i class="fa fa-video-camera" data-toggle="tooltip" data-original-title="Watch Trailer"></i>

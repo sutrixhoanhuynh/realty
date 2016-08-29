@@ -1,8 +1,10 @@
 <?php get_header(); ?>
 
 <?php
-if(get_option('aven_home') == "listing") { ?>
-<?php include (TEMPLATEPATH . '/lib/listhome.php'); ?>
+if(get_option('aven_home') == 'listing') { ?>
+<?php
+  include (TEMPLATEPATH . '/lib/listhome.php'); 
+?>
 <?php } else { ?>
 <div id="content">
 

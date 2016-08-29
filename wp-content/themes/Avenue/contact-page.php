@@ -5,8 +5,8 @@
 ?>
 <?php get_header(); ?>
 <div class="contact-page">
-  <div class="map-area" id="contact-map" data-contact-map
-  data-marker-icon="<?php bloginfo('template_directory'); ?>/images/icon-marker.png"></div>
+  <div class="map-area" id="contact-map" data-contact-map data-title="Hoi Tu Company"
+  data-content="#contact-dialog" data-marker-icon="<?php bloginfo('template_directory'); ?>/images/icon-marker.png"></div>
   <div class="container">
     <div class="row">
       <h2 class="title"> Get In Touch </h2>
@@ -36,7 +36,7 @@
         </form>
       </div>
       <div class="col-sm-6 col-md-pull-6">
-        <p>
+        <p class="hidden-xs">
           On the left you can see the theme’s contact form. It’s a <a href="http://demo.themetrail.com/realty/shortcodes#contact-form"> shortcode </a>, and pretty powerful. Realty also support contact form 7. Go, give it a try and hit the “Send” button to see what happens.
         </p>
 
@@ -83,6 +83,18 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+<div id="contact-dialog" class="hidden">
+  <div class="dialog"> 
+    <div class="arrow"></div> 
+    <h3 class="dialog-title">HoiTu Company</h3> 
+    <div class="dialog-content"> 
+      <p> 
+        Sed posuere consectetur est at lobortis. Aenean eu leo quam. 
+        Pellentesque ornare sem lacinia quam venenatis vestibulum.
+      </p> 
+    </div> 
   </div>
 </div>
 <?php get_footer(); ?>

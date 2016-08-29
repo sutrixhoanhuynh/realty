@@ -395,7 +395,13 @@ jQuery(function() {
       map: that.map,
       position: opts.location,
       animation: google.maps.Animation.DROP,
-      icon: opts.markerIcon
+      icon: opts.markerIcon,
+      title: opts.title
+    });
+
+    that.infoWindow = new google.maps.InfoWindow({
+      content: $(opts.content).html(),
+      maxWidth: 260
     });
 
   };
@@ -409,7 +415,10 @@ jQuery(function() {
   Plugin.prototype = {
     init: function() {
 
-      initMap.call(this);
+      var that = this;
+      initMap.call(that);
+
+      //that.infoWindow.open(that.map, that.marker);
 
     },
     destroy: function() {
@@ -429,7 +438,7 @@ jQuery(function() {
   };
 
   $.fn[pluginName].defaults = {
-    zoom: 18,
+    zoom: 18,    
     location: {
       lat: 10.791628,
       lng: 106.637023

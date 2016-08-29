@@ -10,12 +10,12 @@
 		?>
 		<li>
 			<figure>
-				<img src="<?php bloginfo('stylesheet_directory'); ?>/timthumb.php?src=<?php echo get_image_url()?>&amp;h=546&amp;w=1400amp;zc=1"/>
+				<img src="<?php the_post_thumbnail_url(); ?>"/>
 				<figcaption>
 					<div class="inner">
 						<h3 class="title">
 							<a href="<?php the_permalink() ?>"> <?php the_title(); ?>
-								<span class="flaticon-next15" aria-hidden="true"></span>
+								<!-- <i class="fa fa-angle-right" aria-hidden="true"></i> -->
 							</a>
 						</h3>
 						<div class="description">
