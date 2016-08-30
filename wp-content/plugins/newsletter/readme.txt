@@ -1,8 +1,8 @@
 === Newsletter ===
-Tags: newsletter,email,subscription,mass mail,list build,email marketing,direct mailing
+Tags: newsletter,email,subscription,mass mail,list build,email marketing,direct mailing,automation,automated
 Requires at least: 3.4.0
-Tested up to: 4.5
-Stable tag: trunk
+Tested up to: 4.6.0
+Stable tag: 4.6.0
 Contributors: satollo,webagile,michael-travan
 
 Add a real newsletter system to your blog. For free. With unlimited newsletters and subscribers.
@@ -10,10 +10,11 @@ Add a real newsletter system to your blog. For free. With unlimited newsletters 
 == Description ==
 
 Newsletter is a **real newsletter system** for your WordPress blog: perfect for list building, you can easily create,
-send and track e-mails, headache-free. It just works out of box! 
+send and track e-mails, headache-free. It just works out of box!
 
 = Main Features =
 
+* NEW **responsive email Drag & Drop composer**
 * **Unlimited Subscribers** with statistics 
 * **Unlimited Emails** with tracking
 * Customizable **subscription widget**, **page** or **custom form**
@@ -26,9 +27,6 @@ send and track e-mails, headache-free. It just works out of box!
 * All messages are **fully translatable** from Admin Panel (no .po/.mo)
 * Diagnostics Panel to check your blog mailing capability 
 * **Compatible with Postman, WP Mail SMTP, Easy WP SMTP, Easy SMTP Mail, WP Mail Bank**
-
-**Set Up Your First Newsletter In Just A Couple Of Clicks**
-[youtube https://www.youtube.com/watch?v=JaxK7XwqvVI]
 
 = Integration with WordPress registration =
 
@@ -71,14 +69,71 @@ For documentation start from [Newsletter documentation](http://www.thenewsletter
 
 Thank you, The Newsletter Team
 
-== Screen shots ==
+== Screenshots ==
 
-No screenshots are available at this time.
+1. The plugin dashboard
+2. The responsive email Drag & Drop composer
+3. The Reports extension
 
 == Changelog ==
 
+= 4.6.0 =
+
+* Fixed debug notices on composer post blocks
+* Improved image styles on composer hero block
+* Added support for WP_Error in the logger
+* Improved the license checking
+
+= 4.5.9 =
+
+* Fixed a PHP syntax error on composer panel
+
+= 4.5.8 =
+
+* Edit image alt text in the composer
+* Fixed german characters problem on visual composer
+* Added new data to diagnostic panel
+* Change the export to be more compatible with specific blog installations
+* Added translations to export panel
+
+= 4.5.7 =
+
+* Fixed the total sent email in dashboard
+* Fixed the total sent number on newsletter list when an already sent newsletter is edited
+* Removed the save button on sent newsletter
+* Code cleanup
+* Service message for stats panel of draft newsletters
+
+= 4.5.6 =
+
+* New unified themes and composer selection screen
+* Fixed the WP integration panel (incompatibility with WP 4.5.3)
+* Removed few notices
+* More warning fix
+* Fix "isHTML" error
+* jQuery conflict fix
+* Escape fix
+* Warning fix
+* Fixed the mime header
+
+= 4.5.0 =
+
+* New responsive email Drag & Drop composer, see [the guide](http://www.thenewsletterplugin.com/plugins/newsletter/composer).
+
+= 4.2.4 =
+
+* Fixed the notices display in Newsletter admin pages
+* Administrative emails sent now with the Newsletter engine
+* New {email_id} and {email_subject} placeholders
+
+= 4.2.3 =
+
+* Improvements in database error management
+* Added hook for Reports Extension
+
 = 4.2.2 =
 
+* The lock feature is disabled for editors and administrators
 * Fixed the newsletter sent table
 
 = 4.2.1 =

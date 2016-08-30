@@ -19,7 +19,7 @@ class NewsletterEmails extends NewsletterModule {
 
     function __construct() {
         $this->themes = new NewsletterThemes('emails');
-        parent::__construct('emails', '1.1.2');
+        parent::__construct('emails', '1.1.4');
         add_action('wp_loaded', array($this, 'hook_wp_loaded'));
     }
 
@@ -66,6 +66,7 @@ class NewsletterEmails extends NewsletterModule {
         // Force a token to email without one already set.
         $token = self::get_token();
         $wpdb->query("update " . NEWSLETTER_EMAILS_TABLE . " set token='" . $token . "' where token=''");
+        $wpdb->query("update " . NEWSLETTER_EMAILS_TABLE . " set total=sent where status='sent' and type='message'");
 
         return true;
     }
@@ -76,6 +77,8 @@ class NewsletterEmails extends NewsletterModule {
         $this->add_admin_page('new', 'Email New');
         $this->add_admin_page('edit', 'Email Edit');
         $this->add_admin_page('theme', 'Email Themes');
+        $this->add_admin_page('composer', 'The Composer');
+        $this->add_admin_page('cpreview', 'The Composer Preview');
     }
 
     /**

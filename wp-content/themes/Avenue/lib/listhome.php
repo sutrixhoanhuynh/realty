@@ -16,35 +16,33 @@
 				<?php while ($wp_query->have_posts()) : $wp_query->the_post(); ?>
 					<li class="col-lg-4 col-md-6">
 						<div class="property-item">
-							<!--<a href="<?php the_permalink() ?>">-->
-								<div class="property-title <?php $type=get_the_term_list($post->ID, 'type', '', ' ', '' ); echo(strip_tags($type)); ?>">
-									<h3 class="title"><?php the_title(); ?></h3>
-									<h4 class="address"><?php $address=get_the_term_list( $post->ID, 'location', '', ' ', '' ); echo strip_tags($address); ?></h4>
+							<div class="property-title <?php $type=get_the_term_list($post->ID, 'type', '', ' ', '' ); echo(strip_tags($type)); ?>">
+								<h3 class="title"><?php the_title(); ?></h3>
+								<h4 class="address"><?php $address=get_the_term_list( $post->ID, 'location', '', ' ', '' ); echo strip_tags($address); ?></h4>
+							</div>
+							<figure class="property-thumbnail">
+								<?php
+									if (has_post_thumbnail()) { ?>
+										<img src="<?php bloginfo('stylesheet_directory'); ?>/timthumb.php?src=<?php get_image_url(); ?>&amp;h=300&amp;w=600&amp;zc=1" />
+									<?php } else { ?>
+										<img src="<?php bloginfo('template_directory'); ?>/images/dummy.jpg" />
+								<?php } ?>
+								<div class="property-status">
+									<?php $area=get_the_term_list( $post->ID, 'type', '', ' ', '' ); echo(strip_tags($area)); ?>
 								</div>
-								<figure class="property-thumbnail">
-									<?php
-										if (has_post_thumbnail()) { ?>
-											<img src="<?php bloginfo('stylesheet_directory'); ?>/timthumb.php?src=<?php get_image_url(); ?>&amp;h=300&amp;w=600&amp;zc=1" />
-										<?php } else { ?>
-											<img src="<?php bloginfo('template_directory'); ?>/images/dummy.jpg" />
-									<?php } ?>
-									<div class="property-status">
-										<?php $area=get_the_term_list( $post->ID, 'type', '', ' ', '' ); echo(strip_tags($area)); ?>
-									</div>
-									<figcaption>
-										<div class="property-excerpt">
-											<div class="subtitle">
-												<span class="type"><?php echo get_the_term_list( $post->ID, 'property', '', ' ', '' ); ?></span>
-												<span class="link-icon"><i class="fa fa-star" aria-hidden="true"></i></span>
-												<span><a href="javascript:;"><?php $type=get_the_term_list( $post->ID, 'type', '', ' ', '' ); echo(strip_tags($type)); ?></a></span>
-											</div>
-											<p>
-												<?php wpe_excerpt('wpe_excerptlength_archive', ''); ?>
-											</p>
+								<figcaption>
+									<div class="property-excerpt">
+										<div class="subtitle">
+											<span class="type"><?php echo get_the_term_list( $post->ID, 'property', '', ' ', '' ); ?></span>
+											<span class="link-icon"><i class="fa fa-star" aria-hidden="true"></i></span>
+											<span><a href="javascript:;"><?php $type=get_the_term_list( $post->ID, 'type', '', ' ', '' ); echo(strip_tags($type)); ?></a></span>
 										</div>
-									</figcaption>
-								</figure>
-							<!--</a>-->
+										<p>
+											<?php wpe_excerpt('wpe_excerptlength_archive', ''); ?>
+										</p>
+									</div>
+								</figcaption>
+							</figure>
 							<div class="property-content">
 								<div class="property-meta">
 									<ul>
@@ -73,22 +71,22 @@
 												<i class="fa fa-share-alt" data-toggle="collapse" data-target="#collapse-<?php echo $post->ID; ?>"></i>
 												<ul class="share-unit" id="collapse-<?php echo $post->ID; ?>">
 													<li>
-														<a class="social-facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=http://www.facebook.com/sharer.php?u=http%3A%2F%2Fdemo.themetrail.com%2Frealty%2Fproperty%2Ffuturistic-nest&t=<?php the_title(); ?>">
+														<a class="social-facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=<?php echo get_permalink($post->ID); ?>&t=<?php the_title(); ?>">
 															<i class="fa fa-facebook" aria-hidden="true"></i>
 														</a>
 													</li>
 													<li>
-														<a class="social-twitter" target="_blank" href="http://twitter.com/home?status=<?php the_title(); ?>+http%3A%2F%2Fdemo.themetrail.com%2Frealty%2Fproperty%2Ffuturistic-nest%2F">
+														<a class="social-twitter" target="_blank" href="http://twitter.com/home?status=<?php the_title(); ?>+<?php echo get_permalink($post->ID); ?>">
 															<i class="fa fa-twitter" aria-hidden="true"></i>
 														</a>
 													</li>
 													<li>
-														<a class="social-google" target="_blank" href="https://plus.google.com/share?url=http://demo.themetrail.com/realty/property/futuristic-nest">
+														<a class="social-google" target="_blank" href="https://plus.google.com/share?url=<?php echo get_permalink($post->ID); ?>">
 															<i class="fa fa-google-plus" aria-hidden="true"></i>
 														</a>
 													</li>
 													<li>
-														<a class="social-pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=http://demo.themetrail.com/realty/property/futuristic-nest/&description=http%3A%2F%2Fdemo.themetrail.com%2Frealty%2Fproperty%2Ffuturistic-nest%2F">
+														<a class="social-pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=<?php echo get_permalink($post->ID); ?>">
 															<i class="fa fa-pinterest-p" aria-hidden="true"></i>
 														</a>
 													</li>
@@ -99,7 +97,7 @@
 											</li>
 											<li>
 												<i class="fa fa-video-camera" data-toggle="tooltip" data-original-title="Watch Trailer"></i>
-											</li>											
+											</li>
 										</ul>
 									</div>
 									<div class="price-tag">

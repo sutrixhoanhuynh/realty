@@ -45,6 +45,9 @@ if (!$controls->is_action()) {
         if (!$newsletter->is_email($controls->data['reply_to'], true)) {
             $controls->errors .= __('Reply to email is not correct.', 'newsletter') . '<br>';
         }
+        
+        $controls->data['contract_key'] = trim($controls->data['contract_key']);
+        
         if (empty($controls->errors)) {
             $module->merge_options($controls->data);
             $controls->messages .= __('Saved.', 'newsletter');
@@ -57,21 +60,22 @@ if (!empty($controls->data['contract_key'])) {
     $response = wp_remote_get('http://www.thenewsletterplugin.com/wp-content/plugins/file-commerce-pro/check.php?k=' . $controls->data['contract_key']);
     if (is_wp_error($response)) {
         /* @var $response WP_Error */
-        $controls->errors .= 'It seems that your blog cannot contact the license validator.<br>';
+        $controls->errors .= 'It seems that your blog cannot contact the license validator. Ask your provider to unlock the HTTP/HTTPS connections to www.thenewsletterplugin.com<br>';
         $controls->errors .= $response->get_error_code() . ' - ' . $response->get_error_message();
         $controls->data['licence_expires'] = "";
     } else if ($response['response']['code'] != 200) {
-        $controls->errors .= 'The license seems expired or not valid, please check your account on www.thenewsletterplugin.com';
+        $controls->errors .= 'The license seems expired or not valid, please check your <a href="http://www.thenewsletterplugin.com/account">license code and status</a>, thank you.';
         $controls->data['licence_expires'] = "";
     } elseif ($expires = json_decode(wp_remote_retrieve_body($response))) {
         $controls->data['licence_expires'] = $expires->expire;
+        $controls->messages = 'Your license is valid and expires on ' . date('Y-m-d', $expires->expire);
     } else {
+        $controls->errors = 'Unable to detect the license expiration. Debug data to report to the support: <code>' . wp_remote_retrieve_body($response) . '</code>';
         $controls->data['licence_expires'] = "";
     }
     $module->merge_options($controls->data);
 }
 
-//echo $module->get_extension_version(64);
 ?>
 
 <div class="wrap" id="tnp-wrap">

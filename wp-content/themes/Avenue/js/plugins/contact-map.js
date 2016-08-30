@@ -83,7 +83,7 @@
 
   $(function() {
 
-    window.initMap = function () {
+    window.loadMap = function () {
       $('[data-' + pluginName + ']')[pluginName]();
     };
 

@@ -187,28 +187,6 @@ function newsletter_print_entries($group) {
     </div>
 <?php } ?>
 
-<?php if (!isset($dismissed['wpmail'])) { ?>
-    <div class="tnp-notice">
-        <a href="<?php echo $_SERVER['REQUEST_URI'] . '&noheader=1&dismiss=wpmail' ?>" class="tnp-dismiss">&times;</a>
-
-        Important change: now Newsletter sends emails using WordPress! <a href="http://www.thenewsletterplugin.com/configuration-tnin-send-email" target="_blank">Read more</a>.
-
-    </div>
-<?php } ?>
-
-<?php /*
-  if (isset($_GET['page']) && !Newsletter::instance()->has_license()) {
-  $p = $_GET['page'];
-  if (strpos($p, 'newsletter_reports') === 0 || strpos($p, 'newsletter_automated') === 0 || strpos($p, 'newsletter_feed') === 0 ||
-  strpos($p, 'newsletter_followup') === 0 || strpos($p, 'newsletter_autoresponder') === 0 || strpos($p, 'newsletter_sendgrid') === 0) {
-  ?>
-  <div class="tnp-notice">
-  You have not set your licence
-  </div>
-  <?php
-  }
-  } */
-?>
 <div id="tnp-notification">
     <?php Newsletter::instance()->warnings(); ?>
     <?php
