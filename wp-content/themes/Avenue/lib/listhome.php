@@ -1,6 +1,6 @@
 
 <?php include(TEMPLATEPATH . '/lib/slider.php'); ?>
-<?php include(TEMPLATEPATH . '/lib/listing.php'); ?> 
+<?php include(TEMPLATEPATH . '/lib/listing.php'); ?>
 <div class="property-lisitings-block">
 	<div class="container">
 		<div class="rows">
@@ -70,17 +70,36 @@
 									<div class="utilities-tag">
 										<ul>
 											<li>
-												<i class="fa fa-share-alt" data-toggle="tooltip" data-original-title="Share"></i>
+												<i class="fa fa-share-alt" data-toggle="collapse" data-target="#collapse-<?php echo $post->ID; ?>"></i>
+												<ul class="share-unit" id="collapse-<?php echo $post->ID; ?>">
+													<li>
+														<a class="social-facebook" target="_blank" href="http://www.facebook.com/sharer.php?u=http://www.facebook.com/sharer.php?u=http%3A%2F%2Fdemo.themetrail.com%2Frealty%2Fproperty%2Ffuturistic-nest&t=<?php the_title(); ?>">
+															<i class="fa fa-facebook" aria-hidden="true"></i>
+														</a>
+													</li>
+													<li>
+														<a class="social-twitter" target="_blank" href="http://twitter.com/home?status=<?php the_title(); ?>+http%3A%2F%2Fdemo.themetrail.com%2Frealty%2Fproperty%2Ffuturistic-nest%2F">
+															<i class="fa fa-twitter" aria-hidden="true"></i>
+														</a>
+													</li>
+													<li>
+														<a class="social-google" target="_blank" href="https://plus.google.com/share?url=http://demo.themetrail.com/realty/property/futuristic-nest">
+															<i class="fa fa-google-plus" aria-hidden="true"></i>
+														</a>
+													</li>
+													<li>
+														<a class="social-pinterest" target="_blank" href="http://pinterest.com/pin/create/button/?url=http://demo.themetrail.com/realty/property/futuristic-nest/&description=http%3A%2F%2Fdemo.themetrail.com%2Frealty%2Fproperty%2Ffuturistic-nest%2F">
+															<i class="fa fa-pinterest-p" aria-hidden="true"></i>
+														</a>
+													</li>
+												</ul>
 											</li>
 											<li>
 												<i class="fa fa-heart-o " data-toggle="tooltip" data-original-title="Add To Favorites"></i>
 											</li>
 											<li>
 												<i class="fa fa-video-camera" data-toggle="tooltip" data-original-title="Watch Trailer"></i>
-											</li>
-											<li>
-												<i class="fa fa-plus" data-toggle="tooltip" data-original-title="Compare"></i>
-											</li>
+											</li>											
 										</ul>
 									</div>
 									<div class="price-tag">

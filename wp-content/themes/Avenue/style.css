@@ -384,7 +384,7 @@ img {
 
 
 /*****************************************************************
-                                    PROPERTY LISTINGS STYLES
+              PROPERTY LISTINGS STYLES
 ******************************************************************/
 
 .property-item {
@@ -495,22 +495,26 @@ img {
 .property-price .price-tag {
   color: #666;
   font-size: 1.2em;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.property-price .utilities-tag {
+  position: relative;
 }
 
 .property-price .utilities-tag li {
   display: inline-block;
-  opacity: 0.5;
   margin-right: 10px;
   cursor: pointer;
 }
 
 .property-price .utilities-tag li i {
   color: #787878;
-  font-size: 17px;
+  font-size: 17px;  
+  opacity: 0.5;
 }
 
-.property-price .utilities-tag li:hover {
+.property-price .utilities-tag > li:hover {
   opacity: 0.75;
 }
 
@@ -582,9 +586,60 @@ img {
   cursor: pointer;
 }
 
+.share-unit {
+  display: none;
+  position: absolute;
+  left: -10px; bottom: 130%;
+  z-index: 1000;
+}
+
+.share-unit:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 12px;
+  border-top: 8px solid #c91a22;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+}
+
+.utilities-tag .share-unit > li {
+  display: block;
+}
+
+.property-price .utilities-tag .share-unit i {
+  color: white;
+  opacity: 1;
+}
+
+.share-unit li a {
+  display: block;
+  font-weight: 300;
+  opacity: 1;
+  width: 40px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+}
+
+.share-unit li a.social-facebook {
+  background-color: #3b5998;
+}
+
+.share-unit li a.social-twitter {
+  background-color: #4cc2ff;
+}
+
+.share-unit li a.social-google {
+  background-color: #d23e2b;
+}
+
+.share-unit li a.social-pinterest {
+  background-color: #c91a22;
+}
 
 /*****************************************************************
-                                    CAROUSEL STYLES
+               CAROUSEL STYLES
 ******************************************************************/
 
 .carousel-block .slick-slide {
@@ -593,7 +648,7 @@ img {
 
 .carousel-block .slick-slide img {
   height: 100%;
-  max-height: 400px;
+  max-height: 540px;
 }
 
 .carousel-block .slick-slide .inner {
@@ -741,7 +796,7 @@ img {
 
 
 /*****************************************************************
-                                    CAROUSEL RESPONSIVE STYLE
+              CAROUSEL RESPONSIVE STYLE
 ******************************************************************/
 
 @media (min-width: 480px) {
@@ -751,13 +806,13 @@ img {
   }
   .carousel-block .slick-slide img {
     width: 100%;
-    max-height: 540px;
+    height: auto;
   }
 }
 
 
 /*****************************************************************
-                                    FOOTER STYLES
+                FOOTER STYLES
 ******************************************************************/
 
 .site-footer {
@@ -878,7 +933,7 @@ footer .newsletter button {
 
 
 /*****************************************************************
-                                    LOGIN PAGE
+                LOGIN PAGE
 ******************************************************************/
 
 #login-page {
