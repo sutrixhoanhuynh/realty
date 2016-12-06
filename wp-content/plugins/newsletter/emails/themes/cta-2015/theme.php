@@ -5,6 +5,8 @@
  * Description: Single call to action marketing template
  */
 
+if (!defined('ABSPATH')) exit;
+
 $color = '#87aa14';
 if (!empty($theme_options['theme_color'])) {
     $color = $theme_options['theme_color'];

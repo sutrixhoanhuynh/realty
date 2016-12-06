@@ -97,9 +97,11 @@
 											<li>
 												<i class="fa fa-heart-o " data-toggle="tooltip" data-original-title="Add To Favorites"></i>
 											</li>
+											<?php if (has_post_video($post->ID)) { ?>
 											<li>
-												<i class="fa fa-video-camera" data-toggle="tooltip" data-original-title="Watch Trailer"></i>
+												<i class="fa fa-video-camera" data-toggle="tooltip" data-original-title="Watch Trailer" data-modal data-content="<video autoplay><source src='<?php echo get_the_post_video_url($post->ID); ?>' /></video>"></i>
 											</li>
+											<?php } ?>
 										</ul>
 									</div>
 									<div class="price-tag">

@@ -3,41 +3,36 @@
 /* Property Listings*/
 
 function post_type_listings() {
-register_post_type(
-                    'listings',
-                    array( 'public' => true,
-					 		'publicly_queryable' => true,
-							'has_archive' => true,
-							'hierarchical' => false,
-							'menu_icon' => 'dashicons-admin-home',
-                    		'labels'=>array(
-    									'name' => _x('Listings', 'post type general name'),
-    									'singular_name' => _x('Listing', 'post type singular name'),
-    									'add_new' => _x('Add New', 'listing'),
-    									'add_new_item' => __('Add New Listing'),
-    									'edit_item' => __('Edit Listing'),
-    									'new_item' => __('New Listing'),
-    									'view_item' => __('View Listing'),
-    									'search_items' => __('Search Listings'),
-    									'not_found' =>  __('No listings found'),
-    									'not_found_in_trash' => __('No Listing found in Trash'),
-    									'parent_item_colon' => ''
-  										),
-                            'show_ui' => true,
-							'menu_position'=>5,
-							'query_var' => true,
-							'rewrite' => TRUE,
-							'rewrite' => array( 'slug' => 'listing', 'with_front' => FALSE,),
-							'register_meta_box_cb' => 'mytheme_add_box',
-							'supports' => array(
-							 			'title',
-										'thumbnail',
-										'comments',
-										'editor'
-										)
-							)
+  register_post_type(
+    'listings',
+     array( 'public' => true,
+				 		'publicly_queryable' => true,
+						'has_archive' => true,
+						'hierarchical' => false,
+						'menu_icon' => 'dashicons-admin-home',
+            'labels'=> array(
+								'name' => _x('Listings', 'post type general name'),
+								'singular_name' => _x('Listing', 'post type singular name'),
+								'add_new' => _x('Add New', 'listing'),
+								'add_new_item' => __('Add New Listing'),
+								'edit_item' => __('Edit Listing'),
+								'new_item' => __('New Listing'),
+								'view_item' => __('View Listing'),
+								'search_items' => __('Search Listings'),
+								'not_found' =>  __('No listings found'),
+								'not_found_in_trash' => __('No Listing found in Trash'),
+								'parent_item_colon' => ''
+  					),
+            'show_ui' => true,
+						'menu_position'=>5,
+						'query_var' => true,
+						'rewrite' => TRUE,
+						'rewrite' => array( 'slug' => 'listing', 'with_front' => FALSE,),
+						'register_meta_box_cb' => 'mytheme_add_box',
+						'supports' => array('title', 'thumbnail', 'comments', 'editor')
+						)
 					);
-				}
+}
 
 add_action('init', 'post_type_listings');
 

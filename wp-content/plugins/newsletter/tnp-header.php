@@ -1,6 +1,8 @@
 <?php
 global $current_user, $wpdb, $newsletter;
 
+if (!defined('ABSPATH')) exit;
+
 $dismissed = get_option('newsletter_dismissed', array());
 
 $user_count = $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where status='C'");
@@ -177,7 +179,7 @@ function newsletter_print_entries($group) {
     </div>
 <?php } ?>
 
-<?php if (NEWSLETTER_DEBUG || !isset($dismissed['newsletter-page']) && empty(NewsletterSubscription::instance()->options['url'])) { ?>
+<?php if (NEWSLETTER_DEBUG || !isset($dismissed['newsletter-page']) && empty(NewsletterSubscription::instance()->options['page'])) { ?>
     <div class="tnp-notice">
         <a href="<?php echo $_SERVER['REQUEST_URI'] . '&noheader=1&dismiss=newsletter-page' ?>" class="tnp-dismiss">&times;</a>
 

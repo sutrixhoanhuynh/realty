@@ -252,7 +252,7 @@
 }
 
 
-p.submit {
+div.submit {
     margin-top: 5px;
     padding: 5px;
 }
@@ -709,6 +709,7 @@ p.description {
     border-color: #34495E;
     border-width: 10px;
     border-style: solid;
+    overflow: auto;
 }
 
 .tnp-darkbg {
@@ -848,6 +849,10 @@ p.description {
 
 /* Dashboard Box */
 
+.metabox-holder {
+    width: 100%;
+}
+
 .postbox {
     border: none;
 }
@@ -970,7 +975,7 @@ p.description {
 /* Wrapper Background */
 
 #wpwrap {
-    background-color: #2C3E50;
+    background-color: #2C3E50 !important;
 }
 
 /* Global buttons styles */

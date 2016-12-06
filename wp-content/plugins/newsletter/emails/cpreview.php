@@ -1,4 +1,6 @@
 <?php
+if (!defined('ABSPATH')) exit;
+
 require_once NEWSLETTER_INCLUDES_DIR . '/controls.php';
 $controls = new NewsletterControls();
 $module = NewsletterEmails::instance();
@@ -441,16 +443,20 @@ echo $wpdb->get_var(str_replace('*', 'count(*)', $email['query']));
                     <table class="form-table">
                         <tr valign="top">
                             <th>Email status</th>
-                            <td><?php echo $email['status']; ?></td>
+                            <td><?php echo $email['status'] ?></td>
                         </tr>
                         <tr valign="top">
                             <th>Messages sent</th>
-                            <td><?php echo $email['sent']; ?> of <?php echo $email['total']; ?></td>
+                            <td><?php echo $email['sent'] ?> of <?php echo $email['total'] ?></td>
                         </tr>
                         <tr valign="top">
                             <th>Query (tech)</th>
-                            <td><?php echo $email['query']; ?></td>
+                            <td><?php echo esc_html($email['query']) ?></td>
                         </tr>
+                        <tr valign="top">
+                        <th>Token (tech)</th>
+                        <td><?php echo esc_html($email['token']) ?></td>
+                    </tr>
                     </table>
                 </div>
 

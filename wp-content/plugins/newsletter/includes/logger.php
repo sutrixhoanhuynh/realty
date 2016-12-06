@@ -1,4 +1,5 @@
 <?php
+if (!defined('ABSPATH')) exit;
 
 if (!defined('NEWSLETTER_LOG_DIR')) {
     define('NEWSLETTER_LOG_DIR', WP_CONTENT_DIR . '/logs/newsletter/');

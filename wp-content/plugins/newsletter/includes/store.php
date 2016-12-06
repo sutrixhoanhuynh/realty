@@ -1,4 +1,5 @@
 <?php
+if (!defined('ABSPATH')) exit;
 
 @require_once NEWSLETTER_INCLUDES_DIR . '/logger.php';
 
@@ -115,7 +116,7 @@ class NewsletterStore {
                 if ($r === false) {
                     $this->logger->fatal($wpdb->last_error);
                     $this->logger->fatal($wpdb->last_query);
-                    die('Database error.');
+                    die('Database error see the log files (log files path can be found on Newsletter diagnostic panel)');
                 }
             }
             //$this->logger->debug('save: ' . $wpdb->last_query);
@@ -124,7 +125,7 @@ class NewsletterStore {
             if ($r === false) {
                 $this->logger->fatal($wpdb->last_error);
                 $this->logger->fatal($wpdb->last_query);
-                die('Database error.');
+                die('Database error see the log files (log files path can be found on Newsletter diagnostic panel)');
             }
             $id = $wpdb->insert_id;
         }

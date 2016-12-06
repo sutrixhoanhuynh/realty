@@ -1,4 +1,6 @@
 <?php
+if (!defined('ABSPATH')) exit;
+
 @include_once NEWSLETTER_INCLUDES_DIR . '/controls.php';
 $module = Newsletter::instance();
 $controls = new NewsletterControls();
@@ -37,6 +39,11 @@ if ($controls->is_action('engine_on')) {
     wp_clear_scheduled_hook('newsletter');
     wp_schedule_event(time() + 30, 'newsletter', 'newsletter');
     $controls->messages = 'Delivery engine reactivated.';
+}
+
+if ($controls->is_action('reset_stats')) {
+    update_option('newsletter_diagnostic_cron_calls', array(), false);
+    $controls->messages = 'Scheduler statistics reset.';
 }
 
 if ($controls->is_action('upgrade')) {
@@ -165,8 +172,35 @@ if (count($calls) > 1) {
             $max = $diff;
         }
     }
-    $mean = $mean / count($calls) - 1;
+    $mean = $mean / (count($calls) - 1);
 }
+
+// Send calls stats
+$send_calls = get_option('newsletter_diagnostic_send_calls', array());
+if (count($send_calls)) {
+    $send_max = 0;
+    $send_min = PHP_INT_MAX;
+    $send_total_time = 0;
+    $send_total_emails = 0;
+    $send_completed = 0;
+    for ($i = 0; $i < count($send_calls); $i++) {
+        if (empty($send_calls[$i][2])) continue;
+        
+        $delta = $send_calls[$i][1] - $send_calls[$i][0];
+        $send_total_time += $delta;
+        $send_total_emails += $send_calls[$i][2];
+        $send_mean = $delta / $send_calls[$i][2];
+        if ($send_min > $send_mean) {
+            $send_min = $send_mean;
+        }
+        if ($send_max < $send_mean) {
+            $send_max = $send_mean;
+        }
+        if ($send_calls[$i][3]) $send_completed++;
+    }
+    $send_mean = $send_total_time / $send_total_emails;
+}
+
 ?>
 
 <div class="wrap" id="tnp-wrap">
@@ -266,7 +300,7 @@ if (count($calls) > 1) {
                                     Log secret
                                 </td>
                                 <td>
-                                    <code><?php echo get_option("newsletter_logger_secret")?></code>
+                                    <code><?php echo esc_html(get_option("newsletter_logger_secret"))?></code>
                                 </td>
                             </tr>
                         </tbody>
@@ -289,11 +323,11 @@ if (count($calls) > 1) {
 
                         <tbody>
                             <tr>
-                                <td>Scheduler execution interval mean</td>
+                                <td>Average scheduler activation interval</td>
                                 <td>
                                     <?php
                                     if (count($calls) > 10) {
-                                        echo (int) $mean . ' seconds';
+                                        echo (int) $mean . ' seconds/' . count($calls) . ' samples';
                                         if ($mean < NEWSLETTER_CRON_INTERVAL * 1.2) {
                                             echo ' (<span style="color: green; font-weight: bold">OK</span>)';
                                         } else {
@@ -303,9 +337,11 @@ if (count($calls) > 1) {
                                         echo 'Still not enough data. It requires few hours to collect a relevant data set.';
                                     }
                                     ?>
+                                    
+                                    <?php $controls->button('reset_stats', 'Reset'); ?>
 
                                     <p class="description">
-                                        Should be less than <?php echo NEWSLETTER_CRON_INTERVAL; ?> seconds.
+                                        Should be less than <?php echo esc_html(NEWSLETTER_CRON_INTERVAL) ?> seconds.
                                         <a href="http://www.thenewsletterplugin.com/plugins/newsletter/newsletter-delivery-engine" target="_blank">Read more</a>.
                                     </p>
 
@@ -337,10 +373,10 @@ if (count($calls) > 1) {
                                     } else {
                                         $found = false;
 
-                                        foreach ($schedules as $key => &$data) {
+                                        foreach ($schedules as $key => $data) {
                                             if ($key == 'newsletter')
                                                 $found = true;
-                                            echo $key . ' - ' . $data['interval'] . ' s<br>';
+                                            echo esc_html($key . ' - ' . $data['interval']) . ' s<br>';
                                         }
 
                                         if (!$found) {
@@ -363,14 +399,39 @@ if (count($calls) > 1) {
                                     </p>
                                 </td>
                             </tr>
+                           
                             <tr>
-                                <td>Collected samples</td>
+                                <td>Sending statistics</td>
                                 <td>
-                                    <?php echo count($calls); ?>
-                                    <p class="description">Samples are collected in a maximum number of <?php echo Newsletter::MAX_CRON_SAMPLES; ?></p>
+                                    
+                                    <?php if (!$send_calls) { ?>
+                                    <em>Still not enough data.</em>
+                                    <?php } else { ?>
+                                    Average time to send an email: <?php echo sprintf("%.2f", $send_mean) ?> seconds<br>
+                                    Max mean time measured: <?php echo $send_max ?> seconds<br>
+                                    Min mean time measured: <?php echo $send_min ?> seconds<br>
+                                    Total emails: <?php echo $send_total_emails ?><br>
+                                    Batches prematurely interrupted: <?php echo sprintf("%.2f", (count($send_calls)-$send_completed)*100.0/count($send_calls)) ?>%<br>
+                                    Collected batch samples: <?php echo count($send_calls); ?><br> 
+                                    <?php } ?>                                    
                                 </td>
                             </tr>
-
+                            <tr>
+                                <td>WP transients</td>
+                                <td>
+                                    <?php
+                                    $result = true;
+                                    set_transient('newsletter_transient_test', 1, 300);
+                                    delete_transient('newsletter_transient_test');
+                                    if (get_transient('newsletter_transient_test')){
+                                        echo 'Transients cannot be delete!';
+                                    } else {
+                                        echo 'OK';
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+                            
                         </tbody>
                     </table>
                     
@@ -474,9 +535,9 @@ if (count($calls) > 1) {
                                             foreach ($filter as &$entry) {
                                                 echo '<li>';
                                                 if (is_array($entry['function']))
-                                                    echo get_class($entry['function'][0]) . '->' . $entry['function'][1];
+                                                    echo esc_html(get_class($entry['function'][0]) . '->' . $entry['function'][1]);
                                                 else
-                                                    echo $entry['function'];
+                                                    echo esc_html($entry['function']);
                                                 echo '</li>';
                                             }
                                         }
@@ -510,7 +571,7 @@ if (count($calls) > 1) {
                             <tr>
                                 <td>Absolute path</td>
                                 <td>
-                                    <?php echo ABSPATH; ?>
+                                    <?php echo esc_html(ABSPATH); ?>
                                 </td>
                             </tr>
                             <tr>
@@ -523,40 +584,6 @@ if (count($calls) > 1) {
                                 <td>Database Charset and Collate</td>
                                 <td>
                                     <?php echo DB_CHARSET; ?> <?php echo DB_COLLATE; ?>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Action file accessibility (obsolete)</td>
-                                <td>
-                                    <?php
-                                    $res = wp_remote_get(plugins_url('newsletter') . '/do/subscribe.php?test=1');
-                                    if (is_wp_error($res)) {
-                                        echo 'It seems the Newsletter action files are not reachable. See the note and the file permission check below.';
-                                    } else {
-                                        echo 'OK';
-                                    }
-                                    ?>
-                                    <p class="description">
-                                        If this internal test fails, subscription, confirmation and so on could fail. Try to open 
-                                        <a href="<?php echo plugins_url('newsletter') . '/do/subscribe.php?test=1' ?>" target="_blank">this link</a>: if
-                                        it reports "ok", consider this test as passed.
-                                    </p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>File permissions (obsolete)</td>
-                                <td>
-                                    <?php
-                                    $index_owner = fileowner(ABSPATH . '/index.php');
-                                    $index_permissions = fileperms(ABSPATH . '/index.php');
-                                    $subscribe_permissions = fileperms(NEWSLETTER_DIR . '/do/subscribe.php');
-                                    $subscribe_owner = fileowner(NEWSLETTER_DIR . '/do/subscribe.php');
-                                    if ($index_permissions != $subscribe_permissions || $index_owner != $subscribe_owner) {
-                                        echo 'Plugin file permissions or owner differ from blog index.php permissions, that may compromise the subscription process';
-                                    } else {
-                                        echo 'OK';
-                                    }
-                                    ?>
                                 </td>
                             </tr>
                         </tbody>

@@ -1,6 +1,9 @@
 <?php
 global $post;
 
+if (!defined('ABSPATH'))
+    exit;
+
 $filters = array();
 if (!empty($theme_options['theme_categories'])) {
     $filters['category__in'] = $theme_options['theme_categories'];

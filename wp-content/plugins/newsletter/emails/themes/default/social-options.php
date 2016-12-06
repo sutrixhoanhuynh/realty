@@ -1,3 +1,6 @@
+<?php
+if (!defined('ABSPATH')) exit;
+?>
 <h3>Social icons</h3>
 <table class="form-table">
     <tr>

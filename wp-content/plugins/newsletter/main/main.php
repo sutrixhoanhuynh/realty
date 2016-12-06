@@ -1,4 +1,6 @@
 <?php
+if (!defined('ABSPATH')) exit;
+
 @include_once NEWSLETTER_INCLUDES_DIR . '/controls.php';
 $controls = new NewsletterControls();
 $module = Newsletter::instance();
@@ -280,14 +282,6 @@ if (!empty($controls->data['contract_key'])) {
                                 </p>
                             </td>
                         </tr>
-                        <!--
-                        <tr valign="top">
-                            <th>Totally remove this plugin</th>
-                            <td>
-                        <?php $controls->button_confirm('remove', 'Totally remove this plugin', 'Really sure to totally remove this plugin. All data will be lost!'); ?>
-                            </td>
-                        </tr>
-                        -->
                     </table>
 
                 </div>

@@ -11,6 +11,7 @@
  *    destroy
  */
 ;(function($, window, undefined) {
+
   'use strict';
 
   var pluginName = 'carousel';
