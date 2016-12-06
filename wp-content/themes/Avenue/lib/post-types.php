@@ -115,32 +115,28 @@ function create_type_taxonomy() {
 }
 
 
-/* Bedrooms Taxonomy */
+function create_bedrooms_taxonomy() {
+  $labels = array(
+	  'name' => _x('Bedrooms', 'taxonomy general name'),
+	  'singular_name' => _x('Bedrooms', 'taxonomy singular name'),
+	  'search_items' =>  __('Search Bedrooms'),
+		'all_items' => __('All Bedrooms'),
+	  'parent_item' => __('Parent Bedrooms'),
+   	'parent_item_colon' => __('Parent Bedrooms'),
+		'edit_item' => __('Edit Bedrooms'),
+	  'update_item' => __('Update Bedrooms'),
+	  'add_new_item' => __('Add Bedrooms'),
+	  'new_item_name' => __('New Bedrooms')
+  );
 
-function create_bedrooms_taxonomy()
-{
-$labels = array(
-	  						  'name' => _x( 'Bedrooms', 'taxonomy general name' ),
-    						  'singular_name' => _x( 'Bedrooms', 'taxonomy singular name' ),
-    						  'search_items' =>  __( 'Search Bedrooms' ),
-   							  'all_items' => __( 'All Bedrooms' ),
-    						  'parent_item' => __( 'Parent Bedrooms' ),
-   					   		  'parent_item_colon' => __( 'Parent Bedrooms' ),
-   							  'edit_item' => __( 'Edit Bedrooms' ),
-  							  'update_item' => __( 'Update Bedrooms' ),
-  							  'add_new_item' => __( 'Add Bedrooms' ),
-  							  'new_item_name' => __( 'New Bedrooms' ),
-);
-register_taxonomy('bedrooms',array('listings'), array(
+  register_taxonomy('bedrooms',array('listings'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => true,
     'query_var' => true,
-    'rewrite' => array( 'slug' => 'bedroom' ),
+    'rewrite' => array('slug' => 'bedroom')
   ));
-
 }
-
 
 
 add_action( 'init', 'create_area_taxonomy', 0 );
@@ -178,9 +174,5 @@ if(!is_term('Sold', 'type')){
 add_action( 'init', 'add_range_term_featured' );
 add_action( 'init', 'add_range_term_reduced' );
 add_action( 'init', 'add_range_term_sold' );
-
-
-
-
 
 ?>
