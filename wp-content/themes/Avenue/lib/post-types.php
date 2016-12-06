@@ -120,28 +120,27 @@ register_taxonomy('area',array('listings'), array(
 
 /* Listing type Taxonomy */
 
-function create_type_taxonomy()
-{
-$labels = array(
-	  						  'name' => _x( 'Listing type', 'taxonomy general name' ),
-    						  'singular_name' => _x( 'Listing type', 'taxonomy singular name' ),
-    						  'search_items' =>  __( 'Search Listing types' ),
-   							  'all_items' => __( 'All Listing types' ),
-    						  'parent_item' => __( 'Parent Listing types' ),
-   					   		  'parent_item_colon' => __( 'Parent Listing type' ),
-   							  'edit_item' => __( 'Edit Listing type' ),
-  							  'update_item' => __( 'Update Listing type' ),
-  							  'add_new_item' => __( 'Add Listing type' ),
-  							  'new_item_name' => __( 'New Listing type' ),
-);
-register_taxonomy('type',array('listings'), array(
+function create_type_taxonomy() {
+  $labels = array(
+	  'name' => _x( 'Listing type', 'taxonomy general name' ),
+	  'singular_name' => _x( 'Listing type', 'taxonomy singular name' ),
+	  'search_items' =>  __( 'Search Listing types' ),
+		'all_items' => __( 'All Listing types' ),
+	  'parent_item' => __( 'Parent Listing types' ),
+   	'parent_item_colon' => __( 'Parent Listing type' ),
+		'edit_item' => __( 'Edit Listing type' ),
+	  'update_item' => __( 'Update Listing type' ),
+	  'add_new_item' => __( 'Add Listing type' ),
+	  'new_item_name' => __( 'New Listing type' )
+  );
+
+  register_taxonomy('type',array('listings'), array(
     'hierarchical' => true,
     'labels' => $labels,
     'show_ui' => 'radio',
     'query_var' => true,
     'rewrite' => array( 'slug' => 'type' ),
   ));
-
 }
 
 
