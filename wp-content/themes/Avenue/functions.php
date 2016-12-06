@@ -63,10 +63,10 @@ function items_wrap() {
 
   $wrap  = '<ul id="%1$s" class="%2$s">';
 
-  $wrap .= '%3$s';  
- 
-  $wrap .= '<li class="my-static-link"><a href="tel:0934878212">Call : 0934878212</a></li>';  
-  
+  $wrap .= '%3$s';
+
+  $wrap .= '<li class="my-static-link"><a href="tel:0934878212">Call : 0934878212</a></li>';
+
   $wrap .= '</ul>';
 
   return $wrap;
@@ -142,8 +142,8 @@ add_filter('manage_edit-listings_columns', 'add_new_listings_columns');
  		$new_columns['title'] = _x('Property name', 'column name');
 		$new_columns['thumbnail'] = __('Thumbnail');
 		$new_columns['price'] = __('Price');
+    $new_columns['location'] = __('Location');
 		$new_columns['type'] = __('Property type');
-		$new_columns['location'] = __('Location');
  		$new_columns['date'] = _x('Date', 'column name');
  		return $new_columns;
 
@@ -157,7 +157,6 @@ function manage_movies_columns($column_name, $id) {
 		case 'id':
 			echo $id;
 		break;
-
 		case 'thumbnail':
 			echo get_the_post_thumbnail( $post->ID, 'property_poster' );
 		break;
@@ -166,20 +165,11 @@ function manage_movies_columns($column_name, $id) {
 			$price = get_post_meta( $post->ID, 'wtf_price', true );
 			echo $price;
 		break;
-
 		case 'location':
-			$post_type = get_post_type($post_id);
-			$terms = get_the_terms($post_id, 'location');
-			if ( !empty($terms) ) {
-				foreach ( $terms as $term )
-            $post_terms[] = "<a href='edit.php?post_type=listings&location={$term->slug}'> " . esc_html(sanitize_term_field('name', $term->name, $term->term_id, $taxonomy, 'edit')) . "</a>";
-				echo join( ', ', $post_terms );
-			}
-			else echo '<i>No terms.</i>';
+      $location = get_post_meta($post->ID, 'wtf_location', true);
+			echo $location;
 		break;
-
 		case 'type':
-			//echo get_the_term_list( $post->ID, 'property', '', ' ', '' );
 			$post_type = get_post_type($post_id);
 			$terms = get_the_terms($post_id, 'property');
 			if ( !empty($terms) ) {
@@ -193,7 +183,7 @@ function manage_movies_columns($column_name, $id) {
 		default:
 
 		break;
-		} // end switch
+		}
 	}
 
 /* Credits */

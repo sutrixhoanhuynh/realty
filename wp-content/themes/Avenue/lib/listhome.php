@@ -18,7 +18,9 @@
 						<div class="property-item">
 							<div class="property-title <?php $type=get_the_term_list($post->ID, 'type', '', ' ', '' ); echo(strip_tags($type)); ?>">
 								<h3 class="title"><?php the_title(); ?></h3>
-								<h4 class="address"><?php $address=get_the_term_list( $post->ID, 'location', '', ' ', '' ); echo strip_tags($address); ?></h4>
+								<h4 class="address">
+									<?php  $location=get_post_meta($post->ID, 'wtf_location', true); echo $location; ?>
+								</h4>
 							</div>
 							<figure class="property-thumbnail">
 								<?php

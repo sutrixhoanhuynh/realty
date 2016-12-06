@@ -25,6 +25,14 @@ $meta_box = array(
 		),
 
 		array(
+			'name' => 'Price',
+			'desc' => 'Enter the price area',
+			'id' => $prefix .'price',
+			'type' => 'text',
+			'std' => ''
+		),
+
+		array(
 			'name' => 'Location',
 			'desc' => 'Enter location of property',
 			'id' => $prefix .'location',
