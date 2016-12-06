@@ -14,9 +14,6 @@
               ?>
             </select>
             <?php ?>
-            <!-- <select name="location" class="form-control">
-              <option value="all"> Any Location</option>
-            </select> -->
           </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-3">

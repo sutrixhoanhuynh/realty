@@ -54,8 +54,6 @@
       var that = this;
       initMap.call(that);
 
-      //that.infoWindow.open(that.map, that.marker);
-
     },
     destroy: function() {
       $.removeData(this.element[0], pluginName);
