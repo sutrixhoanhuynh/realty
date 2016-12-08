@@ -17,8 +17,13 @@ var Site = (function($, window, undefined) {
     !isTouch() && $('[data-toggle="tooltip"]').tooltip();
   }
 
+  function isMobile() {
+    return window.Modernizr.mq('(max-width: 767px)');
+  }
+
   return {
     isTouch: isTouch,
+    isMobile: isMobile,
     initTooltip: initTooltip
   };
 
@@ -283,42 +288,97 @@ jQuery(function() {
 }(jQuery, window));
 
 /**
- *  @name modal
- *  @description show specific content in layer top screen
+ *  @name popup
  *  @version 1.0
  *  @options
- *    template: template of modal
- *    overlay: template of overlay
- *    holderSelector: selector of modal holder
- *    overlaySelector: selector of overlay
- *    closeButton: selector of close button modal
- *    contentSelector: selector of content modal
- *    activeClass: class to active show/hide overlay
- *    autoTrigger: whether auto trigger event on element itself or not
- *    closeButtonClass: optional custom class for close button
- *    closeByDocument: enable/disable closing popup by clicking document itself
- *    closeByEscape: enable/disable closing popup by 'Esc' keyboard
- *    content: content of modal (only appcept string value)
- *    duration: time animation when show or hide modal
+ *    option
  *  @events
- *    onBeforeShow: fire before modal show
- *    onAfterShow: fire after modal show completely
- *    onBeforeShow: fire before modal show
- *    onAfterHide: fire after modal hide completely
+ *    onBeforeShow
+ *    onAfterShow
+ *    onBeforeHide
+ *    onAfterHide
  *  @methods
  *    init
- *    show: show modal
- *    hide: hide modal
- *    changeContent: change content of modal
+ *    initOverlay
+ *    show
+ *    hide
+ *    openPopup
+ *    closePopup
  *    destroy
  */
-;
-(function($, window, undefined) {
+;(function($, window, undefined) {
 
   'use strict';
 
-  var pluginName = 'modal',
-      ESCKey = 27;
+  var pluginName = 'popup',
+      win = $(window),
+      body = $('body'),
+      doc = $(document),
+      container = $('#container'),
+      scroll = 0;
+
+  var resize = function(){
+    var MARGINMIN = !Site.isMobile() ? 20 : 0,
+      wrap = this.popup,
+      dialog = wrap.find('.modal-dialog'),
+      hPopup =  dialog.outerHeight(),
+      wPopup = dialog.outerWidth(),
+      hWrap = wrap.outerHeight(),
+      wWrap = wrap.outerWidth(),
+      minHWrap = hWrap - MARGINMIN,
+      space = MARGINMIN / 2;
+
+    dialog.css('margin', '' +
+      '' + ((hWrap > hPopup) ? (hWrap - hPopup)/2 : space) + 'px ' +
+      '' + ((wWrap > wPopup) ? 'auto ' : space + 'px ') +
+      '' + ((minHWrap > hPopup) ? '0': space + 'px') );
+  };
+
+  var initOverlay = function() {
+    var opt = this.options,
+      selector = opt.overlay.replace(/ /g,'.'),
+      overlay = $(selector, body);
+
+    if(!overlay.length){
+      overlay = $('<div class="' + $.trim(opt.overlay) + ' ' + opt.hidden + '"></div>');
+      body.append(overlay);
+    }
+
+    return overlay;
+  };
+
+  var openPopup = function() {
+    var that = this,
+      opts = that.options,
+      overlay = initOverlay.call(that);
+
+    scroll = win.scrollTop();
+    that.element.addClass(opts.open);
+
+    container.css('marginTop', -scroll);
+
+    body.addClass(opts.freeze);
+
+    that.overlay.removeClass(opts.hidden);
+
+    $.isFunction(opts.onBeforeShow) && opts.onBeforeShow(that);
+
+    that.popup.fadeIn(opts.duration, function(){
+      $.isFunction(opts.onAfterShow) && opts.onAfterShow(that);
+    });
+  };
+
+  var closePopup = function() {
+    var that = this,
+      opt = that.options;
+
+    $.isFunction(opt.onBeforeHide) && opt.onBeforeHide(that);
+
+    that.popup.fadeOut(opt.duration, function(){
+      $.isFunction(opt.onAfterHide) && opt.onBeforeHide(that);
+    });
+
+  };
 
   function Plugin(element, options) {
     this.element = $(element);
@@ -326,140 +386,74 @@ jQuery(function() {
     this.init();
   }
 
-  var initModal = function() {
-    var that = this,
-        body = $('body'),
-        opts = that.options;
-
-    !$(opts.overlaySelector).length && body.append(opts.overlay);
-    !$(opts.holderSelector).length && body.append(opts.template);
-
-    return {
-      modal: $(opts.holderSelector),
-      overlay: $(opts.overlaySelector)
-    };
-
-  };
-
-  var getPosition = function() {
-    var that = this,
-        win = $(window),
-        winSize = {
-          width: win.width(),
-          height: win.height()
-        },
-        position = {
-          top: winSize.height / 2 - that.vars.modal.outerHeight() / 2,
-          left: winSize.width / 2 - that.vars.modal.outerWidth() / 2
-        };
-
-    return {
-      left: position.left < 0 ? 0 : position.left + win.scrollLeft(),
-      top: position.top < 0 ? 0 : position.top + win.scrollTop()
-    };
-
-  };
-
-  var setPosition = function() {
-    var that = this,
-        postion = getPosition.call(this);
-
-    that.vars.modal.css({
-      'top': postion.top + 'px',
-      'left': postion.left + 'px'
-    });
-  };
-
-
   Plugin.prototype = {
     init: function() {
       var that = this,
-          opts = that.options,
-          win = $(window);
+        opts = this.options,
+        el = this.element;
 
-      that.vars = initModal.call(this);
+      that.popup = $(el.attr('href') || el.data('href'));
+      that.popupBody = $(opts.popupBody, that.popup);
+      that.scrollable = $(opts.scrollable, body);
+      that.overlay = initOverlay.call(that);
 
-      that.vars.overlay.css('height', $(document).height());
+      el.off('click.' + pluginName).on('click.' + pluginName, function(e){
+        e.preventDefault();
+        that.show();
+      });
 
-      $(opts.closeButton, that.vars.modal)
-      .off('click.' + pluginName)
-      .on('click.' + pluginName, function(e) {
+      $(opts.closeBtn, that.popup).off('click.' + pluginName).on('click.' + pluginName, function(e){
         e.preventDefault();
         that.hide();
       });
 
-      win.on('resize.' + pluginName, function(e) {
-        e.preventDefault();
-        setPosition.call(that);
-      })
-      .on('scroll.' + pluginName, function(e) {
-        e.preventDefault();
-        setPosition.call(that);
+      win.on('resize.' + pluginName, function(){
+        that.popup.css('padding-left', 0);
+        resize.call(that);
       });
 
-      if (opts.autoTrigger) {
-        that.element.off('click.' + pluginName).on('click.' + pluginName, function(e) {
-          e.preventDefault();
-          that.show();
-        });
-      }
-
-      if (opts.closeByEscape) {
-        win.on('keyup.' + pluginName, function(e) {
-          e.preventDefault();
-          e.keyCode === ESCKey && that.hide();
-        });
-      }
-
-      if (opts.closeByDocument) {
-        win.on('click.' + pluginName, function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          $(e.target).is(that.vars.overlay) && that.hide();
-        });
-      }
-    },
-    show: function() {
-      var that = this,
-          opts = that.options,
-          modal = that.vars.modal;
-
-      $.isFunction(opts.onBeforeShow) && opts.onBeforeShow();
-
-      setPosition.call(that);
-      $(opts.overlaySelector, 'body').addClass(opts.activeClass);
-
-      that.changeContent(opts.content);
-
-      modal.fadeIn(opts.duration, function() {
-        $.isFunction(opts.onAfterShow) && opts.onAfterShow();
+      that.popup.off('click.' + pluginName).on('click.' + pluginName, function(e){
+        !$(e.target).closest(that.popupBody).length && that.hide();
       });
     },
-    hide: function() {
+    show: function(){
       var that = this,
-          opts = that.options,
-          modal = that.vars.modal;
+        el = that.element,
+        data = el.data(),
+        opts = that.options;
 
-      $.isFunction(opts.onBeforeHide) && opts.onBeforeHide();
-
-      $(opts.overlaySelector, 'body').removeClass(opts.activeClass);
-
-      that.changeContent('');
-
-      modal.fadeOut(opts.duration, function() {
-        $.isFunction(opts.onAfterHide) && opts.onAfterHide();
-      });
-
+      switch(true) {
+        case !!data.content:
+          opts.type === 'video' ? that.popupBody.wrapInner(opts.wrapper).find('.embed-responsive').html(data.content) : that.popupBody.html(data.content);
+          openPopup.call(that); resize.call(that);
+        break;
+        case !!data.link:
+          $.get(data.link, function(res){
+            that.popupBody.html(res);
+            openPopup.call(that); resize.call(that);
+          });
+        break;
+        default:
+          openPopup.call(that); resize.call(that);
+      }
     },
-    changeContent: function(params) {
+    hide: function(){
       var that = this,
-          opts = that.options,
-          content = $(opts.contentSelector, that.vars.modal);
+        opts = that.options;
 
-      content.html(params);
+      body.removeClass(opts.freeze);
+      that.element.removeClass(opts.open);
+
+      closePopup.call(that);
+
+      container.removeAttr('style');
+      win.scrollTop(scroll);
+      that.overlay.addClass(opts.hidden);
+      that.popupBody.html('');
+
     },
     destroy: function() {
-        $.removeData(this.element[0], pluginName);
+      $.removeData(this.element[0], pluginName);
     }
   };
 
@@ -476,30 +470,23 @@ jQuery(function() {
     });
   };
 
-    $.fn[pluginName].defaults = {
-        template: '<div class="modal"><button type="button" class="close-button-modal">' +
-        '<i class="fa fa-times" aria-hidden="true"></i></button>' +
-        '<div class="modal-content"></div>',
-        overlay: '<div class="background-overlay"></div>',
-        holderSelector: '.modal',
-        overlaySelector: '.background-overlay',
-        closeButton: '.close-button-modal',
-        contentSelector: '.modal-content',
-        activeClass: 'active',
-        autoTrigger: true,
-        closeByDocument: false,
-        content: '',
-        duration: 500,
-        closeByEscape: true,
-        onBeforeShow: null,
-        onAfterShow: null,
-        onBeforeHide: null,
-        onAfterHide: null
-    };
+  $.fn[pluginName].defaults = {
+    freeze: 'lock-position',
+    hidden: 'hidden',
+    closeBtn: '.close',
+    duration: 500,
+    type: 'video',
+    popupBody: '.modal-body',
+    scrollable: '.scrollable-popup',
+    overlay: ' modal-backdrop fade in',
+    wrapper: '<div class="embed-responsive embed-responsive-4by3"></div>'
+  };
 
-    $(function() {
-        $('[data-' + pluginName + ']')[pluginName]();
-    });
+  $(function() {
+
+    $('[data-' + pluginName + ']')[pluginName]();
+
+  });
 
 }(jQuery, window));
 

@@ -99,7 +99,7 @@
 											</li>
 											<?php if (has_post_video($post->ID)) { ?>
 											<li>
-												<i class="fa fa-video-camera" data-toggle="tooltip" data-original-title="Watch Trailer" data-modal data-content="<video autoplay><source src='<?php echo get_the_post_video_url($post->ID); ?>' /></video>"></i>
+												<i class="fa fa-video-camera" data-toggle="tooltip" data-original-title="Watch Trailer" data-popup data-type="video" data-href=".modal" data-content="<iframe class='embed-responsive-item' src='<?php echo get_the_post_video_url($post->ID); ?>' allowfullscreen='true'></iframe>'"></i>
 											</li>
 											<?php } ?>
 										</ul>

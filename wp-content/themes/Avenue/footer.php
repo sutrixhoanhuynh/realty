@@ -65,6 +65,19 @@
   </div>
 </footer>
 </main>
+<div class="modal modal-video">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button title="close" class="close">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
 <script src="<?php bloginfo('template_directory'); ?>/libs.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/script.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAojYRfYLfWetgH80scF33ZiIYltBKnUi0&callback=window.loadMap" async defer></script>
