@@ -95,7 +95,7 @@
 												</ul>
 											</li>
 											<li>
-												<i class="fa fa-heart-o " data-toggle="tooltip" data-original-title="Add To Favorites"></i>
+												<i class="fa fa-heart-o" data-url="<?php echo admin_url('admin-ajax.php'); ?>" data-posts-id="<?php echo get_the_ID();  ?>" data-favorites data-toggle="tooltip" data-original-title="<?php echo get_total_likes($post->ID); ?>"></i>
 											</li>
 											<?php if (has_post_video($post->ID)) { ?>
 											<li>

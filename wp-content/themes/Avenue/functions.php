@@ -7,6 +7,7 @@ include 'lib/post-types.php';
 include 'lib/metabox.php';
 include 'lib/drop-down-taxonomy.php';
 include 'lib/radio-taxonomy.php';
+include 'lib/post-like.php';
 
 add_image_size('logo-size', 168, 28);
 

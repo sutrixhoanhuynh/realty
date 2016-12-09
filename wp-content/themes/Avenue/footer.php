@@ -1,3 +1,4 @@
+</main>
 <footer>
   <div class="site-footer">
     <div class="container">
@@ -64,7 +65,7 @@
     <?php include (TEMPLATEPATH . '/backtotop.php'); ?>
   </div>
 </footer>
-</main>
+</div>
 <div class="modal modal-video">
   <div class="modal-dialog">
     <div class="modal-content">

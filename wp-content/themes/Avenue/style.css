@@ -247,6 +247,13 @@ img {
   background-color: #cde0c4;
 }
 
+.lock-position {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+}
+
 
 /*****************************************************************
                                     MAIN NAVIGATION
@@ -516,6 +523,10 @@ img {
 
 .property-price .utilities-tag > li:hover {
   opacity: 0.75;
+}
+
+.property-price .utilities-tag .fa-heart {
+  color: red;
 }
 
 .property-thumbnail {

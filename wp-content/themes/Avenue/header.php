@@ -19,8 +19,7 @@
   <script type="text/javascript" src="<?php bloginfo('template_directory'); ?>/js/libs/modernizr.js"></script>
 </head>
 <body>
-
-<main>
+<div id="container">
 	<header class="navbar navbar-default navbar-static-top">
 		<div class="top-navbar hidden-xs">
 			<div class="container">
