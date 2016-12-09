@@ -95,11 +95,11 @@
 												</ul>
 											</li>
 											<li>
-												<i class="fa fa-heart-o" data-url="<?php echo admin_url('admin-ajax.php'); ?>" data-posts-id="<?php echo get_the_ID();  ?>" data-favorites data-toggle="tooltip" data-original-title="<?php echo get_total_likes($post->ID); ?>"></i>
+												<i class="fa fa-heart-o" data-tooltip data-url="<?php echo admin_url('admin-ajax.php'); ?>" data-posts-id="<?php echo get_the_ID();  ?>" data-likes data-content="<?php echo get_total_likes($post->ID); ?>"></i>
 											</li>
 											<?php if (has_post_video($post->ID)) { ?>
 											<li>
-												<i class="fa fa-video-camera" data-toggle="tooltip" data-original-title="Watch Trailer" data-popup data-type="video" data-href=".modal" data-content="<iframe class='embed-responsive-item' src='<?php echo get_the_post_video_url($post->ID); ?>' allowfullscreen='true'></iframe>'"></i>
+												<i class="fa fa-video-camera" data-toggle="tooltip" data-original-title="Watch Trailer" data-modal data-type="video" data-href=".modal" data-content="<iframe class='embed-responsive-item' src='<?php echo get_the_post_video_url($post->ID); ?>' allowfullscreen='true'></iframe>'"></i>
 											</li>
 											<?php } ?>
 										</ul>

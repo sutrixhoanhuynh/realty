@@ -46,6 +46,7 @@ body {
   color: #666;
   font-size: 16px;
   background-color: white;
+  position: relative;
 }
 
 h1,
@@ -151,6 +152,12 @@ img {
   width: 1.33em;
   margin-right: 4px;
   text-align: center;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  opacity: 1;
 }
 
 .tooltip-inner {

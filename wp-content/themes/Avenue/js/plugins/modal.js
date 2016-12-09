@@ -1,5 +1,5 @@
 /**
- *  @name popup
+ *  @name modal
  *  @version 1.0
  *  @options
  *    option
@@ -13,24 +13,23 @@
  *    initOverlay
  *    show
  *    hide
- *    openPopup
- *    closePopup
+ *    openModal
+ *    closeModal
  *    destroy
  */
 ;(function($, window, undefined) {
 
   'use strict';
 
-  var pluginName = 'popup',
+  var pluginName = 'modal',
       win = $(window),
       body = $('body'),
-      doc = $(document),
       container = $('#container'),
       scroll = 0;
 
-  var resize = function(){
+  var resize = function() {
     var MARGINMIN = !Site.isMobile() ? 20 : 0,
-      wrap = this.popup,
+      wrap = this.modal,
       dialog = wrap.find('.modal-dialog'),
       hPopup =  dialog.outerHeight(),
       wPopup = dialog.outerWidth(),
@@ -46,19 +45,19 @@
   };
 
   var initOverlay = function() {
-    var opt = this.options,
-      selector = opt.overlay.replace(/ /g,'.'),
+    var opts = this.options,
+      selector = opts.overlay.replace(/ /g,'.'),
       overlay = $(selector, body);
 
     if(!overlay.length){
-      overlay = $('<div class="' + $.trim(opt.overlay) + ' ' + opt.hidden + '"></div>');
+      overlay = $('<div class="' + $.trim(opts.overlay) + ' ' + opts.hidden + '"></div>');
       body.append(overlay);
     }
 
     return overlay;
   };
 
-  var openPopup = function() {
+  var openModal = function() {
     var that = this,
       opts = that.options,
       overlay = initOverlay.call(that);
@@ -74,18 +73,18 @@
 
     $.isFunction(opts.onBeforeShow) && opts.onBeforeShow(that);
 
-    that.popup.fadeIn(opts.duration, function(){
+    that.modal.stop(true, true).fadeIn(opts.duration, function(){
       $.isFunction(opts.onAfterShow) && opts.onAfterShow(that);
     });
   };
 
-  var closePopup = function() {
+  var closeModal = function() {
     var that = this,
       opt = that.options;
 
     $.isFunction(opt.onBeforeHide) && opt.onBeforeHide(that);
 
-    that.popup.fadeOut(opt.duration, function(){
+    that.modal.stop(true, true).fadeOut(opt.duration, function(){
       $.isFunction(opt.onAfterHide) && opt.onBeforeHide(that);
     });
 
@@ -103,8 +102,8 @@
         opts = this.options,
         el = this.element;
 
-      that.popup = $(el.attr('href') || el.data('href'));
-      that.popupBody = $(opts.popupBody, that.popup);
+      that.modal = $(el.attr('href') || el.data('href'));
+      that.modalBody = $(opts.modalBody, that.modal);
       that.scrollable = $(opts.scrollable, body);
       that.overlay = initOverlay.call(that);
 
@@ -113,18 +112,18 @@
         that.show();
       });
 
-      $(opts.closeBtn, that.popup).off('click.' + pluginName).on('click.' + pluginName, function(e){
+      $(opts.closeBtn, that.modal).off('click.' + pluginName).on('click.' + pluginName, function(e){
         e.preventDefault();
         that.hide();
       });
 
       win.on('resize.' + pluginName, function(){
-        that.popup.css('padding-left', 0);
+        that.modal.css('padding-left', 0);
         resize.call(that);
       });
 
-      that.popup.off('click.' + pluginName).on('click.' + pluginName, function(e){
-        !$(e.target).closest(that.popupBody).length && that.hide();
+      that.modal.off('click.' + pluginName).on('click.' + pluginName, function(e){
+        !$(e.target).closest(that.modalBody).length && that.hide();
       });
     },
     show: function(){
@@ -135,17 +134,17 @@
 
       switch(true) {
         case !!data.content:
-          opts.type === 'video' ? that.popupBody.wrapInner(opts.wrapper).find('.embed-responsive').html(data.content) : that.popupBody.html(data.content);
-          openPopup.call(that); resize.call(that);
+          opts.type === 'video' ? that.modalBody.wrapInner(opts.wrapper).find('.embed-responsive').html(data.content) : that.modalBody.html(data.content);
+          openModal.call(that); resize.call(that);
         break;
         case !!data.link:
           $.get(data.link, function(res){
-            that.popupBody.html(res);
-            openPopup.call(that); resize.call(that);
+            that.modalBody.html(res);
+            openModal.call(that); resize.call(that);
           });
         break;
         default:
-          openPopup.call(that); resize.call(that);
+          openModal.call(that); resize.call(that);
       }
     },
     hide: function(){
@@ -155,12 +154,12 @@
       body.removeClass(opts.freeze);
       that.element.removeClass(opts.open);
 
-      closePopup.call(that);
+      closeModal.call(that);
 
       container.removeAttr('style');
       win.scrollTop(scroll);
       that.overlay.addClass(opts.hidden);
-      that.popupBody.html('');
+      that.modalBody.html('');
 
     },
     destroy: function() {
@@ -187,7 +186,7 @@
     closeBtn: '.close',
     duration: 500,
     type: 'video',
-    popupBody: '.modal-body',
+    modalBody: '.modal-body',
     scrollable: '.scrollable-popup',
     overlay: ' modal-backdrop fade in',
     wrapper: '<div class="embed-responsive embed-responsive-4by3"></div>'

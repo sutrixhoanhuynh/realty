@@ -14,7 +14,7 @@
 
   'use strict';
 
-  var pluginName = 'favorites';
+  var pluginName = 'likes';
 
   function Plugin(element, options) {
     this.element = $(element);
@@ -22,10 +22,11 @@
     this.init();
   }
 
-  var getTotalLikes = function () {
+  var toggleLikes = function () {
 
     var that = this,
         el = that.element,
+        opts = that.options,
         postsId = el.data('posts-id');
 
     $.ajax({
@@ -33,13 +34,15 @@
       method: 'POST',
       data: {
         action : 'process_simple_like',
-        post_id : postsId,
-        is_comment: '0'
+        post_id : postsId
       }
     }).done(function (response) {
       var totalLikes = response.totalLikes;
-      el.attr('data-original-title', totalLikes + ' likes')
-        .toggleClass('fa-heart-o fa-heart');
+
+      el.toggleClass(opts.dislikeIcon + ' ' + opts.likeIcon);
+
+      $.isFunction(opts.onSuccess) && opts.onSuccess(el, totalLikes);
+
     });
 
   };
@@ -52,7 +55,7 @@
 
       el.off('click.' + pluginName).on('click.' + pluginName, function (e) {
         e.preventDefault();
-        getTotalLikes.call(that);
+        toggleLikes.call(that);
       });
 
     },
@@ -73,12 +76,18 @@
   };
 
   $.fn[pluginName].defaults = {
-    theme: 'light'
+    likeIcon: 'fa-heart',
+    dislikeIcon: 'fa-heart-o',
+    onSuccess: $.noop()
   };
 
   $(function() {
 
-    $('[data-' + pluginName + ']')[pluginName]();
+    $('[data-' + pluginName + ']')[pluginName]({
+      onSuccess: function(el, totalLikes) {
+        el['tooltip']('changeContent', totalLikes + ' likes');
+      }
+    });
 
   });
 
