@@ -43,8 +43,14 @@
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis egestas rhoncus.
           </p>
-          <form action="#" method="POST" class="newsletter">
-            <input type="email" name="newsletter_email" id="email" placeholder="Enter your email" class="form-control" />
+          <form action="<?php echo get_site_url() . '/?na=s' ?>" method="POST" class="newsletter" data-validation>
+            <div class="form-group">
+              <input type="text" data-rule='["required", "email"]' name="ne" id="email" placeholder="Enter your email" class="form-control" autocomplete="off" />
+              <span class="tooltip">
+                <i class="fa fa-warning" aria-hidden="true"></i>
+                Please enter your email
+              </span>
+            </div>
             <button type="submit" name="newsletter_submit" class="btn btn-danger">Subscribe</button>
           </form>
         </div>

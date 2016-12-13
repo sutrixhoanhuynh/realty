@@ -36,7 +36,6 @@ function post_type_listings() {
 
 add_action('init', 'post_type_listings');
 
-
 function create_property_taxonomy() {
   $labels = array(
 	  'name' => _x('Property type', 'taxonomy general name'),
