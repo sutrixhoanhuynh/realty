@@ -1379,13 +1379,20 @@ footer .newsletter button {
 
 .search-blocks {
   padding: 30px 30px 10px;
+  background: #f1f1f1;
 }
 
 .search-blocks .form-control {
-  border-radius: 4px;
-  box-shadow: none;
-  border: 1px solid #e6e6e6;
+  border-radius: 2px;
+  border: 1px solid #ddd;
   height: 40px;
+  line-height: 40px;
+  -webkit-appearance: none;
+  box-shadow: none;
+  outline: none;
+  padding: 0 1em;
+  font-size: 1em;
+  font-family: Lato, "Open Sans", sans-serif;
 }
 
 .search-blocks .search-btn {

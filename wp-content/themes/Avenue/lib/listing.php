@@ -4,8 +4,33 @@
       <div class="rows">
         <div class="col-xs-12 col-sm-4 col-md-3">
           <div class="form-group">
+            <input type="text" class="form-control" placeholder="Keywords" />
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="form-group">
             <select name="location" class="form-control">
               <option value="all"> Any location </option>
+              <option value="new-york"> New York </option>
+              <option value="new-jersey"> New Jersey </option>
+              <?php
+                // $locations = get_terms('location', array('hide_empty' => false));
+                // foreach($locations as $location) {
+                //   echo '<option value="'.$location->term_id.'">'.$location->name.'<option>';
+                // }
+              ?>
+            </select>
+            <?php ?>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="form-group">
+            <select name="location" class="form-control">
+              <option value="all"> Any sub location </option>
+              <option value="state-island"> State Island </option>
+              <option value="brookyln"> Brookyln </option>
+              <option value="queens"> Queens </option>
+              <option value="manhattan"> Manhattan </option>
               <?php
                 // $locations = get_terms('location', array('hide_empty' => false));
                 // foreach($locations as $location) {
@@ -20,14 +45,34 @@
           <div class="form-group">
             <select name="status" class="form-control">
               <option value="all">Any Status</option>
+              <option value="rent"> Rent </option>
+              <option value="open-house"> Open house </option>
+              <option value="sold"> Sold </option>
+              <option value="all"> Sale </option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="rows">
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="form-group">
+            <select name="type" class="form-control">
+              <option value="all"> Any Type </option>
+              <option value="co-op"> Co-op </option>
+              <option value="condo"> Condo </option>
+              <option value="single-family-home"> Single Family Home </option>
+              <option value="apartment"> Apartment </option>
             </select>
           </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-3">
           <div class="form-group">
-            <select name="type" class="form-control">
-              <option value="all"> Any Type </option>
-            </select>
+            <input type="range" name="points" min="0" max="10" />
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-3">
+          <div class="form-group">
+           <input type="range" name="points" min="0" max="10" />
           </div>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-3">
