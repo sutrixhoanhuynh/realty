@@ -49,12 +49,11 @@
 
   $.fn[pluginName].defaults = {
     dots: true,
-    autoplay: true,
+    speed: 900,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplaySpeed: 2000,
-    prevArrow: '<button type="button" class="slick-prev slick-arrow" aria-label="Previous" role="button"><span class="flaticon-previous11"></span></button>',
-    nextArrow: '<button type="button" class="slick-next slick-arrow" aria-label="Next" role="button"><span class="flaticon-next15"></span></button>',
+    prevArrow: '<button type="button" class="slick-prev slick-arrow" aria-label="Previous" role="button"><span class="fa fa-angle-left"></span></button>',
+    nextArrow: '<button type="button" class="slick-next slick-arrow" aria-label="Next" role="button"><span class="fa fa-angle-right"></span></button>',
     responsive: [{
       breakpoint: 768,
       settings: {

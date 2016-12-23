@@ -107,7 +107,7 @@ img {
 [class*=' flaticon-']:after {
   font-family: 'Flaticon';
   font-size: 1.25em;
-  color: #555;
+  color: #fff;
 }
 
 [class^="demo-pli-"]:before,
@@ -666,7 +666,15 @@ img {
 
 .carousel-block .slick-slide img {
   height: 100%;
-  max-height: 540px;
+  max-height: 400px;
+}
+
+@media (min-width: 480px) {
+
+  .carousel-block .slick-slide img {
+    max-height: 540px;
+  }
+
 }
 
 .carousel-block .slick-slide .inner {
@@ -751,10 +759,10 @@ img {
   opacity: 0.75;
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 0;
   outline: none;
   border: 2px solid #fff;
-  background: rgba(255, 255, 255, 0.95);
+  background: transparent;
   box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1);
   transition: all 0.25s ease;
   line-height: 50px;
@@ -775,7 +783,7 @@ img {
 
 .slick-slider .slick-arrow span {
   color: #fff;
-  font-size: 18px;
+  font-size: 30px;
 }
 
 .slick-dots {
