@@ -1418,6 +1418,7 @@ footer .newsletter button {
 /*****************************************************************
                        OUR NEWSLETTER
 ******************************************************************/
+
 .newsletter .form-group {
   position: relative;
 }
@@ -1428,4 +1429,47 @@ footer .newsletter button {
 
 .newsletter .form-group.error .tooltip {
   display: block;
+}
+
+
+/*****************************************************************
+                       OUR SERVICES
+******************************************************************/
+.sevices-block {
+  padding: 50px 0;
+  background-color: rgba(241, 241, 241, 0.3);
+}
+
+.sevices-block .title {
+  color: #105a7f;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.sevices-block .description {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.sevices-block .service-item  {
+  text-align: center;
+}
+
+.sevices-block .service-item figure {
+  width: 120px;
+  margin: 0 auto;
+}
+
+.sevices-block .service-item h4 {
+  font-size: 22px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #0ba;
+}
+
+.sevices-block .horizontal-line {
+  max-width: 200px;
+  border-top: 2px solid #f90;
 }

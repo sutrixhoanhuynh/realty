@@ -9,7 +9,8 @@ var gulp = require('gulp'),
     source = {
       theme: 'wp-content/themes/Avenue/',
       css: 'wp-content/themes/Avenue/css/',
-      js: 'wp-content/themes/Avenue/js/'
+      js: 'wp-content/themes/Avenue/js/',
+      image: 'wp-content/themes/Avenue/images/*.{png,jpg,gif}'
     };
 
 gulp.task('concat', function() {
@@ -32,12 +33,12 @@ gulp.task('concat', function() {
 });
 
 gulp.task('clean', function () {
-  return gulp.src([source.theme + '*.js'], {read: false})
+  return gulp.src(source.theme + '*.js', {read: false})
         .pipe(clean());
 });
 
 gulp.task('compress', function () {
-  return gulp.src([source.theme + 'script.js'])
+  return gulp.src(source.theme + 'script.js')
         .pipe(uglify())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(source.theme));
@@ -52,12 +53,4 @@ gulp.task('autoprefixer', function () {
         .pipe(gulp.dest(source.theme));
 });
 
-gulp.task('csslint', function () {
-
-});
-
-gulp.task('jshint', function () {
-
-});
-
-gulp.task('dev', ['clean', 'concat', 'autoprefixer']);
+gulp.task('default', ['clean', 'concat', 'autoprefixer']);

@@ -1,6 +1,7 @@
 
 <?php include(TEMPLATEPATH . '/lib/slider.php'); ?>
 <?php include(TEMPLATEPATH . '/lib/listing.php'); ?>
+<?php include(TEMPLATEPATH . '/services.php'); ?>
 <div class="property-lisitings-block">
 	<div class="container">
 		<div class="rows">
