@@ -1173,7 +1173,7 @@ footer .newsletter button {
 }
 
 .smart-form .input-group .tooltip,
-.newsletter .form-group .tooltip {
+.newsletter .form-group .tooltip-subscribe {
   position: absolute;
   right: 0;
   bottom: 100%;
@@ -1193,7 +1193,7 @@ footer .newsletter button {
 }
 
 .smart-form .input-group .tooltip:after,
-.newsletter .form-group .tooltip:after {
+.newsletter .form-group .tooltip-subscribe:after {
   content: '';
   position: absolute;
   top: 100%;
@@ -1423,11 +1423,15 @@ footer .newsletter button {
   position: relative;
 }
 
-.newsletter .form-group.error input {
+.newsletter .tooltip-subscribe {
+  display: none;
+}
+
+.newsletter .error input {
   border-color: #b94a48;
 }
 
-.newsletter .form-group.error .tooltip {
+.newsletter .error .tooltip-subscribe {
   display: block;
 }
 
@@ -1447,14 +1451,14 @@ footer .newsletter button {
 }
 
 .sevices-block .description {
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
-  margin-bottom: 30px;
 }
 
 .sevices-block .service-item  {
   text-align: center;
+  margin-top: 50px;
 }
 
 .sevices-block .service-item figure {
@@ -1472,4 +1476,12 @@ footer .newsletter button {
 .sevices-block .horizontal-line {
   max-width: 200px;
   border-top: 2px solid #f90;
+}
+
+@media (min-width: 991px) {
+
+  .sevices-block .description {
+    width: 50%;
+  }
+
 }

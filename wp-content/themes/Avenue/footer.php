@@ -46,7 +46,7 @@
           <form action="<?php echo get_site_url() . '/?na=s' ?>" method="POST" class="newsletter" data-validation>
             <div class="form-group">
               <input type="text" data-rule='["required", "email"]' name="ne" id="email" placeholder="Enter your email" class="form-control" autocomplete="off" />
-              <span class="tooltip">
+              <span class="tooltip-subscribe">
                 <i class="fa fa-warning" aria-hidden="true"></i>
                 Please enter your email
               </span>
