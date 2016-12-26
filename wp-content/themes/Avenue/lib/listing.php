@@ -1,4 +1,4 @@
-<div class="search-blocks">
+<div class="search-blocks hidden">
   <div class="container">
     <form action="#" method="POST">
       <div class="rows">
@@ -9,7 +9,7 @@
         </div>
         <div class="col-xs-12 col-sm-4 col-md-3">
           <div class="form-group">
-            <select name="location" class="form-control">
+            <select name="location" class="form-control" data-custom-select>
               <option value="all"> Any location </option>
               <option value="new-york"> New York </option>
               <option value="new-jersey"> New Jersey </option>

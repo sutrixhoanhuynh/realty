@@ -121,4 +121,4 @@
 <?php $wp_query = null; $wp_query = $temp;?>
   </div>
 </div>
-
+<?php include(TEMPLATEPATH . '/social-feeds.php'); ?>

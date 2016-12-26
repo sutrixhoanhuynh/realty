@@ -1500,3 +1500,43 @@ footer .newsletter button {
   }
 
 }
+
+
+/*****************************************************************
+                      SOCIAL FEEDS
+******************************************************************/
+.social-feeds-block {
+  padding: 30px 0 80px;
+}
+
+.social-feeds-block .img-responsive {
+  height: 100%;
+  object-fit: cover;
+}
+
+.social-feeds-block .grid-item {
+  float: left;
+  overflow: hidden;
+}
+
+.social-feeds-block .grid-item,
+.social-feeds-block .grid-sizer {
+  width: 25%;
+}
+
+.social-feeds-block .grid-item-x2 {
+  width: 50%;
+}
+
+.grid-item .posts.size-2x2 {
+  height: 500px;
+}
+
+.grid-item .posts.size-1x2 {
+  height: 500px;
+}
+
+.grid-item .posts.size-1x1,
+.grid-item .posts.size-2x1 {
+  height: 250px;
+}

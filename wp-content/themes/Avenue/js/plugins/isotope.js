@@ -1,5 +1,5 @@
 /**
- *  @name contact-map
+ *  @name isotope
  *  @description
  *  @version 1.0
  *  @options
@@ -14,33 +14,7 @@
 
   'use strict';
 
-  var pluginName = 'contact-map';
-
-  var initMap = function() {
-
-    var that = this,
-        opts = that.options;
-
-    that.map = new google.maps.Map(that.element[0], {
-      zoom: opts.zoom,
-      center: opts.location,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-
-    that.marker = new google.maps.Marker({
-      map: that.map,
-      position: opts.location,
-      animation: google.maps.Animation.DROP,
-      icon: opts.markerIcon,
-      title: opts.title
-    });
-
-    that.infoWindow = new google.maps.InfoWindow({
-      content: $(opts.content).html(),
-      maxWidth: 260
-    });
-
-  };
+  var pluginName = 'isotope';
 
   function Plugin(element, options) {
     this.element = $(element);
@@ -51,8 +25,13 @@
   Plugin.prototype = {
     init: function() {
 
-      var that = this;
-      initMap.call(that);
+      var that = this,
+        el = that.element,
+        opts = that.options;
+
+      var gird = el.imagesLoaded(function () {
+        gird.isotope(opts);
+      });
 
     },
     destroy: function() {
@@ -72,18 +51,17 @@
   };
 
   $.fn[pluginName].defaults = {
-    zoom: 18,
-    location: {
-      lat: 10.791628,
-      lng: 106.637023
+    itemSelector: '.grid-item',
+    layoutMode: 'masonry',
+    percentPosition: true,
+    masonry: {
+      columnWidth: '.grid-sizer'
     }
   };
 
   $(function() {
 
-    window.loadMap = function () {
-      $('[data-' + pluginName + ']')[pluginName]();
-    };
+    $('[data-' + pluginName + ']')[pluginName]();
 
   });
 
