@@ -1509,11 +1509,6 @@ footer .newsletter button {
   padding: 30px 0 80px;
 }
 
-.social-feeds-block .img-responsive {
-  height: 100%;
-  object-fit: cover;
-}
-
 .social-feeds-block .grid-item {
   float: left;
   overflow: hidden;
@@ -1528,15 +1523,49 @@ footer .newsletter button {
   width: 50%;
 }
 
-.grid-item .posts.size-2x2 {
-  height: 500px;
+.grid-item .posts {
+  position: relative;
+  height: 0;
+  padding-bottom: 84.44444%;
+  overflow: hidden;
+}
+
+.grid-item .posts.size-2x1 {
+  padding-bottom: 42.22222%;
 }
 
 .grid-item .posts.size-1x2 {
-  height: 500px;
+  padding-bottom: 168.88889%;
 }
 
-.grid-item .posts.size-1x1,
-.grid-item .posts.size-2x1 {
-  height: 250px;
+.grid-item .posts.size-1x2 .img-responsive {
+  height: 100%!important;
+  width: auto;
+}
+
+.grid-item .posts .posts-content {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  top: 15px;
+  bottom: 15px;
+  overflow: hidden;
+}
+
+.grid-item .posts-content figure {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+.grid-item .posts-content .img-responsive {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  max-width: none;
+  width: 100%;
+  transform: translate(-50%,-50%);
 }

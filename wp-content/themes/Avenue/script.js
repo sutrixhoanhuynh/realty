@@ -439,8 +439,8 @@ jQuery(function() {
         el = that.element,
         opts = that.options;
 
-      var gird = el.imagesLoaded(function () {
-        gird.isotope(opts);
+      el.imagesLoaded(function () {
+        el.isotope(opts);
       });
 
     },
