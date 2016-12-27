@@ -1,10 +1,9 @@
 <div class="social-feeds-block">
   <div class="container">
-    <div class="rows">
+    <div class="row">
       <div class="col-sm-12">
-        <h2 class="section-title">
-          <span> Social Feeds </span>
-        </h2>
+        <h2 class="title"> Social Feeds </h2>
+        <p class="description"> Show us how you fuel your city, hash tag #EasyLiving and you could win a limited edition Fuel My City jacket! </p>
         <div class="gird" data-isotope>
           <div class="grid-sizer"></div>
           <div class="grid-item grid-item-x2">
@@ -97,6 +96,16 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="text-center">
+          <a href="javascript:;" class="see-more-btn">
+            <span class="text"> See more </span>
+            <i class="arrow-right"></i>
+          </a>
         </div>
       </div>
     </div>

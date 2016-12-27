@@ -1501,12 +1501,80 @@ footer .newsletter button {
 
 }
 
+.property-lisitings-block {
+  padding: 50px 0 80px;
+}
+
 
 /*****************************************************************
                       SOCIAL FEEDS
 ******************************************************************/
 .social-feeds-block {
-  padding: 30px 0 80px;
+  padding: 50px 0 100px;
+  background-color: #088299;
+}
+
+.social-feeds-block .text-center {
+  text-align: center;
+}
+
+.social-feeds-block .see-more-btn {
+  color: #fff;
+  border-radius: 0;
+  border: 2px solid #fff;
+  font-size: 1.6rem;
+  text-decoration: none;
+  position: relative;
+  margin-top: 30px;
+  display: inline-block;
+}
+
+.social-feeds-block .see-more-btn .text {
+  font-weight: 500;
+  display: table-cell;
+  height: 60px;
+  padding: 5px 85px 5px 25px;
+  vertical-align: middle;
+  letter-spacing: .25px;
+  word-break: break-word;
+  text-align: left;
+}
+
+.social-feeds-block .see-more-btn .arrow-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  overflow: hidden;
+  border-left: 2px solid #fff;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: url('images/icon-right-white.png');
+}
+
+.social-feeds-block .title {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.social-feeds-block .title:before {
+  content: "";
+  display: block;
+  width: 65px;
+  height: 8px;
+  margin-bottom: 18px;
+  background-color: #fff;
+}
+
+.social-feeds-block .description {
+  color: #fff;
+  width: 50%;
+  margin-top: 30px;
+}
+
+.social-feeds-block .gird {
+  margin-top: 50px;
 }
 
 .social-feeds-block .grid-item {
