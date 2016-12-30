@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('fonts/lato-regular.eot');
+  src: url('fonts/lato-regular.eot?#iefix') format('embedded-opentype'), url('fonts/lato-regular.woff') format('woff'), url('fonts/lato-regular.ttf') format('truetype'), url('fonts/lato-regular.svg#BebasNeueRegular') format('svg');
+}
+
+@font-face {
+  font-family: 'Raleway-Light';
+  src: url('fonts/raleway-light.eot');
+  src: url('fonts/raleway-light.eot?#iefix') format('embedded-opentype'), url('fonts/raleway-light.woff') format('woff'), url('fonts/raleway-light.ttf') format('truetype'), url('fonts/raleway-light.svg#BebasNeueRegular') format('svg');
+}
+
+@font-face {
+  font-family: 'Flaticon';
+  src: url('fonts/flaticon.eot');
+  src: url('fonts/flaticon.eot?#iefix') format('embedded-opentype'), url('fonts/flaticon.ttf') format('truetype'), url('fonts/flaticon.svg#BebasNeueRegular') format('svg');
+}
+
+@font-face {
+  font-family: 'nifty-icons';
+  src: url('fonts/nifty-icons.eot?bbef6n');
+  src: url('fonts/nifty-icons.svg?bbef6n#nifty-icons') format('svg'), url('fonts/nifty-icons.eot?bbef6n#iefix') format('embedded-opentype'), url('fonts/nifty-icons.ttf?bbef6n') format('truetype'), url('fonts/nifty-icons.woff') format('woff');
+}

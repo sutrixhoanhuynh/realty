@@ -68,7 +68,7 @@
         </div>
       </div>
     </div>
-    <?php include (TEMPLATEPATH . '/backtotop.php'); ?>
+    <?php include (TEMPLATEPATH . '/partials/backtotop.php'); ?>
   </div>
 </footer>
 </div>

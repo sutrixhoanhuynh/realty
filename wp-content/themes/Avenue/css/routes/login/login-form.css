@@ -1,0 +1,248 @@
+#login-page {
+  background-color: #fff;
+  padding: 40px 0 80px;
+}
+
+#login-page h3 {
+  color: #a90329;
+  font-weight: 400;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.hero p {
+  width: 270px;
+  color: #565656;
+  font-size: 15px;
+  line-height: 22px;
+  margin-top: 15px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.hero .button-group {
+  margin-top: 90px;
+}
+
+.auth-page .features {
+  margin-top: 20px;
+}
+
+.auth-page .features h5 {
+  color: #565656;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 24px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.auth-page .features p {
+  font-size: 13px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.auth-page .well {
+  background-color: #fff;
+  padding: 0;
+  border-radius: 2px;
+}
+
+.smart-form legend {
+  padding: 13px;
+  background: rgba(248, 248, 248, .9);
+  font-size: 16px;
+  font-weight: 300;
+  color: #232323;
+  text-transform: capitalize;
+}
+
+.smart-form section {
+  padding: 5px 14px;
+}
+
+.note {
+  margin-top: 6px;
+  padding: 0 1px;
+  font-size: 11px;
+  line-height: 15px;
+  color: #999;
+}
+
+.smart-form button[type="submit"] {
+  text-transform: capitalize;
+}
+
+.smart-form button[type="submit"] .fa {
+  color: #fff;
+}
+
+#register-form .checkbox {
+  margin-top: 0;
+}
+
+.note a {
+  font-size: 13px;
+}
+
+.timeline-seperator {
+  margin-bottom: 15px;
+}
+
+.timeline-seperator:after {
+  display: block;
+  content: " ";
+  margin: 0 20px;
+  border-bottom: 1px dashed rgba(0, 0, 0, .1);
+  margin-top: -8px;
+}
+
+.timeline-seperator span {
+  padding: 4px 5px;
+  border: 1px dashed rgba(0, 0, 0, .1);
+  background: #fff;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #999;
+  font-size: 13px;
+}
+
+.note a:hover {
+  text-decoration: none;
+}
+
+.smart-form label {
+  font-size: 13px;
+  color: #333;
+  line-height: 19px;
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.smart-form .fa {
+  color: #A2A2A2;
+}
+
+.smart-form .input-group {
+  position: relative;
+  display: block;
+}
+
+.smart-form .input-addon {
+  background-color: #fff;
+  border-radius: 0;
+  border-color: #BDBDBD;
+  padding: 1px 0;
+  border-left: none;
+}
+
+.smart-form .form-control {
+  box-shadow: none;
+}
+
+.form-group .input {
+  position: relative;
+}
+
+.smart-form .input-group .input-group-addon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 26px;
+  height: 22px;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 0;
+  text-align: center;
+  border: none;
+  border-left: 1px solid #BDBDBD;
+  border-radius: 0;
+  z-index: 1000;
+  background-color: transparent;
+  display: block;
+}
+
+.form-group .input .fa+input {
+  padding-right: 37px;
+}
+
+.smart-form .form-group.error .form-control,
+.smart-form .form-group.error .input-group-addon {
+  border-color: #b94a48;
+}
+
+.smart-form .form-group.success .form-control,
+.smart-form .form-group.success .input-group-addon {
+  border-color: #6fb679;
+}
+
+.smart-form .form-group.success .tooltip {
+  opacity: 0;
+}
+
+.smart-form .form-group.error .tooltip {
+  opacity: 1;
+}
+
+.smart-form .help-block {
+  color: #b94a48;
+  display: block;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+.smart-form .bottom {
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  background: rgba(248, 248, 248, .9);
+  padding: 15px 14px;
+}
+
+.smart-form .bottom button {
+  float: right;
+  padding: 6px 20px;
+  border-radius: 0;
+  font-size: 15px;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
+.social-button h5 {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  margin: 10px 0;
+}
+
+.social-button li a {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+.smart-form .input-group .tooltip,
+.newsletter .form-group .tooltip-subscribe {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  background-color: #43becc;
+  color: #fff;
+  padding: 2px 8px;
+  margin-bottom: 5px;
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 400;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  transition: margin .3s, opacity .3s;
+}
+
+.smart-form .input-group .tooltip .fa {
+  color: #fff;
+}
+
+.smart-form .input-group .tooltip:after,
+.newsletter .form-group .tooltip-subscribe:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 11px;
+  border-top: 4px solid #43becc;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}

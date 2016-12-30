@@ -1,0 +1,130 @@
+.social-feeds-block {
+  padding: 50px 0 100px;
+  background-color: #47bfcc;
+}
+
+.social-feeds-block .text-center {
+  text-align: center;
+}
+
+.social-feeds-block .see-more-btn {
+  color: #fff;
+  border-radius: 0;
+  border: 2px solid #fff;
+  font-size: 1.6rem;
+  text-decoration: none;
+  position: relative;
+  margin-top: 30px;
+  display: inline-block;
+}
+
+.social-feeds-block .see-more-btn .text {
+  font-weight: 500;
+  display: table-cell;
+  height: 60px;
+  padding: 5px 85px 5px 25px;
+  vertical-align: middle;
+  letter-spacing: .25px;
+  word-break: break-word;
+  text-align: left;
+}
+
+.social-feeds-block .see-more-btn .arrow-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  overflow: hidden;
+  border-left: 2px solid #fff;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: url('images/icon-right-white.png');
+}
+
+.social-feeds-block .title {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.social-feeds-block .title:before {
+  content: "";
+  display: block;
+  width: 65px;
+  height: 8px;
+  margin-bottom: 18px;
+  background-color: #fff;
+}
+
+.social-feeds-block .description {
+  color: #fff;
+  width: 50%;
+  margin-top: 30px;
+}
+
+.social-feeds-block .gird {
+  margin-top: 50px;
+}
+
+.social-feeds-block .grid-item {
+  float: left;
+  overflow: hidden;
+}
+
+.social-feeds-block .grid-item,
+.social-feeds-block .grid-sizer {
+  width: 25%;
+}
+
+.social-feeds-block .grid-item-x2 {
+  width: 50%;
+}
+
+.grid-item .posts {
+  position: relative;
+  height: 0;
+  padding-bottom: 84.44444%;
+  overflow: hidden;
+}
+
+.grid-item .posts.size-2x1 {
+  padding-bottom: 42.22222%;
+}
+
+.grid-item .posts.size-1x2 {
+  padding-bottom: 168.88889%;
+}
+
+.grid-item .posts.size-1x2 .img-responsive {
+  height: 100%!important;
+  width: auto;
+}
+
+.grid-item .posts .posts-content {
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  top: 15px;
+  bottom: 15px;
+  overflow: hidden;
+}
+
+.grid-item .posts-content figure {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+.grid-item .posts-content .img-responsive {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  max-width: none;
+  width: 100%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}

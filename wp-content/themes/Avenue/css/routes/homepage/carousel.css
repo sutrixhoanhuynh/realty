@@ -1,0 +1,175 @@
+.carousel-block .slick-slide {
+  position: relative;
+}
+
+.carousel-block .slick-slide img {
+  height: 100%;
+  max-height: 400px;
+}
+
+@media (min-width: 480px) {
+
+  .carousel-block .slick-slide img {
+    max-height: 540px;
+  }
+
+}
+
+.carousel-block .slick-slide .inner {
+  position: absolute;
+  left: 3%;
+  right: 3%;
+  bottom: 5%;
+  max-width: 450px;
+  background-color: white;
+}
+
+.slick-slide .inner .title {
+  padding: 15px 25px;
+  color: #555;
+  background: #43becc;
+  font-size: 1.5em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.025);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+  margin-top: 0;
+}
+
+.slick-slide .inner .title a {
+  text-decoration: none;
+  outline: none;
+  color: white;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 200;
+}
+
+.slick-slide .inner .title a i {
+  float: right;
+  color: white;
+}
+
+.slick-slide .inner .property-details {
+  margin-bottom: 20px;
+}
+
+.slick-slide .inner .property-details ul {
+  margin-top: 5px;
+}
+
+.slick-slide .inner .property-details li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.slick-slide .inner .property-price {
+  float: left;
+}
+
+.slick-slide .inner .property-data {
+  overflow: hidden;
+  padding: 2px;
+}
+
+.slick-slide .inner .property-price span {
+  background: #f55a4e;
+  color: #fff;
+  border-radius: 50px;
+  padding: 5px 15px;
+  font-size: 22px;
+  line-height: 1.5em;
+}
+
+.slick-slide .inner .description {
+  padding: 20px 25px;
+  font-family: 'Raleway-Light';
+  font-size: 1em;
+  line-height: 1.6em;
+}
+
+.slick-slide .inner .description p {
+  margin: 0 0 30px 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.slick-slider .slick-arrow {
+  position: absolute;
+  top: 25%;
+  z-index: 10;
+  opacity: 0.75;
+  width: 50px;
+  height: 50px;
+  border-radius: 0;
+  outline: none;
+  border: 2px solid #fff;
+  background: transparent;
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.25s ease;
+  line-height: 50px;
+  text-align: center;
+}
+
+.slick-slider .slick-arrow:hover {
+  opacity: 1;
+}
+
+.slick-slider .slick-arrow.slick-prev {
+  left: 30px;
+}
+
+.slick-slider .slick-arrow.slick-next {
+  right: 30px;
+}
+
+.slick-slider .slick-arrow span {
+  color: #fff;
+  font-size: 30px;
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.slick-dots li {
+  position: relative;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.slick-dots li button {
+  display: block;
+  width: 10px;
+  height: 10px;
+  padding: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #fff;
+  background-color: #fff;
+  outline: none;
+  text-indent: -9999em;
+}
+
+.slick-dots li.slick-active button {
+  border: 2px solid #fff;
+  background-color: transparent;
+}
+
+
+/*****************************************************************
+              CAROUSEL RESPONSIVE STYLE
+******************************************************************/
+
+@media (min-width: 480px) {
+  .slick-slide .inner .property-details {
+    float: right;
+    margin-bottom: 0;
+  }
+  .carousel-block .slick-slide img {
+    width: 100%;
+    height: auto;
+  }
+}

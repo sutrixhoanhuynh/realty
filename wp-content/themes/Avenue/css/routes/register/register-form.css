@@ -1,0 +1,8 @@
+#register-page {
+  padding: 30px 0 50px;
+}
+
+#register-page .personal-info {
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  padding: 20px 14px 5px;
+}
