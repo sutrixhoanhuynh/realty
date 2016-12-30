@@ -2,7 +2,6 @@
 <?php
 
 include 'theme_options.php';
-include 'guide.php';
 include 'lib/post-types.php';
 include 'lib/metabox.php';
 include 'lib/drop-down-taxonomy.php';
