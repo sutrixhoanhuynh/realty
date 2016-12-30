@@ -5,7 +5,10 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify'),
+    sass = require('gulp-sass'),
+    cssmin = require('gulp-cssmin'),
     autoprefixer = require('gulp-autoprefixer'),
+    getSassStream,
     source = {
       theme: 'wp-content/themes/Avenue/',
       css: 'wp-content/themes/Avenue/css/',
@@ -33,7 +36,7 @@ gulp.task('concat', function() {
 });
 
 gulp.task('clean', function () {
-  return gulp.src(source.theme + '*.js', {read: false})
+  return gulp.src(source.theme + '*.{css, js}', {read: false})
         .pipe(clean());
 });
 
@@ -52,5 +55,38 @@ gulp.task('autoprefixer', function () {
         }))
         .pipe(gulp.dest(source.theme));
 });
+
+function buildSass (name) {
+  return getSassStream()
+  .pipe(sass().on('error', sass.logError))
+  .pipe(concat(name))
+  .pipe(autoprefixer({
+    browsers: ['last 3 versions'],
+    cascade: false
+  }));
+}
+
+gulp.task('css', function () {
+  return buildSass('style.css').pipe(gulp.dest(source.theme));
+});
+
+gulp.task('css-min', function () {
+  return buildSass('style.min.css').pipe(gulp.dest(source.theme));
+});
+
+getSassStream = function() {
+  return gulp.src([
+    source.css + '/base/variables.scss',
+    source.css + '/base/colors.scss',
+    source.css + '/helpers/mixins.scss',
+    source.css + '/components/fontface.scss',
+    source.css + '/components/app.scss',
+    source.css + '/**/*.scss',
+    source.css + '/routes/**/*.scss'
+  ]);
+};
+
+gulp.task('build-css', ['clean', 'css']);
+
 
 gulp.task('default', ['clean', 'concat', 'autoprefixer']);
