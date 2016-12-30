@@ -1,4 +1,4 @@
-<div class="search-blocks">
+<div class="search-blocks hidden">
   <div class="container">
     <form action="#" method="POST">
       <div class="rows clearfix">
