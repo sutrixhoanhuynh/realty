@@ -1,11 +1,13 @@
-/*****************************************************************
+/*******************************************************************************
                   SEARCH BLOCK
-******************************************************************/
+********************************************************************************/
+@import "../../base/colors";
+
 .search-blocks .input-sm {
   width: 100%;
   height: 35px;
   border-radius: 0;
-  background-color: #fff;
+  background-color: $white;
   border: 1px solid #bdbdbd;
   font-size: 1.3rem;
   color: #404040;
@@ -34,14 +36,14 @@
   font-size: 1.4rem;
   color: #404040;
   border: 1px solid #bdbdbd;
-  background-color: #fff;
+  background-color: $white;
   font-family:'Open Sans', Helvetica, Arial, sans-serif;
 }
 
 .custom-select .select-list {
   width: 100%;
   position: absolute;
-  background-color: #fff;
+  background-color: $white;
   border: 1px solid #bdbdbd;
   border-top: none;
   z-index: 1000;
@@ -67,8 +69,8 @@
   right: 11px;
   width: 5px;
   height: 10px;
-  background: #fff;
-  box-shadow: 0 0 0 9px #fff;
+  background: $white;
+  box-shadow: 0 0 0 9px $white;
 }
 
 .custom-select .arrows-icon:before,
@@ -115,6 +117,6 @@
 
 .search-blocks .select-list .selected a,
 .search-blocks .select-list li:hover a {
-  color: #fff;
+  color: $white;
   background-color: #4078c0;
 }
