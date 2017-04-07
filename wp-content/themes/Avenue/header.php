@@ -11,7 +11,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui" />
 	<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.png">
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/bootstrap.css" />
-  <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/font-awesome.css" />
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('template_directory'); ?>/css/slick.css" />
   <link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>" />
   <link rel="stylesheet" type="text/css" href='https://fonts.googleapis.com/css?family=Montserrat' />
@@ -19,6 +18,7 @@
   <link href='https://fonts.googleapis.com/css?family=Fira+Sans:400,300' rel='stylesheet' type='text/css' />
   <link href="https://fonts.googleapis.com/css?family=Lato|Raleway" rel="stylesheet" />
   <script src="<?php bloginfo('template_directory'); ?>/js/libs/modernizr.js"></script>
+  <script src="https://use.fontawesome.com/089222ffb4.js"></script>
 </head>
 <body>
 <div id="container">
