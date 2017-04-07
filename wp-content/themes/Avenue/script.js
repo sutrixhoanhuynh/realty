@@ -19631,13 +19631,6 @@ jQuery(function() {
     }
   };
 
-  $(function() {
-
-    window.loadMap = function () {
-      $('[data-' + pluginName + ']')[pluginName]();
-    };
-
-  });
 
 }(jQuery, window));
 

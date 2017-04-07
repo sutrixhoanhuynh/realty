@@ -87,7 +87,12 @@
 </div>
 <script src="<?php bloginfo('template_directory'); ?>/libs.js"></script>
 <script src="<?php bloginfo('template_directory'); ?>/script.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAojYRfYLfWetgH80scF33ZiIYltBKnUi0&callback=window.loadMap" async defer></script>
+<script type="text/javascript">
+  function loadMap() {
+    $('[data-contact-map]')['contact-map']();
+  };
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAojYRfYLfWetgH80scF33ZiIYltBKnUi0&callback=loadMap"></script>
 <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
 <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
