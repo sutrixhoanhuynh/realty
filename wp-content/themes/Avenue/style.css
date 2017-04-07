@@ -153,12 +153,6 @@ textarea.form-control {
 .btn {
   border-radius: 0; }
 
-@font-face {
-  font-family: 'Flaticon';
-  src: url("fonts/flaticon.eot");
-  src: url("fonts/flaticon.eot?#iefix") format("embedded-opentype"), url("fonts/flaticon.ttf") format("truetype"), url("fonts/flaticon.svg#BebasNeueRegular") format("svg"); }
-
-
 /*******************************************************************************
                                 CONTACT PAGE
 ********************************************************************************/
@@ -1062,6 +1056,48 @@ textarea.form-control {
   padding: 20px 14px 5px; }
 
 /*******************************************************************************
+                  MODAL PLUGIN
+********************************************************************************/
+.modal-video .modal-header {
+  border: none;
+  padding: 10px 0; }
+
+.modal-video .modal-content {
+  border: none;
+  box-shadow: none;
+  background: transparent; }
+
+.modal-video .modal-body {
+  padding: 0; }
+
+.modal-video .close {
+  opacity: 1;
+  color: white;
+  outline: none; }
+
+/*******************************************************************************
+                                TOOLTIP STYLES
+********************************************************************************/
+.tooltip {
+  color: white;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 6px;
+  padding: 2px 8px 3px;
+  background-color: #ffb848;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif; }
+  .tooltip:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 11px;
+    border-top: 4px solid #ffb848;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent; }
+  .form-group.error .tooltip {
+    opacity: 1; }
+
+/*******************************************************************************
                                FOOTER STYLES
 ********************************************************************************/
 .site-footer {
@@ -1268,44 +1304,3 @@ footer .newsletter button {
 .my-account .dropdown-menu > li > a {
   padding: 1px 17px; }
 
-/*******************************************************************************
-                  MODAL PLUGIN
-********************************************************************************/
-.modal-video .modal-header {
-  border: none;
-  padding: 10px 0; }
-
-.modal-video .modal-content {
-  border: none;
-  box-shadow: none;
-  background: transparent; }
-
-.modal-video .modal-body {
-  padding: 0; }
-
-.modal-video .close {
-  opacity: 1;
-  color: white;
-  outline: none; }
-
-/*******************************************************************************
-                                TOOLTIP STYLES
-********************************************************************************/
-.tooltip {
-  color: white;
-  bottom: 100%;
-  right: 0;
-  margin-bottom: 6px;
-  padding: 2px 8px 3px;
-  background-color: #ffb848;
-  font-family: "Open Sans", Arial, Helvetica, sans-serif; }
-  .tooltip:after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    right: 11px;
-    border-top: 4px solid #ffb848;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent; }
-  .form-group.error .tooltip {
-    opacity: 1; }

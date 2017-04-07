@@ -6,7 +6,7 @@ $zm_categories = array();
 foreach ($zm_categories_obj as $zm_cat) {
 $zm_categories[$zm_cat->cat_ID] = $zm_cat->category_nicename;
 }
-$categories_tmp = array_unshift($zm_categories, "Select a category:");	
+$categories_tmp = array_unshift($zm_categories, "Select a category:");
 
 $options = array (
 
@@ -14,130 +14,130 @@ $options = array (
             "type" => "title",
 			"desc" => "",
         ),
-		
+
 	array(  "type" => "open"),
-	
+
 	array(  "name" => "Home page content",
 			"desc" => "Select between property listings or blog posts to display on homepage",
 			"id" => $shortname."_home",
-            "type" => "select",		
-			"options" => array('listing', 'blog'),		
+            "type" => "select",
+			"options" => array('listing', 'blog'),
    		    "std" => ""),
-	
+
 	array(  "type" => "close"),
 
     array(  "name" => "Featured listings slider",
             "type" => "title",
 			"desc" => "",
        		),
-	   
+
 	array(  "type" => "open"),
-	
+
 	array( 	"name" => "Number of featured listings",
 			"desc" => "Set the number of slides for featured slides.",
 			"id" => $shortname."_slide_count",
 			"std" => "",
-            "type" => "text"), 				
-			
+            "type" => "text"),
+
 	array(  "type" => "close"),
 
 
-	
+
     array(  "name" => "Contact details",
             "type" => "title",
 			"desc" => "",
        		),
-	   
+
 	array(    "type" => "open" ),
-	
+
 	array( 	"name" => "Company phone number",
 			"desc" => "Enter the phone number of the company.",
 			"id" => $shortname."_my_phone",
 			"std" => "",
-            "type" => "text"), 		
-			
+            "type" => "text"),
+
 	array( 	"name" => "Company email",
 			"desc" => "Enter the company email.",
 			"id" => $shortname."_my_email",
 			"std" => "",
-            "type" => "text"), 				
-			
-	array(    "type" => "close"),		
-	
-		
+            "type" => "text"),
+
+	array(    "type" => "close"),
+
+
 	array(  "name" => "125 x 125 banner Settings",
             "type" => "title",
 			"desc" => "You can setup four 125 x 125 banners on your sidebar from here",
-       ), 
-	 
+       ),
+
 	array("type" => "open"),
-	
-	
+
+
 	array("name" => "Banner-1 Image",
 			"desc" => "Enter your 125 x 125 banner image url here.",
             "id" => $shortname."_banner1",
         	"std" => "http://fabthemes.com/images/webhostinghub.png",
-            "type" => "text"), 
-			
+            "type" => "text"),
+
 	array("name" => "Banner-1 Image alt tag",
 			"desc" => "Enter your banner alt tag.",
             "id" => $shortname."_alt1",
         	"std" => "Reliable web hosting from WebHostingHub.com.",
-            "type" => "text"),    
-	  
+            "type" => "text"),
+
 	array("name" => "Banner-1 Url",
 			"desc" => "Enter the banner-1 url here.",
             "id" => $shortname."_url1",
             "std" => "",
-            "type" => "text"),    
-			
+            "type" => "text"),
+
 	array("name" => "Banner-1 link title",
 			"desc" => "Enter the banner-1 title here.",
             "id" => $shortname."_lab1",
             "std" => "Web Hosting Hub - Cheap reliable web hosting.",
-            "type" => "text"),   
-	
+            "type" => "text"),
+
 	array("type" => "break"),
-	
+
 	array("name" => "Banner-2 Image",
 			"desc" => "Enter your 125 x 125 banner image url here.",
             "id" => $shortname."_banner2",
             "std" => "http://fabthemes.com/images/pcnames.png",
-            "type" => "text"),    
-	
+            "type" => "text"),
+
 	array("name" => "Banner-2 Image alt tag",
 			"desc" => "Enter your banner alt tag.",
             "id" => $shortname."_alt2",
         	"std" => "Domain name search and availability check by PCNames.com.",
-            "type" => "text"),    	   
-	   
-	   
+            "type" => "text"),
+
+
 	array("name" => "Banner-2 Url",
 			"desc" => "Enter the banner-2 url here.",
             "id" => $shortname."_url2",
             "std" => "http://www.pcnames.com/",
-            "type" => "text"), 
+            "type" => "text"),
 
 	array("name" => "Banner-2 link title",
 			"desc" => "Enter the banner-2 title here.",
             "id" => $shortname."_lab2",
             "std" => "PC Names - Domain name search and availability check",
-            "type" => "text"),   
+            "type" => "text"),
 
-	array("type" => "break"),		
-			
+	array("type" => "break"),
+
 	array("name" => "Banner-3 Image",
 			"desc" => "Enter your 125 x 125 banner image url here.",
             "id" => $shortname."_banner3",
             "std" => "http://fabthemes.com/images/designcontest.png",
-            "type" => "text"),  
+            "type" => "text"),
 
 	array("name" => "Banner-3 Image alt tag",
 			"desc" => "Enter your banner alt tag.",
             "id" => $shortname."_alt3",
         	"std" => "Website and logo design contests at DesignContest.com.",
-            "type" => "text"),    			
-	   
+            "type" => "text"),
+
 	array("name" => "Banner-3 Url",
 			"desc" => "Enter the banner-3 url here.",
             "id" => $shortname."_url3",
@@ -148,47 +148,47 @@ $options = array (
 			"desc" => "Enter the banner-3 title here.",
             "id" => $shortname."_lab3",
             "std" => "Design Contest - Logo and website design contests",
-            "type" => "text"), 		
+            "type" => "text"),
 
 	array("type" => "break"),
-			
+
 	array(  "name" => "Banner-4 Image",
 			"desc" => "Enter your 125 x 125 banner image url here.",
             "id" => $shortname."_banner4",
             "std" => "http://fabthemes.com/images/webhostingrating.png",
-            "type" => "text"),    
+            "type" => "text"),
 
 	array(  "name" => "Banner-4 Image alt tag",
 			"desc" => "Enter your banner alt tag.",
             "id" => $shortname."_alt4",
         	"std" => "Reviews of the best cheap web hosting providers at WebHostingRating.com.",
-            "type" => "text"),    
-			
+            "type" => "text"),
+
 	array(  "name" => "Banner-4 Url",
 			"desc" => "Enter the banner-4 url here.",
             "id" => $shortname."_url4",
             "std" => "http://webhostingrating.com",
             "type" => "text"),
-	
+
 	array(  "name" => "Banner-4 link title",
 			"desc" => "Enter the banner-4 title here.",
             "id" => $shortname."_lab4",
             "std" => "Web Hosting Rating - Customer reviews of the best web hosts",
-            "type" =>"text"), 	
-		
-	array("type" => "close"),	
-				
+            "type" =>"text"),
 
-	
+	array("type" => "close"),
+
+
+
 );
 
- 
+
 function mytheme_add_admin() {
 
     global$themename, $shortname, $options;
 
     if ( $_GET['page'] == basename(__FILE__) ) {
-    
+
         if ( 'save' == $_REQUEST['action'] ) {
 
                 foreach ($options as $value) {
@@ -203,7 +203,7 @@ function mytheme_add_admin() {
         } else if( 'reset' == $_REQUEST['action'] ) {
 
             foreach ($options as $value) {
-                delete_option( $value['id'] ); 
+                delete_option( $value['id'] );
                 update_option( $value['id'], $value['std'] );}
 
             header("Location: themes.php?page=theme_options.php&reset=true");
@@ -223,8 +223,8 @@ function mytheme_admin() {
     global$themename, $shortname, $options;
 
 
-    
-    
+
+
 ?>
 <div class="wrap">
 <div class="opwrap" style="background:#fff; margin:20px auto; width:80%; padding:30px; border:1px solid #ddd;" >
