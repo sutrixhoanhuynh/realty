@@ -221,19 +221,15 @@ textarea.form-control {
   .follow-us li i {
     color: white; }
 
-/*****************************************************************
-               CAROUSEL STYLES
-******************************************************************/
+/*******************************************************************************
+                            CAROUSEL STYLES
+********************************************************************************/
 .carousel-block .slick-slide {
   position: relative; }
 
 .carousel-block .slick-slide img {
   height: 100%;
   max-height: 400px; }
-
-@media (min-width: 480px) {
-  .carousel-block .slick-slide img {
-    max-height: 540px; } }
 
 .carousel-block .slick-slide .inner {
   position: absolute;
@@ -357,9 +353,13 @@ textarea.form-control {
   border: 2px solid #fff;
   background-color: transparent; }
 
-/*****************************************************************
-              CAROUSEL RESPONSIVE STYLE
-******************************************************************/
+/*******************************************************************************
+                        CAROUSEL RESPONSIVE STYLE
+********************************************************************************/
+@media (min-width: 480px) {
+  .carousel-block .slick-slide img {
+    max-height: 540px; } }
+
 @media (min-width: 480px) {
   .slick-slide .inner .property-details {
     float: right;
@@ -368,9 +368,9 @@ textarea.form-control {
     width: 100%;
     height: auto; } }
 
-/*****************************************************************
-              PROPERTY LISTINGS STYLES
-******************************************************************/
+/*******************************************************************************
+                         PROPERTY LISTINGS STYLES
+********************************************************************************/
 .property-lisitings-block {
   padding: 50px 0 80px; }
 
@@ -734,9 +734,9 @@ textarea.form-control {
   .sevices-block .description {
     width: 50%; } }
 
-/*****************************************************************
-                      SOCIAL FEEDS
-******************************************************************/
+/*******************************************************************************
+                          SOCIAL FEEDS STYLES
+********************************************************************************/
 .social-feeds-block {
   padding: 50px 0 100px;
   background-color: #47bfcc; }
@@ -1208,3 +1208,112 @@ footer .newsletter button {
   .bottom-bar .copyright {
     text-align: center; } }
 
+
+/*******************************************************************************
+                          NAVIGATION STYLES
+********************************************************************************/
+.navbar {
+  margin-bottom: 0;
+  background-color: #fff; }
+
+.main-navbar {
+  padding: 8px; }
+
+.sub-menu {
+  display: none; }
+
+.navbar-brand {
+  padding-top: 10px; }
+
+.top-navbar li a {
+  color: #fff;
+  line-height: 34px; }
+
+.top-navbar .socials-links {
+  float: right; }
+
+.contact-links li a {
+  font-size: 12px; }
+
+.top-navbar li a:hover,
+.top-navbar li a:focus {
+  text-decoration: none; }
+
+#main-menu > li > a {
+  color: #686868;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif; }
+
+#main-menu > li > a:hover,
+#main-menu > li > a:focus {
+  background-color: #fff;
+  color: #81be32; }
+
+.navbar-toggle {
+  border-radius: 0; }
+
+@media (min-width: 768px) {
+  .navbar-collapse {
+    float: right; } }
+
+.top-navbar {
+  background-color: #f55a4e;
+  height: 36px; }
+
+.top-navbar .dropdown-user {
+  position: relative;
+  float: left;
+  margin-right: 20px; }
+
+.top-navbar .dropdown-user a[data-toggle] {
+  padding-left: 10px;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  text-transform: uppercase; }
+
+.top-navbar .dropdown-user span {
+  color: #fff;
+  font-size: 13px;
+  margin-right: 10px; }
+
+.top-navbar .dropdown-user img {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none; }
+
+.top-navbar .dropdown-user .ic-user {
+  font-size: 1.1em; }
+
+.top-navbar .dropdown-menu {
+  border-radius: 0;
+  background-color: #fff;
+  min-width: 200px;
+  margin-top: 2px;
+  padding: 0;
+  border: none;
+  box-shadow: 0 5px 12px 2px rgba(0, 0, 0, 0.25); }
+
+.top-navbar .dropdown-menu li span {
+  color: #000;
+  font-size: 1.33em; }
+
+.top-navbar .dropdown-menu li a {
+  font-size: 13px;
+  color: #000;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif; }
+
+.login-link {
+  font-size: 13px;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  padding-right: 20px !important;
+  float: left; }
+
+.my-account .dropdown-menu > li > a {
+  padding: 1px 17px; }
