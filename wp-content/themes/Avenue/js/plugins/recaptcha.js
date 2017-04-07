@@ -26,12 +26,16 @@
     init: function() {
 
       var that = this,
-          opts = that.options;
+          el = that.element,
+          opts = that.options,
+          captcha = null;
 
-      grecaptcha.render(that.element[0], {
+      captcha = grecaptcha.render(that.element[0], {
         'sitekey': opts.sitekey,
         'theme': opts.theme
       });
+
+      el.data('captcha', captcha);
 
     },
     destroy: function() {
@@ -51,7 +55,11 @@
   };
 
   $.fn[pluginName].defaults = {
-    theme: 'light'
+    theme: 'light',
+    error: 'error',
+    success: 'success',
+    wrapper: '.form-group',
+    icon: '<i class="fa fa-warning" aria-hidden="true"></i>'
   };
 
   $(function() {

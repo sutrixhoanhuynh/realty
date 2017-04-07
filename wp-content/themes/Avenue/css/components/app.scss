@@ -1,6 +1,12 @@
 /*****************************************************************
                          FONT FACE
 ******************************************************************/
+@import "../base/colors";
+@import "../helpers/mixins";
+
+html {
+  font-size: 16px;
+}
 
 body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
@@ -115,37 +121,42 @@ img {
   text-align: center;
 }
 
-.tooltip {
-  display: none;
-  position: absolute;
-  opacity: 1;
+/*******************************************************************************
+                                FORM CONTROL
+********************************************************************************/
+.form-group {
+  position: relative;
+
+  .form-control {
+    border: 1px solid $alto;
+    border-radius: 2px;
+    padding: 0 px2rem(13px);
+    appearance: none;
+    box-shadow: none;
+    font-size: px2rem(13px);
+    line-height: 40px;
+
+    &:focus {
+      border-color: $shakespeare;
+      box-shadow: none;
+    }
+
+    &.input-md {
+      height: 40px;
+    }
+
+  }
+
+  &.error .form-control {
+    border-color: #b94a48;
+  }
+
 }
 
-.tooltip-inner {
-  color: #fff;
-  padding: 5px 10px;
-  font-size: 14px;
-  text-align: center;
-  background-color: #43becc;
-  border-radius: 0;
+textarea.form-control {
+  resize: vertical;
 }
 
-.tooltip.top .tooltip-arrow {
-  border-top-color: #43becc;
-}
-
-.form-control {
-  border: 1px solid #BDBDBD;
-  border-radius: 0;
-  background-color: #fff;
-  font: 13px/16px 'Open Sans', Helvetica, Arial, sans-serif;
-  color: #404040;
-}
-
-.form-control:focus {
-  box-shadow: none;
-  border-color: #3276B1;
-}
 
 .checkbox label {
   position: relative;
@@ -220,4 +231,8 @@ img {
   overflow: hidden;
   width: 100%;
   position: fixed;
+}
+
+.btn {
+  border-radius: 0;
 }

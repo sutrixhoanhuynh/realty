@@ -136,10 +136,6 @@
   border-left: none;
 }
 
-.smart-form .form-control {
-  box-shadow: none;
-}
-
 .form-group .input {
   position: relative;
 }
@@ -219,8 +215,7 @@
   height: 35px;
 }
 
-.smart-form .input-group .tooltip,
-.newsletter .form-group .tooltip-subscribe {
+.smart-form .input-group .tooltip {
   position: absolute;
   right: 0;
   bottom: 100%;
@@ -239,8 +234,7 @@
   color: #fff;
 }
 
-.smart-form .input-group .tooltip:after,
-.newsletter .form-group .tooltip-subscribe:after {
+.smart-form .input-group .tooltip:after {
   content: '';
   position: absolute;
   top: 100%;

@@ -1,0 +1,9 @@
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@function px2rem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}

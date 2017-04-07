@@ -73,7 +73,7 @@ if (isset($_POST['sign-up'])) {
       </div>
       <div class="col-sm-12 col-md-5 col-lg-5">
         <div class="well">
-         <form action="<?php echo get_site_url(); ?>/login" method="POST" name="register-form" class="auth-form" id="register-form" autocomplete="off" data-validation="">
+         <form action="<?php echo get_site_url(); ?>/login" method="POST" name="smart-form register-form" class="auth-form" id="register-form" autocomplete="off" data-validation="">
           <fieldset>
             <legend> Registration is FREE* </legend>
             <section class="fields">
@@ -115,7 +115,7 @@ if (isset($_POST['sign-up'])) {
                     <i class="fa fa fa-warning"></i>
                     Don't forget confirm your password
                   </span>
-               </div>               
+               </div>
              </div>
             </section>
             <section class="personal-info">
@@ -144,7 +144,7 @@ if (isset($_POST['sign-up'])) {
                 <div class="col-sm-6">
                   <div class="form-group">
                     <input type="text" name="phone" class="form-control" placeholder="Phone number" />
-                  </div>                  
+                  </div>
                 </div>
               </div>
             </section>
