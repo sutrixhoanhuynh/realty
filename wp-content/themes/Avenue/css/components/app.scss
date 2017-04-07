@@ -68,35 +68,6 @@ img {
   background-color: #e6e6e6;
 }
 
-[class^='flaticon-']:before,
-[class*=' flaticon-']:before,
-[class^='flaticon-']:after,
-[class*=' flaticon-']:after {
-  font-family: 'Flaticon';
-  font-size: 1.25em;
-  color: #fff;
-}
-
-.flaticon-next15:before {
-  content: '\e09c';
-}
-
-.flaticon-previous11:before {
-  content: '\e0ab';
-}
-
-.icon-lg {
-  font-size: 1.333em;
-  line-height: 1.095em;
-  vertical-align: middle;
-}
-
-.icon-fw {
-  width: 1.33em;
-  margin-right: 4px;
-  text-align: center;
-}
-
 /*******************************************************************************
                                 FORM CONTROL
 ********************************************************************************/
