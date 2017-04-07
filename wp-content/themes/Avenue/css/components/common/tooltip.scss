@@ -1,0 +1,30 @@
+/*******************************************************************************
+                                TOOLTIP
+********************************************************************************/
+
+@import "../../base/colors";
+
+.tooltip {
+  color: white;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 6px;
+  padding: 2px 8px 3px;
+  background-color: $yellow-orange;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 11px;
+    border-top: 4px solid $yellow-orange;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+  }
+
+  .form-group.error & {
+    opacity: 1;
+  }
+
+}
