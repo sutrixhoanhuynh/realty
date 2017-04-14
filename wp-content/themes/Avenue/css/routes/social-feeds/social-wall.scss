@@ -1,0 +1,70 @@
+/*******************************************************************************
+                            SOCIAL FEEDS PAGE
+********************************************************************************/
+.social-page {
+  padding: 50px 0 100px;
+  background-color: white;
+}
+
+.social-page .posts-content {
+  padding: 15px;
+  border: 1px solid #e1e8ed;
+  border-radius: 0 0 4px 4px;
+}
+
+.social-page .description {
+  margin: 10px 0 15px;
+}
+
+.social-page .header {
+  display: block;
+}
+
+.social-page .row {
+  margin-top: 30px;
+}
+
+.social-page .avatar {
+  display: inline-block;
+}
+
+.social-page .symbol {
+  font-size: 14px;
+  color: #697882;
+  display: block;
+}
+
+.social-page .social-type {
+  float: right;
+  font-size: 22px;
+}
+
+.social-page .list-inline {
+  margin-top: 3px;
+}
+
+.social-page .user-profile {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.action {
+  color: #697882;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.action-heart:hover {
+  color: #E81C4F;
+}
+
+.action-retweet:hover {
+  color: #19CF86;
+}
+
+.action-reply:hover {
+  color: #1DA1F2;
+}
+

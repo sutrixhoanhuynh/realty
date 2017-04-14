@@ -102,7 +102,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="text-center">
-          <a href="javascript:;" class="see-more-btn">
+          <a href="http://localhost/realty/social-feeds" class="see-more-btn">
             <span class="text"> See more </span>
             <i class="arrow-right"></i>
           </a>
