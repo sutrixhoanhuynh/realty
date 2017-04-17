@@ -90,9 +90,10 @@
 <script type="text/javascript">
   function loadMap() {
     $('[data-contact-map]')['contact-map']();
+    $('[data-cadastral]')['cadastral']();
   };
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAojYRfYLfWetgH80scF33ZiIYltBKnUi0&callback=loadMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAojYRfYLfWetgH80scF33ZiIYltBKnUi0&callback=loadMap" async defer></script>
 <script src="https://www.google.com/recaptcha/api.js?onload=loadCaptcha&render=explicit" async defer></script>
 <script type="text/javascript">
   var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
