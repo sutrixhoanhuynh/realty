@@ -15,10 +15,11 @@
           <div class="posts-content">
             <a href="https://twitter.com" class="header">
               <figure class="avatar">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/logo-1.jpg" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/easyliving.svg" />
               </figure>
               <div class="user-profile">
                 <strong class="user-name"> US Dept of Interior </strong>
+                <span class="verified-icon"></span>
                 <span class="symbol"> @Interior </span>
               </div>
             </a>
@@ -33,12 +34,12 @@
                 <ul class="list-inline">
                   <li>
                     <a href="https://twitter.com/intent" class="action action-retweet">
-                      <i class="fa fa-retweet" aria-hidden="true"></i> 2,346
+                      <i class="fa fa-comments-o" aria-hidden="true"></i> 2,346
                     </a>
                   </li>
                   <li>
                     <a href="https://twitter.com/intent" class="action action-heart">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i> 3,281
+                      <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 3,281
                     </a>
                   </li>
                 </ul>
@@ -60,10 +61,11 @@
           <div class="posts-content">
             <a href="https://twitter.com" class="header">
               <figure class="avatar">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/logo-1.jpg" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/easyliving.svg" />
               </figure>
               <div class="user-profile">
                 <strong class="user-name"> US Dept of Interior </strong>
+                <span class="verified-icon"></span>
                 <span class="symbol"> @Interior </span>
               </div>
             </a>
@@ -105,10 +107,11 @@
           <div class="posts-content">
             <a href="https://twitter.com" class="header">
               <figure class="avatar">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/logo-1.jpg" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/easyliving.svg" />
               </figure>
               <div class="user-profile">
                 <strong class="user-name"> US Dept of Interior </strong>
+                <span class="verified-icon"></span>
                 <span class="symbol"> @Interior </span>
               </div>
             </a>
@@ -152,10 +155,11 @@
           <div class="posts-content">
             <a href="https://twitter.com" class="header">
               <figure class="avatar">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/logo-1.jpg" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/easyliving.svg" />
               </figure>
               <div class="user-profile">
                 <strong class="user-name"> US Dept of Interior </strong>
+                <span class="verified-icon"></span>
                 <span class="symbol"> @Interior </span>
               </div>
             </a>
@@ -170,12 +174,12 @@
                 <ul class="list-inline">
                   <li>
                     <a href="https://twitter.com/intent" class="action action-retweet">
-                      <i class="fa fa-retweet" aria-hidden="true"></i> 2,346
+                      <i class="fa fa-comments-o" aria-hidden="true"></i> 2,346
                     </a>
                   </li>
                   <li>
                     <a href="https://twitter.com/intent" class="action action-heart">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i> 3,281
+                      <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 3,281
                     </a>
                   </li>
                 </ul>
@@ -197,10 +201,11 @@
           <div class="posts-content">
             <a href="https://twitter.com" class="header">
               <figure class="avatar">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/logo-1.jpg" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/easyliving.svg" />
               </figure>
               <div class="user-profile">
                 <strong class="user-name"> US Dept of Interior </strong>
+                <span class="verified-icon"></span>
                 <span class="symbol"> @Interior </span>
               </div>
             </a>
@@ -242,10 +247,11 @@
           <div class="posts-content">
             <a href="https://twitter.com" class="header">
               <figure class="avatar">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/logo-1.jpg" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/easyliving.svg" />
               </figure>
               <div class="user-profile">
                 <strong class="user-name"> US Dept of Interior </strong>
+                <span class="verified-icon"></span>
                 <span class="symbol"> @Interior </span>
               </div>
             </a>
@@ -289,10 +295,11 @@
           <div class="posts-content">
             <a href="https://twitter.com" class="header">
               <figure class="avatar">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/logo-1.jpg" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/easyliving.svg" />
               </figure>
               <div class="user-profile">
                 <strong class="user-name"> US Dept of Interior </strong>
+                <span class="verified-icon"></span>
                 <span class="symbol"> @Interior </span>
               </div>
             </a>
@@ -307,12 +314,12 @@
                 <ul class="list-inline">
                   <li>
                     <a href="https://twitter.com/intent" class="action action-retweet">
-                      <i class="fa fa-retweet" aria-hidden="true"></i> 2,346
+                      <i class="fa fa-comments-o" aria-hidden="true"></i> 2,346
                     </a>
                   </li>
                   <li>
                     <a href="https://twitter.com/intent" class="action action-heart">
-                      <i class="fa fa-heart-o" aria-hidden="true"></i> 3,281
+                      <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 3,281
                     </a>
                   </li>
                 </ul>
@@ -334,10 +341,11 @@
           <div class="posts-content">
             <a href="https://twitter.com" class="header">
               <figure class="avatar">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/logo-1.jpg" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/easyliving.svg" />
               </figure>
               <div class="user-profile">
                 <strong class="user-name"> US Dept of Interior </strong>
+                <span class="verified-icon"></span>
                 <span class="symbol"> @Interior </span>
               </div>
             </a>
@@ -379,10 +387,11 @@
           <div class="posts-content">
             <a href="https://twitter.com" class="header">
               <figure class="avatar">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/logo-1.jpg" />
+                <img src="<?php echo get_template_directory_uri(); ?>/images/easyliving.svg" />
               </figure>
               <div class="user-profile">
                 <strong class="user-name"> US Dept of Interior </strong>
+                <span class="verified-icon"></span>
                 <span class="symbol"> @Interior </span>
               </div>
             </a>
@@ -414,6 +423,16 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="text-center">
+          <button class="load-more">
+            <span class="text"> Load more </span>
+            <i class="arrow-down"></i>
+          </button>
         </div>
       </div>
     </div>

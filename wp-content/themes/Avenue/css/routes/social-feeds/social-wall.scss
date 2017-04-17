@@ -2,7 +2,7 @@
                             SOCIAL FEEDS PAGE
 ********************************************************************************/
 .social-page {
-  padding: 50px 0 100px;
+  padding: 50px 0 80px;
   background-color: white;
 }
 
@@ -20,12 +20,25 @@
   display: block;
 }
 
+.social-page .header:hover {
+  text-decoration: none;
+}
+
+.social-page .verified-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background: url("images/verified.svg") no-repeat;
+}
+
 .social-page .row {
   margin-top: 30px;
 }
 
 .social-page .avatar {
   display: inline-block;
+  width: 48px;
+  height: 48px;
 }
 
 .social-page .symbol {
@@ -68,3 +81,30 @@
   color: #1DA1F2;
 }
 
+.social-page .load-more {
+  position: relative;
+  background-color: white;
+  border: 2px solid #056881;
+  padding: 18px 85px 18px 25px;
+  margin-top: 30px;
+}
+
+.social-page .load-more:focus {
+  outline: none;
+}
+
+.social-page .load-more .text {
+  color: #056881;
+  font-size: 16px;
+}
+
+.social-page .load-more .arrow-down {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 60px;
+  overflow: hidden;
+  border-left: 2px solid #056881;
+  background: url("images/icon-down.png") no-repeat 50% 50%;
+}
