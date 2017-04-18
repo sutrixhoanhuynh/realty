@@ -150,6 +150,12 @@
       initMap.call(that);
 
     },
+    setPosition: function(opts) {
+      var that = this;
+
+      that.map.setCenter(new google.maps.LatLng(opts.latitude, opts.longitude));
+      opts.zoomLevel && that.map.setZoom(opts.zoomLevel);
+    },
     destroy: function() {
       $.removeData(this.element[0], pluginName);
     }

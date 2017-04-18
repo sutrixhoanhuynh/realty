@@ -8,11 +8,11 @@
   <div class="map-block" data-cadastral="" data-marker-icon="<?php bloginfo('template_directory'); ?>/images/icon-marker-blue.png">
   </div>
   <div class="search-block">
-    <form class="search-form" onsubmit="return false;">
+    <form class="search-form" data-autocomplete="" onsubmit="return false;">
       <div class="form-group">
         <label for="search-box" class="sr-only">Search</label>
         <div class="input-wrap">
-          <input data-autocomplete="" class="form-control search-box" name="search-box" placeholder="Address / Suburb / Postcode" type="text" autocomplete="off" />
+          <input spellcheck="false" class="form-control search-box" name="search-box" placeholder="Address / Suburb / Postcode" type="text" autocomplete="off" />
         </div>
         <button type="submit" class="search-btn">
           <i class="fa fa-search" aria-hidden="true"></i>

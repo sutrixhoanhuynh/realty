@@ -174,26 +174,30 @@ textarea.form-control {
   width: 392px;
   height: 48px;
   border-radius: 2px 2px 0 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
   padding-right: 90px;
+  background-color: white;
+  border: 1px solid #e6e6e6;
   font-size: 15px;
-  font-family: 'Open-Sans', Arial, Helvetica, sans-serif; }
+  font-family: 'Roboto', Arial, Helvetica, sans-serif; }
+
+.cadastral-page .search-box:focus {
+  border-color: #e6e6e6; }
 
 .cadastral-page .search-box::-webkit-input-placeholder {
   font-size: 15px;
-  font-family: 'Open-Sans', Arial, Helvetica, sans-serif; }
+  font-family: 'Roboto', Arial, Helvetica, sans-serif; }
 
 .cadastral-page .search-box::-moz-placeholder {
   font-size: 15px;
-  font-family: 'Open-Sans', Arial, Helvetica, sans-serif; }
+  font-family: 'Roboto', Arial, Helvetica, sans-serif; }
 
 .cadastral-page .search-box:-ms-input-placeholder {
   font-size: 15px;
-  font-family: 'Open-Sans', Arial, Helvetica, sans-serif; }
+  font-family: 'Roboto', Arial, Helvetica, sans-serif; }
 
 .cadastral-page .search-box::placeholder {
   font-size: 15px;
-  font-family: 'Open-Sans', Arial, Helvetica, sans-serif; }
+  font-family: 'Roboto', Arial, Helvetica, sans-serif; }
 
 .cadastral-page .form-group {
   margin-bottom: 0; }
@@ -218,6 +222,36 @@ textarea.form-control {
   border: none;
   background-color: white;
   padding: 5px 15px; }
+
+.pac-container {
+  font-size: 14px;
+  width: 392px !important;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif !important;
+  border-radius: 0 0 4px 4px;
+  box-shadow: none;
+  border: 1px solid #e6e6e6;
+  border-top: none; }
+
+.pac-container .pac-icon {
+  height: 22px;
+  background: url("images/icon-marker-blue-small.png") no-repeat 0 50%; }
+
+.pac-container .pac-item {
+  padding: 4px !important;
+  border-top: 1px dotted #e6e6e6 !important; }
+
+.pac-container .pac-item:first-child {
+  border-top: none !important; }
+
+.pac-container .pac-item-query {
+  font-size: 14px;
+  color: #8c8c8c;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif; }
+
+.pac-container .pac-matched {
+  font-size: 14px;
+  color: #8c8c8c;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif; }
 
 /*******************************************************************************
                                 CONTACT PAGE
