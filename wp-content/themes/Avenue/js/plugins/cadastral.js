@@ -118,6 +118,7 @@
     that.map = new google.maps.Map(that.element[0], {
       zoom: opts.zoom,
       center: opts.location,
+      mapTypeControl: false,
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
@@ -131,7 +132,7 @@
     });
 
     that.markerCluster = new MarkerClusterer(that.map, that.markers, {
-      imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m2'
+      imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
     });
 
   };

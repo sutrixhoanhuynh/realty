@@ -1,7 +1,60 @@
 /*******************************************************************************
                                 CADASTRAL MAP
 ********************************************************************************/
+.cadastral-page {
+  position: relative;
+}
+
 .cadastral-page .map-block {
   width: 100%;
-  height: 500px;
+  height: 790px;
+}
+
+
+.cadastral-page .search-block {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}
+
+.cadastral-page .search-box {
+  width: 392px;
+  height: 48px;
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 -1px 0px rgba(0, 0, 0, 0.02);
+  padding-right: 90px;
+  font-size: 15px;
+  font-family: 'Open-Sans', Arial, Helvetica, sans-serif;
+}
+
+.cadastral-page .search-box::placeholder {
+  font-size: 15px;
+  font-family: 'Open-Sans', Arial, Helvetica, sans-serif;
+}
+
+.cadastral-page .form-group {
+  margin-bottom: 0;
+}
+
+.cadastral-page .search-btn {
+  position: absolute;
+  top: 8px; right: 45px;
+  border: none;
+  padding: 5px 15px;
+  background-color: white;
+  border-right: 1px solid #ddd;
+}
+
+.cadastral-page .search-btn:focus,
+.cadastral-page .locator-btn:focus {
+  outline: none;
+}
+
+.cadastral-page .locator-btn {
+  position: absolute;
+  top: 8px; right: 1px;
+  border: none;
+  background-color: white;
+  padding: 5px 15px;
 }
